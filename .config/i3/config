@@ -183,7 +183,7 @@ set_from_resource $hl cursorColor
 # WINDOW DECORARTION {{{
 
 #                       border  bg      text    indicator
-client.focused          $hl	$hl	$hl	$fbg 
+client.focused          $hl	$hl	$hl	$hl
 client.unfocused        $bg	$bg	$bg	$bg
 client.focused_inactive $bg	$bg	$bg	$bg
 client.urgent           $bg	$bg	$bg	$bg
