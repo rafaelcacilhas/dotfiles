@@ -23,6 +23,6 @@
 
 # Screenshots:
 
-![Screenshot](/home/dilip/Screenshots/2021-06-14-112235_1366x768_scrot.png)
-![Screenshot](/home/dilip/Screenshots/2021-06-14-112815_1366x768_scrot.png)
-![Screenshot](/home/dilip/Screenshots/2021-06-14-113211_1366x768_scrot.png)
+![Screenshot](Screenshots/2021-06-14-112235_1366x768_scrot.png)
+![Screenshot](Screenshots/2021-06-14-112815_1366x768_scrot.png)
+![Screenshot](Screenshots/2021-06-14-113211_1366x768_scrot.png)
