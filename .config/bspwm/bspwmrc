@@ -1,0 +1,55 @@
+#!/bin/sh
+#  __                                  
+# |  |--.-----.-----.--.--.--.--------.
+# |  _  |__ --|  _  |  |  |  |        |
+# |_____|_____|   __|________|__|__|__|
+#             |__|  
+
+# COLORS {{{
+
+focus=$(xrdb -query | grep cursorColor | cut -f2 -d'#')
+normal=$(xrdb -query | grep background | cut -f2 -d'#')
+
+# }}}
+
+# SETTINGS {{{
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9  
+
+bspc config border_width         3
+bspc config window_gap           10
+
+bspc config split_ratio          0.51
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config normal_border_color "#182032"
+bspc config focused_border_color "#f2024b"
+bspc config presel_feedback_color "#f2024b"
+bspc config focus_follows_pointer true
+
+# }}}
+
+# RULES {{{
+
+bspc rule -a Zathura state=tiled
+bspc rule -a mpv state=fullscreen
+bspc rule -a Pavucontrol state=pseudo_tiled
+bspc rule -a SimpleScreenRecorder state=pseudo_tiled
+# bspc rule -a Droidcam state=pseudo_tiled
+
+# }}}
+
+# AUTOSTART {{{
+
+nitrogen --restore &
+urxvtd -q -o -f &
+./.config/polybar/launch.sh bspwm-bar &
+nm-applet &
+kdeconnect-indicator &
+picom --experimental-backend &
+telegram-desktop -startintray &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+# }}}
