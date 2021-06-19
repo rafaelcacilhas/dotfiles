@@ -1,0 +1,23 @@
+##### CUSTOM ALIASES #####
+
+alias config='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
+# Simple aliases
+
+alias q='exit'
+alias cp='cp -i'
+alias rm='rm -i'
+alias mv='mv -i'
+#alias ls='exa --color=always'
+alias la='exa -a --color=always'
+alias ll='exa -l --color=always -h'
+alias all='exa -al --color=always -h'
+alias cat="batcat"
+alias nv="nvim"
+alias nf="neofetch --bg_color '#00ad9c'"
+
+# Suffix aliases
+
+alias -s pdf=zathura
+alias -s {jpg,jpeg,png,gif}=sxiv
+alias -s {conf,css,rasi,html,txt,sh,py,md}=nvim
