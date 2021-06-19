@@ -1,0 +1,235 @@
+#!/usr/bin/env bash
+
+#  __                __           __   __         ___ __                     
+# |  |--.-----.----.|  |--.-----.|  |_|  |.--.--.'  _|  |_.--.--.--.--------.
+# |     |  -__|   _||  _  |__ --||   _|  ||  |  |   _|   _|  |  |  |        |
+# |__|__|_____|__|  |_____|_____||____|__||_____|__| |____|________|__|__|__|
+
+# AUTO START PROGRAMS {{{
+nitrogen --restore &
+urxvtd -q -o -f &
+dunst &
+nm-applet &
+# telegram-desktop -startintray &
+kdeconnect-indicator &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+picom --experimental-backends &
+
+# }}}
+
+# REQUIRED {{{
+
+hc() {
+    herbstclient "$@"
+}
+
+hc emit_hook reload
+
+xsetroot -solid '#5A8E3A'
+
+# remove all existing keybindings
+hc keyunbind --all
+
+# }}}
+
+# KEYBINDINGS {{{
+
+# if you have a super key you will be much happier with Mod set to Mod4
+#Mod=Mod1    # Use alt as the main modifier
+Mod=Mod4   # Use the super key as the main modifier
+
+hc keybind $Mod-Shift-q spawn ./.config/rofi/scripts/powermenu.sh
+hc keybind $Mod-Shift-r reload
+hc keybind $Mod-q close_and_remove
+hc keybind $Mod-Return spawn "${TERMINAL:-urxvt}" # use your $TERMINAL with xterm as fallback
+hc keybind $Mod-d spawn rofi -show drun
+hc keybind $Mod-w spawn rofi -show window
+hc keybind $Mod-c spawn ./.config/rofi/scripts/configmenu.sh
+hc keybind Shift-Print spawn ./.config/rofi/scripts/scrotmenu.sh
+hc keybind Print spawn scrot -e 'mv $f ~/Pictures/Scrot/' 
+
+hc keybind $Mod-Mod1-q spawn qutebrowser
+hc keybind $Mod-Mod1-r spawn ranger
+hc keybind $Mod-Mod1-n spawn nvim
+
+# basic movement in tiling and floating mode
+# focusing clients
+# hc keybind $Mod-Left  focus left
+# hc keybind $Mod-Down  focus down
+# hc keybind $Mod-Up    focus up
+# hc keybind $Mod-Right focus right
+hc keybind $Mod-h     focus left
+hc keybind $Mod-j     focus down
+hc keybind $Mod-k     focus up
+hc keybind $Mod-l     focus right
+
+# moving clients in tiling and floating mode
+# hc keybind $Mod-Shift-Left  shift left
+# hc keybind $Mod-Shift-Down  shift down
+# hc keybind $Mod-Shift-Up    shift up
+# hc keybind $Mod-Shift-Right shift right
+hc keybind $Mod-Shift-h     shift left
+hc keybind $Mod-Shift-j     shift down
+hc keybind $Mod-Shift-k     shift up
+hc keybind $Mod-Shift-l     shift right
+
+# splitting frames
+# create an empty frame at the specified direction
+hc keybind $Mod-Control-h  chain , split left 0.5 , focus left
+hc keybind $Mod-Control-j  chain , split bottom 0.5 , focus down
+hc keybind $Mod-Control-k  chain , split top 0.5 , focus up
+hc keybind $Mod-Control-l  chain , split right 0.5 , focus right
+
+
+# flip layouts
+hc keybind $Mod-Control-Shift-h mirror horizontal
+hc keybind $Mod-Control-Shift-v mirror vertical
+
+# resizing frames and floating clients
+resizestep=0.05
+hc keybind $Mod-Mod1-h       resize left +$resizestep
+hc keybind $Mod-Mod1-j       resize down +$resizestep
+hc keybind $Mod-Mod1-k       resize up +$resizestep
+hc keybind $Mod-Mod1-l       resize right +$resizestep
+# hc keybind $Mod-Mod1-Left    resize left +$resizestep
+# hc keybind $Mod-Mod1-Down    resize down +$resizestep
+# hc keybind $Mod-Mod1-Up      resize up +$resizestep
+# hc keybind $Mod-Mod1-Right   resize right +$resizestep
+
+# }}}
+
+# TAGS {{{
+
+tag_names=( {1..9} )
+tag_keys=( {1..9} 0 )
+
+hc rename default "${tag_names[0]}" || true
+for i in "${!tag_names[@]}" ; do
+    hc add "${tag_names[$i]}"
+    key="${tag_keys[$i]}"
+    if ! [ -z "$key" ] ; then
+        hc keybind "$Mod-$key" use_index "$i"
+        hc keybind "$Mod-Shift-$key" move_index "$i"
+    fi
+done
+
+# cycle through tags
+hc keybind $Mod-period use_index +1 --skip-visible
+hc keybind $Mod-comma  use_index -1 --skip-visible
+
+# }}}
+
+# LAYOUTING {{{
+
+hc keybind $Mod-r remove
+hc keybind $Mod-s floating toggle
+hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
+hc keybind $Mod-Shift-t pseudotile toggle
+hc keybind $Mod-Control-r chain , lock , rotate , unlock
+
+# }}}
+
+# MOUSE {{{
+
+hc mouseunbind --all
+hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button2 zoom
+hc mousebind $Mod-Button3 resize
+hc set focus_follows_mouse true
+
+# }}}
+
+# FOCUS {{{
+
+hc keybind $Mod-BackSpace   cycle_monitor
+hc keybind $Mod-Tab         cycle_layout 1 horizontal grid vertical 
+hc keybind $Mod-Shift-Tab   cycle_layout -1 horizontal grid vertical 
+#hc keybind $Mod-c cycle
+hc keybind $Mod-i jumpto urgent
+
+# }}}
+
+# COLORS {{{
+
+focus=$(xrdb -query | grep cursorColor | cut -f2 -d'#')
+normal=$(xrdb -query | grep background | cut -f2 -d'#')
+
+# }}}
+
+# THEME {{{
+
+hc attr theme.tiling.reset 1
+hc attr theme.floating.reset 1
+#hc set frame_border_active_color '#222222'
+hc set frame_border_normal_color '#272e3b'
+#hc set frame_bg_normal_color '#565656'
+#hc set frame_bg_active_color '#00000000'
+hc set frame_active_opacity 0
+hc set frame_normal_opacity 0
+hc set frame_border_width 0
+hc set always_show_frame off
+hc set frame_bg_transparent on
+hc set frame_transparent_width 0
+hc set frame_gap 0
+
+hc attr theme.active.color '#f2024b'
+hc attr theme.normal.color '#182032'
+hc attr theme.urgent.color orange
+hc attr theme.inner_width 0
+hc attr theme.inner_color black
+hc attr theme.border_width 3
+hc attr theme.floating.border_width 3
+hc attr theme.floating.outer_width 0
+hc attr theme.floating.outer_color black
+hc attr theme.active.inner_color '#272e3b'
+hc attr theme.active.outer_color '#272e3b'
+#hc attr theme.background_color '#141414'
+
+# }}}
+
+# SETTINGS {{{
+
+hc set window_gap 10
+hc set frame_padding 0
+hc set smart_window_surroundings off
+hc set smart_frame_surroundings on
+hc set mouse_recenter_gap 0
+hc set_layout horizontal
+
+# }}}
+
+# RULES {{{
+
+hc unrule -F
+#hc rule class=XTerm tag=3 # move all xterms to tag 3
+hc rule focus=on # normally focus new clients
+hc rule floatplacement=center
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+hc rule class=vlc fullscreen=on
+
+# }}}
+
+# OTHERS {{{
+
+hc set tree_style '╾│ ├└╼─┐'
+
+# unlock, just to be sure
+hc unlock
+
+# do multi monitor setup here, e.g.:
+# hc set_monitors 1280x1024+0+0 1280x1024+1280+0
+# or simply:
+# hc detect_monitors
+
+# find the panel
+panel=~/.config/herbstluftwm/panel.sh
+[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+for monitor in $(hc list_monitors | cut -d: -f1) ; do
+    # start it on each monitor
+    "$panel" "$monitor" &
+done
+
+# }}}
