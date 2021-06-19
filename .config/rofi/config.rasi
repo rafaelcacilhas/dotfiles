@@ -1,0 +1,19 @@
+configuration {
+	theme: "~/.config/rofi/themes/Red.rasi";
+	font: "Sauce Code Pro Nerd Font 9";
+	modi: "drun,window";
+	combi-modi: "drun, window";
+	kb-mode-next: "Shift+Right";
+	kb-mode-previous: "Shift+Left";
+	show-icons: true;
+	drun-display-format: "{name}";
+	width: 30;
+	columns: 1;
+	lines: 14;
+	fixed-num-lines: false;
+	location: 2;
+	yoffset: 30;
+	sidebar-mode: false;
+	fullscreen: false;
+}
+
