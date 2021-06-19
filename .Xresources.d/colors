@@ -1,0 +1,43 @@
+!! COLOR SCHEME 
+!! MY COLOR SCHEME
+! special
+#define FOREGROUND 	#ffffff
+#define BACKGROUND	#182032
+#define HIGHLIGHT 	#f2024b
+#define COLOR0		#1b1918
+#define COLOR8		#766e6b
+#define COLOR1		#f22c40
+#define COLOR9		#f22c40
+#define COLOR2		#5ab738
+#define COLOR10		#5ab738
+#define COLOR3		#d5911a
+#define COLOR11		#d5911a
+#define COLOR4		#0f5ff9
+#define COLOR12		#0f5ff9
+#define COLOR5		#6666ea
+#define COLOR13		#6666ea
+#define COLOR6		#00ad9c
+#define COLOR14		#00ad9c
+#define COLOR7		#a8a19f
+#define COLOR15		#f1efee
+
+*.foreground:    FOREGROUND 	
+*.background:    BACKGROUND	
+*.cursorColor:   HIGHLIGHT 	
+*.color0:        COLOR0             
+*.color8:        COLOR8             
+*.color1:        COLOR1	
+*.color9:        COLOR9	
+*.color2:        COLOR2        
+*.color10:       COLOR10
+*.color3:        COLOR3
+*.color11:       COLOR11
+*.color4:        COLOR4
+*.color12:       COLOR12       
+*.color5:        COLOR5
+*.color13:       COLOR13
+*.color6:        COLOR6     
+*.color14:       COLOR14
+*.color7:        COLOR7
+*.color15:       COLOR15
+
