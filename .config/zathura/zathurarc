@@ -1,0 +1,67 @@
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#182032"
+set default-fg "#ffffff"
+
+set completion-bg "#00ad9c"
+set completion-fg "#ffffff"
+
+set statusbar-bg "#00ad9c"
+set statusbar-fg "#ffffff"
+
+set inputbar-fg "#ffffff"
+set inputbar-bg "#182032"
+
+set highlight-color "#00ad9c"
+set highlight-active-color "#f2024b"
+
+set completion-highlight-fg "#ffffff"
+set completion-highlight-bg "#f2024b"
+
+set notification-bg "#00ad9c"
+set notification-fg "#ffffff"
+
+set recolor-darkcolor "#ffffff"
+set recolor-lightcolor "#182032"
+
+set index-bg "#16b09c"
+set index-fg "#000b1e"
+set index-active-fg "#000b1e"
+set index-active-bg "#dc0fa5"
+
+# font
+set font "SauceCodePro Nerd Font 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor false
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
