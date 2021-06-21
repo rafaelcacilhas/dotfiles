@@ -1,4 +1,4 @@
- -- ___ ___                                __ 
+--  ___ ___                                __ 
 -- |   |   |.--------.-----.-----.---.-.--|  |
 -- |-     -||        |  _  |     |  _  |  _  |
 -- |___|___||__|__|__|_____|__|__|___._|_____|
@@ -6,6 +6,9 @@
 -- IMPORTS {{{
 
 import XMonad
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
 import Data.Monoid
 import System.Exit
 
@@ -126,9 +129,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
 -- }}}
 
-------------------------------------------------------------------------
--- Mouse bindings: default actions bound to mouse events
---
+-- MOUSE BINDINGS {{{
+
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -145,27 +147,16 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
-------------------------------------------------------------------------
--- Layouts:
+-- }}}
 
--- You can specify and transform your layouts by modifying these values.
--- If you change layout bindings be sure to use 'mod-shift-space' after
--- restarting (with 'mod-q') to reset your layout state to the new
--- defaults, as xmonad preserves your old layout settings by default.
---
--- * NOTE: XMonad.Hooks.EwmhDesktops users must remove the obsolete
--- ewmhDesktopsLayout modifier from layoutHook. It no longer exists.
--- Instead use the 'ewmh' function from that module to modify your
--- defaultConfig as a whole. (See also logHook, handleEventHook, and
--- startupHook ewmh notes.)
---
--- The available layouts.  Note that each layout is separated by |||,
--- which denotes layout choice.
---
-myLayout = tiled ||| Mirror tiled ||| Full
+-- LAYOUTS {{{
+myLayout = avoidStruts $ 
+  tiled 
+  ||| Mirror tiled 
+  ||| noBorders Full
   where
     -- default tiling algorithm partitions the screen into two panes
-    tiled   = Tall nmaster delta ratio
+    tiled   = spacing 3 $ ResizableTall nmaster delta ratio
 
     -- The default number of windows in the master pane
     nmaster = 1
@@ -176,29 +167,19 @@ myLayout = tiled ||| Mirror tiled ||| Full
     -- Percent of screen to increment by when resizing panes
     delta   = 3/100
 
-------------------------------------------------------------------------
--- Window rules:
+-- }}}
 
--- Execute arbitrary actions and WindowSet manipulations when managing
--- a new window. You can use this to, for example, always float a
--- particular program, or have a client always appear on a particular
--- workspace.
---
--- To find the property name associated with a program, use
--- > xprop | grep WM_CLASS
--- and click on the client you're interested in.
---
--- To match on the WM_NAME, you can use 'title' in the same way that
--- 'className' and 'resource' are used below.
---
+-- WINDOW RULES {{{
+
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
-------------------------------------------------------------------------
--- Event handling
+-- }}}
+
+-- EVENT HANDLING {{{
 
 -- Defines a custom handler function for X Events. The function should
 -- return (All True) if the default handler is to be run afterwards. To
@@ -211,8 +192,9 @@ myManageHook = composeAll
 --
 myEventHook = mempty
 
-------------------------------------------------------------------------
--- Status bars and logging
+-- }}}
+
+-- STATUS BARS AND LOGGING {{{
 
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
@@ -225,27 +207,22 @@ myEventHook = mempty
 --
 myLogHook = return ()
 
-------------------------------------------------------------------------
--- Startup hook
+-- }}}
 
--- Perform an arbitrary action each time xmonad starts or is restarted
--- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
--- per-workspace layout choices.
---
--- By default, do nothing.
---
--- * NOTE: EwmhDesktops users should use the 'ewmh' function from
--- XMonad.Hooks.EwmhDesktops to modify their defaultConfig as a whole.
--- It will add initialization of EWMH support to your custom startup
--- hook by combining it with ewmhDesktopsStartup.
---
-myStartupHook = return ()
+-- STARTUP HOOK {{{
 
-------------------------------------------------------------------------
--- Now run xmonad with all the defaults we set up.
+myStartupHook :: X ()
+myStartupHook = do
+    spawnOnce "picom --experimental-backends &"
+    spawnOnce "nm-applet &"
+    -- spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
+    spawnOnce "urxvtd -q -o -f &"      -- urxvt daemon for better performance
 
--- Run xmonad with the settings you specify. No need to modify this.
---
+    spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
+    
+-- }}}
+
+-- OTHERS {{{
 main = xmonad defaults
 
 -- A structure containing your configuration settings, overriding
@@ -277,3 +254,4 @@ defaults = defaultConfig {
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
+-- }}}
