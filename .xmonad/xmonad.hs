@@ -1,53 +1,55 @@
---  ___ ___                                __ 
--- |   |   |.--------.-----.-----.---.-.--|  |
--- |-     -||        |  _  |     |  _  |  _  |
--- |___|___||__|__|__|_____|__|__|___._|_____|
-
--- IMPORTS {{{
-
-import XMonad
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.Spacing
-import XMonad.Layout.NoBorders
 import Data.Monoid
-import System.Exit
-
-import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
-
--- }}}
-
--- BASIC SETTINGS {{{
+import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
+import qualified XMonad.StackSet as W
+import System.Exit
+import XMonad
+import XMonad.Actions.MouseResize
+import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
+import XMonad.Layout.Accordion
+import XMonad.Layout.GridVariants (Grid(Grid))
+import XMonad.Layout.LayoutModifier
+import XMonad.Layout.LimitWindows (limitWindows, increaseLimit, decreaseLimit)
+import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
+import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), (??))
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Renamed
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Simplest
+import XMonad.Layout.SimplestFloat
+import XMonad.Layout.Spacing
+import XMonad.Layout.WindowArranger (windowArrange, WindowArrangerMsg(..))
+import XMonad.Layout.WindowNavigation
+import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.SpawnOnce
 
 myTerminal      = "urxvt"
 
--- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
-myBorderWidth   = 2
+myBorderWidth :: Dimension
+myBorderWidth = 2           -- Sets border width for windows
 
 myModMask       = mod4Mask
 
+-- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
+myNormalBorderColor :: String
 myNormalBorderColor  = "#00ad9c"
+
+myFocusedBorderColor :: String
 myFocusedBorderColor = "#f2024b"
 
--- }}}
-
--- KEYBINDINGS {{{
-
+-- Key bindings. Add, modify or remove key bindings here.
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
-    [ ((modm, 	            xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
     , ((modm,               xK_d     ), spawn "rofi -show drun")
-
-    -- launch gmrun
-    , ((modm, xK_d     ), spawn "./home/dilip/config/rofi/scripts/configmenu.sh")
 
     -- close focused window
     , ((modm, 		    xK_q     ), kill)
@@ -71,7 +73,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_m     ), windows W.focusMaster  )
 
     -- Swap the focused window and the master window
-    , ((modm .|. shiftMask, xK_s), windows W.swapMaster)
+    , ((modm .|. shiftMask,               xK_s), windows W.swapMaster)
 
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
@@ -79,32 +81,25 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Swap the focused window with the previous window
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
-    -- Shrink the master area
-    , ((modm,               xK_h     ), sendMessage Shrink)
-
-    -- Expand the master area
-    , ((modm,               xK_l     ), sendMessage Expand)
+	, ((modm .|. shiftMask, xK_h), sendMessage Shrink)                   -- Shrink horiz window width
+	, ((modm .|. shiftMask, xK_l), sendMessage Expand)                   -- Expand horiz window width
+	, ((modm .|. shiftMask, xK_j), sendMessage MirrorShrink)          -- Shrink vert window width
+	, ((modm .|. shiftMask, xK_k), sendMessage MirrorExpand)          -- Expand vert window width
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
-    , ((modm .|. shiftMask, xK_comma ), sendMessage (IncMasterN 1))
+    , ((modm .|. shiftMask , xK_comma ), sendMessage (IncMasterN 1))
 
     -- Deincrement the number of windows in the master area
-    , ((modm .|. shiftMask, xK_period), sendMessage (IncMasterN (-1)))
-
-    -- Toggle the status bar gap
-    -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
-    -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
+    , ((modm .|. shiftMask , xK_period), sendMessage (IncMasterN (-1)))
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm  .|. shiftMask, xK_r     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm .|. shiftMask, xK_r     ), spawn "xmonad --recompile; xmonad --restart")
     ]
     ++
 
@@ -127,10 +122,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
--- }}}
 
--- MOUSE BINDINGS {{{
-
+------------------------------------------------------------------------
+-- Mouse bindings: default actions bound to mouse events
+--
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -147,29 +142,61 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
--- }}}
+------------------------------------------------------------------------
+-- Layouts:
 
--- LAYOUTS {{{
-myLayout = avoidStruts $ 
-  tiled 
-  ||| Mirror tiled 
-  ||| noBorders Full
-  where
-    -- default tiling algorithm partitions the screen into two panes
-    tiled   = spacing 3 $ ResizableTall nmaster delta ratio
+--Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
+mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 
-    -- The default number of windows in the master pane
-    nmaster = 1
+-- Below is a variation of the above except no borders are applied
+-- if fewer than two windows. So a single window has no gaps.
+mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
+mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
-    -- Default proportion of screen occupied by master pane
-    ratio   = 1/2
+-- Defining a bunch of layouts, many that I don't use.
+-- limitWindows n sets maximum number of windows displayed for layout.
+-- mySpacing n sets the gap size around the windows.
+tall     = renamed [Replace "tall"]
+           $ smartBorders
+           $ windowNavigation
+           $ limitWindows 12
+           $ mySpacing 10
+           $ ResizableTall 1 (3/100) (1/2) []
+monocle  = renamed [Replace "monocle"]
+           $ smartBorders
+           $ windowNavigation
+           $ limitWindows 20 Full
+floats   = renamed [Replace "floats"]
+           $ smartBorders
+           $ limitWindows 20 simplestFloat
+grid     = renamed [Replace "grid"]
+           $ smartBorders
+           $ windowNavigation
+           $ limitWindows 12
+           $ mySpacing 10
+           $ mkToggle (single MIRROR)
+           $ Grid (16/10)
+tallAccordion  = renamed [Replace "tallAccordion"]
+           $ mySpacing 10
+           $ Accordion
+wideAccordion  = renamed [Replace "wideAccordion"]
+           $ mySpacing 10
+           $ Mirror Accordion
 
-    -- Percent of screen to increment by when resizing panes
-    delta   = 3/100
+myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats
+               $ myDefaultLayout
+             where
+               myDefaultLayout =     withBorder myBorderWidth tall
+	       			 ||| Mirror tall
+                                 ||| noBorders monocle
+                                 ||| floats
+                                 ||| grid
+                                 ||| tallAccordion
+                                 ||| wideAccordion
 
--- }}}
-
--- WINDOW RULES {{{
+------------------------------------------------------------------------
+-- Window rules:
 
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
@@ -177,52 +204,33 @@ myManageHook = composeAll
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
--- }}}
+------------------------------------------------------------------------
+-- Event handling
 
--- EVENT HANDLING {{{
-
--- Defines a custom handler function for X Events. The function should
--- return (All True) if the default handler is to be run afterwards. To
--- combine event hooks use mappend or mconcat from Data.Monoid.
---
--- * NOTE: EwmhDesktops users should use the 'ewmh' function from
--- XMonad.Hooks.EwmhDesktops to modify their defaultConfig as a whole.
--- It will add EWMH event handling to your custom event hooks by
--- combining them with ewmhDesktopsEventHook.
---
 myEventHook = mempty
 
--- }}}
+------------------------------------------------------------------------
+-- Status bars and logging
 
--- STATUS BARS AND LOGGING {{{
-
--- Perform an arbitrary action on each internal state change or X event.
--- See the 'XMonad.Hooks.DynamicLog' extension for examples.
---
---
--- * NOTE: EwmhDesktops users should use the 'ewmh' function from
--- XMonad.Hooks.EwmhDesktops to modify their defaultConfig as a whole.
--- It will add EWMH logHook actions to your custom log hook by
--- combining it with ewmhDesktopsLogHook.
---
 myLogHook = return ()
 
--- }}}
-
--- STARTUP HOOK {{{
+------------------------------------------------------------------------
+-- Startup hook
 
 myStartupHook :: X ()
 myStartupHook = do
     spawnOnce "picom --experimental-backends &"
     spawnOnce "nm-applet &"
-    -- spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
+    spawnOnce "volumeicon &"
+    spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
     spawnOnce "urxvtd -q -o -f &"      -- urxvt daemon for better performance
-
     spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
-    
--- }}}
 
--- OTHERS {{{
+------------------------------------------------------------------------
+-- Now run xmonad with all the defaults we set up.
+
+-- Run xmonad with the settings you specify. No need to modify this.
+--
 main = xmonad defaults
 
 -- A structure containing your configuration settings, overriding
@@ -248,10 +256,9 @@ defaults = defaultConfig {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = myLayout,
+        layoutHook         = myLayoutHook,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
--- }}}
