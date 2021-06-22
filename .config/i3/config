@@ -118,7 +118,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec ./.config/rofi/scripts/powermenu.sh
+bindsym $mod+Shift+q exec ./.config/rofi/scripts/rofi-powermenu.sh
 
 # resize window (you can also use the mouse for that)
 
@@ -147,10 +147,10 @@ bindsym $mod+r exec rofi -show run -no-show-icons
 bindsym $mod+w exec rofi -show window 
 
 # config menu
-bindsym $mod+c exec ./.config/rofi/scripts/configmenu.sh
+bindsym $mod+c exec ./.config/rofi/scripts/rofi-configmenu.sh
 
 #scrot menu
-bindsym Shift+Print exec ./.config/rofi/scripts/scrotmenu.sh
+bindsym Shift+Print exec ./.config/rofi/scripts/rofi-scrotmenu.sh
 
 #scrot
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/' 
@@ -165,7 +165,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Mod1+r exec urxvt -e ranger
 
 # launch qutebrowser
-bindsym $mod+Mod1+q exec qutebrowser
+bindsym $mod+Mod1+q exec ./.config/rofi/scripts/rofi-quickmarks.sh
 
 # launch neovim
 bindsym $mod+Mod1+n exec urxvt -e nvim
