@@ -12,6 +12,7 @@ import qualified XMonad.StackSet as W
 import System.Exit
 import XMonad
 import XMonad.Actions.MouseResize
+import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
 import XMonad.Layout.Accordion
 import XMonad.Layout.GridVariants (Grid(Grid))
@@ -59,10 +60,26 @@ myFocusedBorderColor = "#f2024b"
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
+    -- APPLICATIONS BINDINGS:
     -- launch a terminal
     [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch dmenu
+    -- launch ranger
+    , ((modm .|. mod1Mask, xK_r), spawn "urxvt -e ranger")
+
+    -- launch nvim
+    ,((modm .|. mod1Mask, xK_n), spawn "urxvt -e nvim")
+
+    -- launch config menu
+    , ((modm, xK_c), spawn "./.config/rofi/scripts/rofi-configmenu.sh")
+
+    -- launch scrot menu
+    ,((modm .|. shiftMask, xK_Print), spawn "./.config/rofi/scripts/rofi-scrotmenu.sh")
+
+    -- take screenshot
+    ,((modm, xK_Print), spawn "scrot -e 'mv $f ~/Pictures/Scrot/'")
+
+    -- launch rofi
     , ((modm,               xK_d     ), spawn "rofi -show drun")
 
     -- close focused window
@@ -173,7 +190,7 @@ tall     = renamed [Replace "tall"]
            $ smartBorders
            $ windowNavigation
            $ limitWindows 12
-           $ mySpacing 10
+           $ mySpacing 5
            $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
            $ smartBorders
@@ -186,14 +203,14 @@ grid     = renamed [Replace "grid"]
            $ smartBorders
            $ windowNavigation
            $ limitWindows 12
-           $ mySpacing 10
+           $ mySpacing 5
            $ mkToggle (single MIRROR)
            $ Grid (16/10)
 tallAccordion  = renamed [Replace "tallAccordion"]
-           $ mySpacing 10
+           $ mySpacing 5
            $ Accordion
 wideAccordion  = renamed [Replace "wideAccordion"]
-           $ mySpacing 10
+           $ mySpacing 5
            $ Mirror Accordion
 
 myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats
