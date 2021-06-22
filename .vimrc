@@ -29,6 +29,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'			" added nerdtree
 Plugin 'junegunn/goyo.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'xuhdev/vim-latex-live-preview'
 
 " Syntax highlighting
 Plugin 'vim-python/python-syntax'
@@ -81,6 +82,9 @@ inoremap ;; <Esc>
 
 " Map leader
 let mapleader = ";"
+
+" Enable and disable spell cheacker
+map <silent> <leader>s :setlocal spell!<CR>
 
 "Enable and disable auto comment
 map <leader>c :setlocal formatoptions-=cro<CR>
@@ -324,6 +328,15 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" }}}
+
+" LATEX PREVIEW {{{
+
+let g:livepreview_previewer = 'zathura'
+let g:livepreview_engine = 'xelatex' 
+
+map <leader>lp :LLPStartPreview
 
 " }}}
 
