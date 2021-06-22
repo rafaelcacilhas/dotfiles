@@ -1,3 +1,10 @@
+--  ___ ___                                __ 
+-- |   |   |.--------.-----.-----.---.-.--|  |
+-- |-     -||        |  _  |     |  _  |  _  |
+-- |___|___||__|__|__|_____|__|__|___._|_____|
+
+-- IMPORTS {{{
+
 import Data.Monoid
 import qualified Data.Map        as M
 import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
@@ -23,13 +30,17 @@ import XMonad.Layout.WindowNavigation
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.SpawnOnce
 
+-- }}}
+
+-- SETTINGS {{{
+
 myTerminal      = "urxvt"
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
 myBorderWidth :: Dimension
-myBorderWidth = 2           -- Sets border width for windows
+myBorderWidth = 3           -- Sets border width for windows
 
 myModMask       = mod4Mask
 
@@ -42,7 +53,10 @@ myNormalBorderColor  = "#00ad9c"
 myFocusedBorderColor :: String
 myFocusedBorderColor = "#f2024b"
 
--- Key bindings. Add, modify or remove key bindings here.
+-- }}}
+
+-- KEY BINDINGS {{{
+
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
@@ -122,10 +136,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
+-- }}}
 
-------------------------------------------------------------------------
--- Mouse bindings: default actions bound to mouse events
---
+-- MOUSE BINDINGS {{{
+
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -142,8 +156,9 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
 
-------------------------------------------------------------------------
--- Layouts:
+-- }}}
+
+-- LAYOUTS {{{
 
 --Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
@@ -154,9 +169,6 @@ mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
 mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
--- Defining a bunch of layouts, many that I don't use.
--- limitWindows n sets maximum number of windows displayed for layout.
--- mySpacing n sets the gap size around the windows.
 tall     = renamed [Replace "tall"]
            $ smartBorders
            $ windowNavigation
@@ -195,8 +207,9 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| tallAccordion
                                  ||| wideAccordion
 
-------------------------------------------------------------------------
--- Window rules:
+-- }}}
+
+-- WINDOW RULES {{{
 
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
@@ -204,18 +217,21 @@ myManageHook = composeAll
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
-------------------------------------------------------------------------
--- Event handling
+-- }}}
+
+-- EVENT HANDLING {{{
 
 myEventHook = mempty
 
-------------------------------------------------------------------------
--- Status bars and logging
+-- }}}
+
+-- STATUS BARS AND LOGGING {{{
 
 myLogHook = return ()
 
-------------------------------------------------------------------------
--- Startup hook
+-- }}}
+
+-- STARTUP HOOK {{{
 
 myStartupHook :: X ()
 myStartupHook = do
@@ -226,11 +242,10 @@ myStartupHook = do
     spawnOnce "urxvtd -q -o -f &"      -- urxvt daemon for better performance
     spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
 
-------------------------------------------------------------------------
--- Now run xmonad with all the defaults we set up.
+-- }}}
 
--- Run xmonad with the settings you specify. No need to modify this.
---
+-- OTHERS {{{
+
 main = xmonad defaults
 
 -- A structure containing your configuration settings, overriding
@@ -262,3 +277,5 @@ defaults = defaultConfig {
         logHook            = myLogHook,
         startupHook        = myStartupHook
     }
+
+-- }}}
