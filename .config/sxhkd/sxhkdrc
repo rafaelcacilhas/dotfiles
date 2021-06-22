@@ -1,3 +1,8 @@
+#  _______         __     __       __ 
+# |     __|.--.--.|  |--.|  |--.--|  |
+# |__     ||_   _||     ||    <|  _  |
+# |_______||__.__||__|__||__|__|_____|
+
 #  APPLICATION KEY BINDINGS  {{{
 
 # launch terminal
@@ -50,7 +55,7 @@ super + Escape
 
 # power menu
 super + shift + q
-	./.config/rofi/scripts/rof-powermenu.sh
+	./.config/rofi/scripts/rofi-powermenu.sh
 
 # }}}
 
