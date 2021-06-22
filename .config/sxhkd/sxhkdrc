@@ -14,7 +14,7 @@ super + r
 
 # launch qutebrowser
 super + alt + q
-	qutebrowser
+	./.config/rofi/scripts/rofi-quickmarks.sh
 
 # launch neovim
 super + alt + n
@@ -30,7 +30,7 @@ super + alt + s
 
 # launch config file menu
 super + c 
-	./.config/rofi/scripts/configmenu.sh
+	./.config/rofi/scripts/rofi-configmenu.sh
 
 # window list
 super + w
@@ -42,7 +42,7 @@ Print
 
 # scrot menu
 shift + Print
-	./.config/rofi/scripts/scrotmenu.sh
+	./.config/rofi/scripts/rofi-scrotmenu.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -50,7 +50,7 @@ super + Escape
 
 # power menu
 super + shift + q
-	./.config/rofi/scripts/powermenu.sh
+	./.config/rofi/scripts/rof-powermenu.sh
 
 # }}}
 
