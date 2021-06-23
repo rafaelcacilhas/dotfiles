@@ -187,20 +187,16 @@ mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spac
 mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
 tall     = renamed [Replace "tall"]
-           $ smartBorders
            $ windowNavigation
            $ limitWindows 12
            $ mySpacing 5
            $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
-           $ smartBorders
            $ windowNavigation
            $ limitWindows 20 Full
 floats   = renamed [Replace "floats"]
-           $ smartBorders
            $ limitWindows 20 simplestFloat
 grid     = renamed [Replace "grid"]
-           $ smartBorders
            $ windowNavigation
            $ limitWindows 12
            $ mySpacing 5
@@ -218,8 +214,8 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
              where
                myDefaultLayout =     withBorder myBorderWidth tall
 	       			 ||| Mirror tall
-                                 ||| noBorders monocle
                                  ||| floats
+                                 ||| noBorders monocle
                                  ||| grid
                                  ||| tallAccordion
                                  ||| wideAccordion
