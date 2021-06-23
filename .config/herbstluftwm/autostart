@@ -48,9 +48,9 @@ hc keybind $Mod-c spawn ./.config/rofi/scripts/rofi-configmenu.sh
 hc keybind Shift-Print spawn ./.config/rofi/scripts/rofi-scrotmenu.sh
 hc keybind Print spawn scrot -e 'mv $f ~/Pictures/Scrot/' 
 
-hc keybind $Mod-Mod1-q spawn ./.config/rofi/scrot/rofi-quickmarks.sh
-hc keybind $Mod-Mod1-r spawn ranger
-hc keybind $Mod-Mod1-n spawn nvim
+hc keybind $Mod-Mod1-q spawn ./.config/rofi/scripts/rofi-quickmarks.sh
+hc keybind $Mod-Mod1-r spawn urxvt -e ranger
+hc keybind $Mod-Mod1-n spawn urxvt -e nvim
 
 hc keybind $Mod-h     focus left
 hc keybind $Mod-j     focus down
