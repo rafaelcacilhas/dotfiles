@@ -62,7 +62,7 @@ set clipboard+=unnamedplus	" Use System Clipboard
 set mouse=a			" Enable mouse usage (all modes)
 
 " Customize cursor line
-highlight CursorLine cterm=NONE ctermbg=Black
+highlight CursorLine cterm=NONE ctermbg=DarkGrey 
 highlight CursorLineNr cterm=NONE ctermbg=Black ctermfg=White
 
 " Customize line number
