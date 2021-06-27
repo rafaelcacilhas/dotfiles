@@ -198,8 +198,12 @@ layouts = [
 # BAR {{{
 
 widget_defaults = dict(
-    font='Sauce Code Pro Nerd Font',
-    fontsize=12,
+    font='Open Sans Condensed Bold',
+    fontsize=11,
+    padding=4,
+)
+widget = dict(
+    fontsize=11,
     padding=4,
 )
 extension_defaults = widget_defaults.copy()
@@ -210,25 +214,27 @@ screens = [
             [
                widget.GroupBox(
                     active = colors["*.foreground"],
-                    inactive="#aaaaaa",
-                    highlight_color = ["#f958ba","#f958ba"],
+                    inactive="#dddddd",
+                    highlight_color = ["#e83269","#e83269"],
                     highlight_method = "line",
                     rounded = False,
                     background = colors["*.cursorColor"],
                     **widget_defaults),
                widget.TextBox(
+                    font='Sauce Code Pro Nerd Font',
                     text = '',
                     background = colors["*.color6"],
                     foreground = colors["*.cursorColor"],
                     padding = 0,
-                    fontsize = 37
+                    fontsize = 30
                        ),
                widget.TextBox(
+                    font='Sauce Code Pro Nerd Font',
                     text = '',
                     background = colors["*.background"],
                     foreground = colors["*.color6"],
                     padding = 0,
-                    fontsize = 37
+                    fontsize = 30
                        ),
               # widget.WindowName(
               #      background = colors["*.color6"],
@@ -238,11 +244,12 @@ screens = [
               #       **widget_defaults),
                widget.Spacer(),
                widget.TextBox(
+                    font='Sauce Code Pro Nerd Font',
                        text = '',
                        background = colors["*.background"],
                        foreground = colors["*.color6"],
                        padding = 0,
-                       fontsize = 37
+                       fontsize = 30
                        ),
                # widget.CurrentLayoutIcon(
                #         custom_icon_paths = [os.path.expanduser("~/.config/qtile/layout_icons")],
@@ -255,15 +262,16 @@ screens = [
                    background = colors["*.color6"],
                     **widget_defaults),
                widget.TextBox(
+                        font='Sauce Code Pro Nerd Font',
                        text = '',
                        background = colors["*.color6"],
                        foreground = colors["*.cursorColor"],
                        padding = 0,
-                       fontsize = 37
+                       fontsize = 30
                        ),
                widget.Clock(
                     background = colors["*.cursorColor"],
-                    format='  %d %b, %H:%M',
+                    format='%d %b, %H:%M',
                     **widget_defaults),
                widget.Systray(
                     background = colors["*.cursorColor"]),
@@ -273,6 +281,7 @@ screens = [
                     padding=10,
                     ),
                widget.QuickExit(
+                    # font='Sauce Code Pro Nerd Font',
                     background = colors["*.cursorColor"],
                     default_text="   ",
                     countdown_format = '  {}s ',

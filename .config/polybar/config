@@ -4,6 +4,7 @@
 ; |___|   |_____||__||___  ||_____|___._|__|  
 ;                    |_____|              
 
+; COLORS {{{
 [colors]
 background = ${xrdb:background}
 foreground = ${xrdb:foreground}
@@ -18,10 +19,9 @@ cyan = ${xrdb:color6}
 
 highlight = ${xrdb:cursorColor}
 highlight-alt = #34dfcf
+; }}}
 
-;=========================================================
-;=== BASE BAR
-;=========================================================
+; BASE BAR {{{
 
 [bar/base]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -67,11 +67,17 @@ cursor-click = pointer
 
 wm-restack = bspwm
 
+; }}}
+
+; BSPWM-BAR {{{
 [bar/bspwm-bar]
 inherit = bar/base
 modules-left = bspwm arrow1 mpd arrow2
 wm-restack = bspwm
 
+; }}}
+
+; I3-BAR {{{
 [bar/i3-bar]
 inherit = bar/base
 
@@ -79,14 +85,26 @@ inherit = bar/base
 modules-left = i3 arrow1 mpd arrow2
 wm-restack = i3
 
+; }}}
+
+; HERBS-BAR {{{
 [bar/herbs-bar]
 inherit = bar/base
 padding-left = 0
 modules-left = xworkspaces arrow1 mpd arrow2 
 
-;=========================================================
-;=== ARROW MODULES
-;=========================================================
+; }}}
+
+; XMONAD-BAR {{{
+[bar/xmonad-bar]
+inherit = bar/base
+padding-left = 0
+modules-left =
+
+; }}}
+
+; ARROW MODULES {{{
+
 [module/arrow1]
 type = custom/text
 content = "%{T6}%{T-}"
@@ -123,17 +141,9 @@ content-foreground = ${colors.highlight}
 content-background = ${colors.cyan}
 
 
-;=========================================================
-;=== MODULES
-;=========================================================
+; }}}
 
-[module/test]
-type = custom/ipc
-hook-0 = echo "%{T3}%{T-}"
-hook-1 = echo "%{T3}%{T-}"
-initial = 1
-click-left = polybar-msg hook test 2
-click-right = polybar-msg hook test 1
+; DUNST-TOOGLE {{{
 
 [module/dunst-toggle]
 type = custom/ipc
@@ -144,6 +154,10 @@ click-left = /home/dilip/.config/polybar/scripts/poly-dunst.sh &
 format-padding = 2
 format-background = ${colors.cyan}
 
+; }}}
+
+; PICOM-TOOGLE {{{
+
 [module/picom-toggle]
 type = custom/ipc
 hook-0 = echo ""
@@ -153,6 +167,10 @@ click-left = /home/dilip/.config/polybar/scripts/poly-picom.sh &
 format-padding = 2
 format-background = ${colors.cyan}
 
+; }}}
+
+; XRESOURCES-TOGGLE {{{
+
 [module/xresources-toggle]
 type = custom/ipc
 hook-0 = echo ""
@@ -161,6 +179,10 @@ initial = 1
 click-left = /home/dilip/.config/polybar/scripts/poly-xresources.sh &
 format-padding = 2
 format-background = ${colors.cyan}
+
+; }}}
+
+; XWORKSPACES {{{
 
 [module/xworkspaces]
 type = internal/xworkspaces
@@ -196,6 +218,9 @@ label-empty-foreground = ${colors.foreground}
 label-empty-background = ${colors.highlight}
 label-empty-padding = 2
 
+; }}}
+
+; XWINDOW {{{
 
 [module/xwindow]
 type = internal/xwindow
@@ -207,6 +232,19 @@ label-foreground = ${colors.foreground}
 label-background = ${colors.cyan}
 label-padding = 1
 ;label-margin = 1
+
+; }}}
+
+; XMONAD {{{
+
+[module/xmonad]
+type = custom/scripts
+exec = xmonad-log
+tail = true
+
+; }}}
+
+; BSPWM {{{
 
 [module/bspwm]
 type = internal/bspwm
@@ -236,6 +274,10 @@ label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+
+; }}}
+
+; I3 {{{
 
 [module/i3]
 type = internal/i3
@@ -273,6 +315,10 @@ label-urgent-foreground = ${colors.foreground}
 label-urgent-underline = ${colors.alert}
 label-urgent-padding = ${self.label-focused-padding}
 
+; }}}
+
+; BACKLIGHT {{{
+
 [module/backlight]
 type = internal/xbacklight
 
@@ -283,6 +329,10 @@ format-prefix = 
 label = %percentage%%
 label-foreground = ${colors.foreground}
 label-background = ${colors.background}
+
+; }}}
+
+; FILESYSTEM {{{
 
 [module/filesystem]
 type = internal/fs
@@ -297,6 +347,10 @@ format-mounted-background = ${colors.cyan}
 format-mounted-prefix = %{T3}%{T-}
 format-mounted-prefix-foreground = ${colors.foreground}
 label-mounted = "  %mountpoint% : %percentage_used%%"
+
+; }}}
+
+; MPD {{{
 
 [module/mpd]
 type = internal/mpd
@@ -344,6 +398,10 @@ toggle-off-foreground = ${colors.highlight-alt}
 
 click-right = ncmpcpp &
 
+; }}}
+
+; CPU {{{
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -378,6 +436,10 @@ label-padding = 1
 
 click-right = htop &
 
+; }}}
+
+; MEMORY {{{
+
 [module/memory]
 type = internal/memory
 interval = 2
@@ -411,6 +473,10 @@ label-foreground = ${colors.foreground}
 label-padding = 1
 ;label-margin = 1
 
+; }}}
+
+; WLAN {{{
+
 [module/wlan]
 type = internal/network
 interface = wlan0
@@ -432,6 +498,10 @@ label-connected-padding = 1
 ;label-disconned
 ;label-disconnected-foreground = #ff0000
 
+; }}}
+
+; DATE {{{
+
 [module/date]
 type = internal/date
 interval = 5
@@ -450,6 +520,10 @@ label-foreground = ${colors.foreground}
 label-background = ${colors.highlight}
 label-padding = 1
 ;label-margin = 1
+
+; }}}
+
+; PULSEAUDIO {{{
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -489,6 +563,10 @@ label-muted-padding = 2
 
 click-right = pavucontrol &
 
+; }}}
+
+; TEMPERATURE {{{
+
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
@@ -514,6 +592,9 @@ label = %temperature-c%
 label-foreground = ${colors.foreground}
 label-padding = 1
 
+; }}}
+
+; OTHERS {{{
 
 [settings]
 screenchange-reload = true
@@ -528,3 +609,5 @@ margin-top = 0
 margin-bottom = 0
 
 ; vim:ft=dosini
+
+; }}}

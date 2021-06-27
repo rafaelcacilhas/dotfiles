@@ -10,10 +10,11 @@ import qualified Data.Map        as M
 import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
 import qualified XMonad.StackSet as W
 import System.Exit
+import System.IO (hPutStrLn)
 import XMonad
 import XMonad.Actions.MouseResize
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
-import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
+import XMonad.Hooks.ManageDocks 
 import XMonad.Layout.Accordion
 import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.LayoutModifier
@@ -29,6 +30,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.WindowArranger (windowArrange, WindowArrangerMsg(..))
 import XMonad.Layout.WindowNavigation
 import XMonad.Util.EZConfig (additionalKeysP)
+import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
 import XMonad.Util.SpawnOnce
 
 -- }}}
@@ -46,7 +48,7 @@ myBorderWidth = 3           -- Sets border width for windows
 myModMask       = mod4Mask
 
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces = [" DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX "]
 
 myNormalBorderColor :: String
 myNormalBorderColor  = "#00ad9c"
@@ -83,7 +85,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_d     ), spawn "rofi -show drun")
 
     -- close focused window
-    , ((modm, 		    xK_q     ), kill)
+    , ((modm, 		   xK_q     ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_Tab ), sendMessage NextLayout)
@@ -112,10 +114,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Swap the focused window with the previous window
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
-	, ((modm .|. shiftMask, xK_h), sendMessage Shrink)                   -- Shrink horiz window width
-	, ((modm .|. shiftMask, xK_l), sendMessage Expand)                   -- Expand horiz window width
-	, ((modm .|. shiftMask, xK_j), sendMessage MirrorShrink)          -- Shrink vert window width
-	, ((modm .|. shiftMask, xK_k), sendMessage MirrorExpand)          -- Expand vert window width
+	, ((modm .|. mod1Mask, xK_h), sendMessage Shrink)                   -- Shrink horiz window width
+	, ((modm .|. mod1Mask, xK_l), sendMessage Expand)                   -- Expand horiz window width
+	, ((modm .|. mod1Mask, xK_j), sendMessage MirrorShrink)          -- Shrink vert window width
+	, ((modm .|. mod1Mask, xK_k), sendMessage MirrorExpand)          -- Expand vert window width
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
@@ -152,26 +154,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-
--- }}}
-
--- MOUSE BINDINGS {{{
-
-myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
-
-    -- mod-button1, Set the window to floating mode and move by dragging
-    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
-                                       >> windows W.shiftMaster))
-
-    -- mod-button2, Raise the window to the top of the stack
-    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
-
-    -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
-                                       >> windows W.shiftMaster))
-
-    -- you may also bind events to the mouse scroll wheel (button4 and button5)
-    ]
 
 -- }}}
 
@@ -259,14 +241,10 @@ myStartupHook = do
 
 -- OTHERS {{{
 
-main = xmonad defaults
+main = do
+	xmproc <- spawnPipe "xmobar -x 0 /home/dilip/.xmonad/xmobarrc"
+	xmonad $ docks defaults
 
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
 defaults = defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
@@ -281,11 +259,10 @@ defaults = defaultConfig {
 
       -- key bindings
         keys               = myKeys,
-        mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
         layoutHook         = myLayoutHook,
-        manageHook         = myManageHook,
+        manageHook         = myManageHook <+> manageDocks ,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
