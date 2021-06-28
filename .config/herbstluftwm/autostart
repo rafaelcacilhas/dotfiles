@@ -6,6 +6,7 @@
 # |__|__|_____|__|  |_____|_____||____|__||_____|__| |____|________|__|__|__|
 
 # AUTO START PROGRAMS {{{
+
 nitrogen --restore &
 urxvtd -q -o -f &
 dunst &
@@ -45,7 +46,7 @@ hc keybind $Mod-Return spawn "${TERMINAL:-urxvt}" # use your $TERMINAL with xter
 hc keybind $Mod-d spawn rofi -show drun
 hc keybind $Mod-w spawn rofi -show window
 hc keybind $Mod-r spawn rofi -show run
-hc keybind $Mod-c spawn ./.config/rofi/scripts/rofi-configmenu.sh
+hc keybind $Mod-e spawn ./.config/rofi/scripts/rofi-configmenu.sh
 hc keybind Shift-Print spawn ./.config/rofi/scripts/rofi-scrotmenu.sh
 hc keybind Print spawn scrot -e 'mv $f ~/Pictures/Scrot/' 
 
@@ -164,7 +165,7 @@ hc attr theme.normal.color '#00ad9c'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 0
 hc attr theme.inner_color black
-hc attr theme.border_width 3
+hc attr theme.border_width 2
 hc attr theme.floating.border_width 3
 hc attr theme.floating.outer_width 0
 hc attr theme.floating.outer_color black
