@@ -34,7 +34,7 @@ super + alt + s
 	sxiv -t ~/Wallpapers/*
 
 # launch config file menu
-super + c 
+super + e
 	./.config/rofi/scripts/rofi-configmenu.sh
 
 # window list

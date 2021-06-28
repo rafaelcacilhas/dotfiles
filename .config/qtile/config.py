@@ -35,7 +35,7 @@ keys = [
     Key([mod], "Return", 
         lazy.spawn(terminal), 
         desc="Launch terminal"),
-    Key([mod], "c",
+    Key([mod], "e",
         lazy.spawn("./.config/rofi/scripts/rofi-configmenu.sh"),
         desc="Launch config menu"),
     Key(["shift"], "Print",
@@ -178,7 +178,7 @@ layout_default={
     "margin":10,
     "border_normal":colors["*.color6"],
     "border_focus":colors["*.cursorColor"],
-    "border_width":3
+    "border_width":2
         }
 layouts = [
     layout.MonadTall(
