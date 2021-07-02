@@ -23,6 +23,6 @@
 
 # Screenshots:
 
-![Screenshot](Screenshots/2021-06-14-112235_1366x768_scrot.png)
-![Screenshot](Screenshots/2021-06-14-112815_1366x768_scrot.png)
-![Screenshot](Screenshots/2021-06-14-113211_1366x768_scrot.png)
+![Screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-07-02-135848_1366x768_scrot.png)
+![Screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-07-02-140401_1366x768_scrot.png)
+![Screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-07-02-141331_1366x768_scrot.png)
