@@ -71,7 +71,7 @@ wm-restack = bspwm
 ; BSPWM-BAR {{{
 [bar/bspwm-bar]
 inherit = bar/base
-modules-left = bspwm xwindow slash1
+modules-left = bspwm mpd slash1
 wm-restack = bspwm
 
 ; }}}
@@ -81,7 +81,7 @@ wm-restack = bspwm
 inherit = bar/base
 
 ;override-redirect = true
-modules-left = i3 xwindow slash1
+modules-left = i3 mpd slash1
 wm-restack = i3
 
 ; }}}
@@ -90,7 +90,7 @@ wm-restack = i3
 [bar/herbs-bar]
 inherit = bar/base
 padding-left = 0
-modules-left = xworkspaces xwindow slash1 
+modules-left = xworkspaces mpd slash1 
 
 ; }}}
 
