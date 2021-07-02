@@ -17,7 +17,8 @@ c.downloads.location.directory = '/home/dilip/Downloads'
 c.url.searchengines = {
         'DEFAULT': 'https://duckduckgo.com/?q={}',
         'wk':'https://en.wikipedia.org/wiki/{}', 
-        'yt': 'https://www.youtube.com/results?search_query={}'
+        'yt': 'https://www.youtube.com/results?search_query={}',
+        'amz':'https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={}'
 }
 c.url.default_page = '/home/dilip/.config/qutebrowser/html/startpage.html'
 c.url.start_pages = '/home/dilip/.config/qutebrowser/html/startpage.html'
@@ -63,7 +64,7 @@ c.statusbar.padding = {"bottom":1, "left":1, "right":1, "top":1}
 # UI COLROS CONFIGURATION #
 ###########################
 
-# ====================== xresources ======================= {{{
+# ====================== xresources ======================= 
 # taken from https://qutebrowser.org/doc/help/configuring.html
 def read_xresources(prefix):
     """
@@ -81,59 +82,61 @@ xresources = read_xresources("*")
 
 background = xresources["*.background"]
 foreground = xresources["*.foreground"]
-alt_background = xresources["*.cursorColor"]
-alt_foreground = xresources["*.color6"]
+error = xresources["*.color1"]
+alt_background = "#5F6773"
+alt_foreground = "#888888"
 
 # --- Webpages ---
 c.colors.webpage.bg = background
 
 if xresources["*.background"] != "#ffffff":
-    c.colors.webpage.darkmode.enabled = True
+    c.colors.webpage.darkmode.enabled = False
 
 # --- Context menu ---
 c.colors.contextmenu.menu.bg = background
 c.colors.contextmenu.menu.fg = foreground
-c.colors.contextmenu.selected.bg = alt_foreground
-c.colors.contextmenu.selected.fg = foreground
+c.colors.contextmenu.selected.bg = foreground
+c.colors.contextmenu.selected.fg = background
 
 # --- Completions ---
-c.colors.completion.fg = foreground  
+c.colors.completion.fg = alt_foreground  
 c.colors.completion.odd.bg = background
 c.colors.completion.even.bg = background
-c.colors.completion.category.fg =  foreground
-c.colors.completion.category.bg = alt_background
-c.colors.completion.category.border.top = alt_background
-c.colors.completion.category.border.bottom = alt_background
+c.colors.completion.category.fg = background
+c.colors.completion.category.bg = foreground
+c.colors.completion.category.border.top = background
+c.colors.completion.category.border.bottom = background
 c.colors.completion.item.selected.fg = background
-c.colors.completion.item.selected.bg = alt_foreground
-c.colors.completion.item.selected.border.top = alt_foreground
-c.colors.completion.item.selected.border.bottom = alt_foreground
+c.colors.completion.item.selected.bg = foreground
+c.colors.completion.item.selected.border.top = alt_background
+c.colors.completion.item.selected.border.bottom = alt_background
 c.colors.completion.item.selected.match.fg = background
-c.colors.completion.match.fg = alt_foreground 
-c.colors.completion.scrollbar.fg = alt_foreground 
+c.colors.completion.match.fg = foreground 
+c.colors.completion.scrollbar.fg = alt_background 
 c.colors.completion.scrollbar.bg = background 
 #c.colors.completion.scrollbar.width = '8'
 
 # --- Downloads ---
 c.colors.downloads.bar.bg = alt_background 
-c.colors.downloads.error.bg = '#ff6c6b'
+c.colors.downloads.error.bg = error
 
 # --- Hints ---
 c.colors.hints.bg = background
-c.colors.hints.fg = foreground
-c.colors.hints.match.fg = alt_foreground
+c.colors.hints.fg = alt_background
+c.colors.hints.match.fg = foreground
 
 # --- Messages ---
 c.colors.messages.info.bg = alt_background 
+c.colors.messages.error.bg = error 
 
 # --- Prompts ---
-c.colors.prompts.bg = alt_foreground
-c.colors.prompts.selected.bg = alt_background
-c.colors.prompts.fg = background
+c.colors.prompts.bg = alt_background
+c.colors.prompts.selected.bg = foreground
+c.colors.prompts.fg = foreground
 
 # --- Statusbar ---
 c.colors.statusbar.normal.bg = background 
-c.colors.statusbar.insert.fg = foreground 
+c.colors.statusbar.insert.fg = background 
 c.colors.statusbar.insert.bg = alt_background 
 c.colors.statusbar.passthrough.bg = background 
 c.colors.statusbar.command.bg = alt_background 

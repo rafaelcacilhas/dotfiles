@@ -7,12 +7,16 @@
 
 import Data.Monoid
 import qualified Data.Map        as M
+import qualified DBus as D
+import qualified DBus.Client as D
+import qualified Codec.Binary.UTF8.String as UTF8
 import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
 import qualified XMonad.StackSet as W
 import System.Exit
 import System.IO (hPutStrLn)
 import XMonad
 import XMonad.Actions.MouseResize
+import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.ManageDocks 
 import XMonad.Layout.Accordion
@@ -43,96 +47,96 @@ myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
 myBorderWidth :: Dimension
-myBorderWidth = 3           -- Sets border width for windows
+myBorderWidth = 2         
 
 myModMask       = mod4Mask
 
--- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 myWorkspaces = [" DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX "]
 
 myNormalBorderColor :: String
-myNormalBorderColor  = "#00ad9c"
+myNormalBorderColor  = "#2E3440"
 
 myFocusedBorderColor :: String
-myFocusedBorderColor = "#f2024b"
+myFocusedBorderColor = "#FFFFFF"
 
 -- }}}
 
 -- KEY BINDINGS {{{
 
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+myKeys :: [(String, X ())]
+myKeys =
 
     -- APPLICATIONS BINDINGS:
     -- launch a terminal
-    [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
+    [ ("M-<Return>", spawn $ XMonad.terminal conf)
 
     -- launch ranger
-    , ((modm .|. mod1Mask, xK_r), spawn "urxvt -e ranger")
+    , ("M-M1-r", spawn "urxvt -e ranger")
 
     -- launch nvim
-    ,((modm .|. mod1Mask, xK_n), spawn "urxvt -e nvim")
+    ,("M-M1-n", spawn "urxvt -e nvim")
 
     -- launch config menu
-    , ((modm, xK_c), spawn "./.config/rofi/scripts/rofi-configmenu.sh")
+    , ("M-e", spawn "./.config/rofi/scripts/rofi-configmenu.sh")
 
     -- launch scrot menu
-    ,((modm .|. shiftMask, xK_Print), spawn "./.config/rofi/scripts/rofi-scrotmenu.sh")
+    ,("M-S-<xK_Print>", spawn "./.config/rofi/scripts/rofi-scrotmenu.sh")
 
     -- take screenshot
-    ,((modm, xK_Print), spawn "scrot -e 'mv $f ~/Pictures/Scrot/'")
+    ,("M-<xK_Print>", spawn "scrot -e 'mv $f ~/Pictures/Scrot/'")
 
     -- launch rofi
-    , ((modm,               xK_d     ), spawn "rofi -show drun")
+    , ("M-d", spawn "rofi -show drun")
 
     -- close focused window
-    , ((modm, 		   xK_q     ), kill)
+    , ("M-q", kill)
 
      -- Rotate through the available layout algorithms
-    , ((modm,               xK_Tab ), sendMessage NextLayout)
+    , ("M-<xK_Tab>", sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_Tab ), setLayout $ XMonad.layoutHook conf)
+    , ("M-S-<xK_Tab>", setLayout $ XMonad.layoutHook conf)
 
     -- Resize viewed windows to the correct size
-    , ((modm,               xK_n     ), refresh)
+    , ("M-n", refresh)
 
     -- Move focus to the next window
-    , ((modm,               xK_j     ), windows W.focusDown)
+    , ("M-j", windows W.focusDown)
 
     -- Move focus to the previous window
-    , ((modm,               xK_k     ), windows W.focusUp  )
+    , ("M-k", windows W.focusUp  )
 
     -- Move focus to the master window
-    , ((modm,               xK_m     ), windows W.focusMaster  )
+    , ("M-m", windows W.focusMaster  )
 
     -- Swap the focused window and the master window
-    , ((modm .|. shiftMask,               xK_s), windows W.swapMaster)
+    , ("M-S-s", windows W.swapMaster)
 
     -- Swap the focused window with the next window
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
+    , ("M-S-j", windows W.swapDown  )
 
     -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
+    , ("M-S-k", windows W.swapUp    )
 
-	, ((modm .|. mod1Mask, xK_h), sendMessage Shrink)                   -- Shrink horiz window width
-	, ((modm .|. mod1Mask, xK_l), sendMessage Expand)                   -- Expand horiz window width
-	, ((modm .|. mod1Mask, xK_j), sendMessage MirrorShrink)          -- Shrink vert window width
-	, ((modm .|. mod1Mask, xK_k), sendMessage MirrorExpand)          -- Expand vert window width
+    , ("M-M1-h", sendMessage Shrink)                   -- Shrink horiz window width
+    , ("M-M1-l", sendMessage Expand)                   -- Expand horiz window width
+    , ("M-M1-j", sendMessage MirrorShrink)          -- Shrink vert window width
+    , ("M-M1-k", sendMessage MirrorExpand)          -- Expand vert window width
 
     -- Push window back into tiling
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    , ("M-t", withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
-    , ((modm .|. shiftMask , xK_comma ), sendMessage (IncMasterN 1))
+    , ("M-S-<xK_comma>", sendMessage (IncMasterN 1))
 
     -- Deincrement the number of windows in the master area
-    , ((modm .|. shiftMask , xK_period), sendMessage (IncMasterN (-1)))
+    , ("M-S-<xK_comma>", sendMessage (IncMasterN (-1)))
 
     -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
+    , ("M-S-q", io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm .|. shiftMask, xK_r     ), spawn "xmonad --recompile; xmonad --restart")
+    , ("M-S-r", spawn "xmonad --recompile; xmonad --restart")
     ]
     ++
 
@@ -151,9 +155,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
     --
-    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+    -- [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
+    --     | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
+    --     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 -- }}}
 
@@ -222,7 +226,31 @@ myEventHook = mempty
 
 -- STATUS BARS AND LOGGING {{{
 
-myLogHook = return ()
+-- Override the PP values as you would otherwise, adding colors etc depending
+-- on  the statusbar used
+myLogHook :: D.Client -> PP
+myLogHook dbus = def
+    { ppOutput = dbusOutput dbus
+    , ppCurrent = wrap ("%{B" ++ bg2 ++ "} ") " %{B-}"
+    , ppVisible = wrap ("%{B" ++ bg1 ++ "} ") " %{B-}"
+    , ppUrgent = wrap ("%{F" ++ red ++ "} ") " %{F-}"
+    , ppHidden = wrap " " " "
+    , ppWsSep = ""
+    , ppSep = " : "
+    , ppTitle = shorten 40
+    }
+
+-- Emit a DBus signal on log updates
+dbusOutput :: D.Client -> String -> IO ()
+dbusOutput dbus str = do
+    let signal = (D.signal objectPath interfaceName memberName) {
+            D.signalBody = [D.toVariant $ UTF8.decodeString str]
+        }
+    D.emit dbus signal
+  where
+    objectPath = D.objectPath_ "/org/xmonad/Log"
+    interfaceName = D.interfaceName_ "org.xmonad.Log"
+    memberName = D.memberName_ "Update"
 
 -- }}}
 
@@ -242,6 +270,11 @@ myStartupHook = do
 -- OTHERS {{{
 
 main = do
+	dbus <- D.connectSession
+    -- Request access to the DBus name
+    D.requestName dbus (D.busName_ "org.xmonad.Log")
+        [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
+
 	xmproc <- spawnPipe "xmobar -x 0 /home/dilip/.xmonad/xmobarrc"
 	xmonad $ docks defaults
 
@@ -251,21 +284,28 @@ defaults = defaultConfig {
         focusFollowsMouse  = myFocusFollowsMouse,
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
-        -- numlockMask deprecated in 0.9.1
-        -- numlockMask        = myNumlockMask,
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
-
-      -- key bindings
-        keys               = myKeys,
 
       -- hooks, layouts
         layoutHook         = myLayoutHook,
         manageHook         = myManageHook <+> manageDocks ,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+        logHook = dynamicLogWithPP (myLogHook dbus) -- $ xmobarPP
+              -- the following variables beginning with 'pp' are settings for xmobar.
+              -- { ppOutput = \x -> hPutStrLn xmproc x                          -- xmobar on monitor 1
+              -- , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace
+              -- , ppVisible = xmobarColor "#98be65" "" . clickable              -- Visible but not current workspace
+              -- , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" "" . clickable -- Hidden workspaces
+              -- , ppHiddenNoWindows = xmobarColor "#c792ea" ""  . clickable     -- Hidden workspaces (no windows)
+              -- , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window
+              -- , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
+              -- , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
+              -- , ppExtras  = [windowCount]                                     -- # of windows current workspace
+              -- , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
+              -- }
         startupHook        = myStartupHook
-    }
+    } `additionalKeysP` myKeys
 
 -- }}}

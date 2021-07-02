@@ -10,7 +10,6 @@ lh http://127.0.0.1:8000/
 rb https://github.com/BrodieRobertson
 gm https://meet.google.com/?hs=193
 fa https://fontawesome.com/cheatsheet
-lm https://www.reddit.com/r/linuxmemes/
 ddg https://duckduckgo.com/
 dt https://gitlab.com/dwt1/dotfiles/-/tree/master/
 netacad https://www.netacad.com/portal/learning
@@ -21,3 +20,8 @@ ls https://github.com/lukesmithxyz
 dtdwm https://gitlab.com/dwt1/dwm-distrotube
 sk https://dwm.suckless.org/patches/
 gg https://learndigital.withgoogle.com/digitalunlocked/plan/in_progress
+id https://in.indeed.com/?r=us
+xmd https://xiangji.me/2018/11/19/my-xmonad-configuration/
+nd https://www.nordtheme.com/
+lmr https://www.reddit.com/r/linuxmasterrace/new/
+lm https://www.reddit.com/r/linuxmemes/new/

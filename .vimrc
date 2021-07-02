@@ -62,14 +62,14 @@ set clipboard+=unnamedplus	" Use System Clipboard
 set mouse=a			" Enable mouse usage (all modes)
 
 " Customize cursor line
-highlight CursorLine cterm=NONE ctermbg=DarkGrey 
+highlight CursorLine cterm=NONE ctermbg=Black 
 highlight CursorLineNr cterm=NONE ctermbg=Black ctermfg=White
 
 " Customize line number
 highlight LineNr ctermbg=Black ctermfg=DarkGrey
 
 " Customize folds
-highlight Folded ctermfg=White ctermbg=Cyan
+highlight Folded ctermfg=White ctermbg=Black
 
 "Vertically center documents when in insert mode
 autocmd InsertEnter * norm zz
@@ -100,8 +100,9 @@ map <leader>A :setlocal noautoindent<CR>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='murmur'
-"let g:airline_theme='minimalist'
+" let g:airline_theme='murmur'
+let g:airline_theme='minimalist'
+" let g:airline_theme='bubblegum'
 
 " }}}
 

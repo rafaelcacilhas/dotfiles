@@ -1,7 +1,7 @@
 configuration {
-	theme: "~/.config/rofi/themes/Red-square.rasi";
+	theme: "~/.config/rofi/themes/Nord.rasi";
 	font: "Sauce Code Pro Nerd Font 9";
-	modi: "drun,window";
+	modi: "drun,window,run";
 	combi-modi: "drun, window";
 	kb-mode-next: "Shift+Right";
 	kb-mode-previous: "Shift+Left";

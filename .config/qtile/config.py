@@ -176,8 +176,8 @@ colors = read_xresources("*")
 
 layout_default={
     "margin":10,
-    "border_normal":colors["*.color6"],
-    "border_focus":colors["*.cursorColor"],
+    "border_normal":colors["*.background"],
+    "border_focus":colors["*.foreground"],
     "border_width":2
         }
 layouts = [

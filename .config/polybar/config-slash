@@ -7,8 +7,9 @@
 ; COLORS {{{
 [colors]
 background = ${xrdb:background}
-foreground = ${xrdb:foreground}
-background-alt =  #e83269
+foreground = ${xrdb:background}
+foreground-alt = #A5ABB6
+background-alt = ${xrdb:cursorColor} 
 alert = ${xrdb:color1}
 red = ${xrdb:color1}
 green = ${xrdb:color2}
@@ -17,8 +18,6 @@ blue = ${xrdb:color4}
 magenta = ${xrdb:color5}
 cyan = ${xrdb:color6}
 
-highlight = ${xrdb:cursorColor}
-highlight-alt = #34dfcf
 ; }}}
 
 ; BASE BAR {{{
@@ -55,11 +54,11 @@ font-3 = Font Awesome 5 Free Brand:style=Regular:size=9;1
 font-4 ="Sauce Code Pro Nerd Font:size=10;2"
 font-5 = "Sauce Code Pro Nerd Font:size=13;3"
 
-modules-right = slash5 picom-toggle pulseaudio filesystem cpu memory date 
+modules-right = slash2 picom-toggle pulseaudio cpu memory date 
 
 tray-position = right
 tray-padding = 4
-tray-background = ${colors.highlight}
+tray-background = ${colors.background-alt}
 tray-maxsize = 16
 
 cursor-click = pointer
@@ -72,7 +71,7 @@ wm-restack = bspwm
 ; BSPWM-BAR {{{
 [bar/bspwm-bar]
 inherit = bar/base
-modules-left = bspwm slash1
+modules-left = bspwm xwindow slash1
 wm-restack = bspwm
 
 ; }}}
@@ -82,7 +81,7 @@ wm-restack = bspwm
 inherit = bar/base
 
 ;override-redirect = true
-modules-left = i3 slash1
+modules-left = i3 xwindow slash1
 wm-restack = i3
 
 ; }}}
@@ -91,7 +90,7 @@ wm-restack = i3
 [bar/herbs-bar]
 inherit = bar/base
 padding-left = 0
-modules-left = xworkspaces slash1 
+modules-left = xworkspaces xwindow slash1 
 
 ; }}}
 
@@ -99,7 +98,7 @@ modules-left = xworkspaces slash1
 [bar/xmonad-bar]
 inherit = bar/base
 padding-left = 0
-modules-left =
+modules-left = xmonad
 
 ; }}}
 
@@ -109,35 +108,14 @@ modules-left =
 type = custom/text
 content = "%{T6} %{T-}"
 content-font = 2
-content-foreground = ${colors.highlight}
+content-foreground = ${colors.background-alt}
 content-background = ${colors.background}
 
 [module/slash2]
 type = custom/text
-content = "%{T6} %{T-}"
-content-font = 2
-content-foreground = ${colors.cyan}
-content-background = ${colors.background}
-
-[module/slash3]
-type = custom/text
 content = "%{T6} %{T-}"
 content-font = 2
-content-foreground = ${colors.cyan}
-content-background = ${colors.background}
-
-[module/slash4]
-type = custom/text
-content = "%{T6} %{T-}"
-content-font = 2
-content-foreground = ${colors.cyan}
-content-background = ${colors.magenta}
-
-[module/slash5]
-type = custom/text
-content = "%{T6} %{T-}"
-content-font = 2
-content-foreground = ${colors.highlight}
+content-foreground = ${colors.background-alt}
 content-background = ${colors.background}
 
 
@@ -152,7 +130,7 @@ hook-1 = echo "%{T3}%{T-}"
 initial = 1
 click-left = /home/dilip/.config/polybar/scripts/poly-dunst.sh &
 format-padding = 2
-format-background = ${colors.cyan}
+format-background = ${colors.backlight-alt}
 
 ; }}}
 
@@ -165,7 +143,7 @@ hook-1 = echo ""
 initial = 1
 click-left = /home/dilip/.config/polybar/scripts/poly-picom.sh &
 format-padding = 2
-format-background = ${colors.highlight}
+format-background = ${colors.background-alt}
 
 ; }}}
 
@@ -178,7 +156,7 @@ hook-1 = echo ""
 initial = 1
 click-left = /home/dilip/.config/polybar/scripts/poly-xresources.sh &
 format-padding = 2
-format-background = ${colors.highlight}
+format-background = ${colors.background-alt}
 
 ; }}}
 
@@ -197,25 +175,26 @@ format = <label-state>
 label-monitor = %name%
 
 label-active = %name%
-label-active-foreground = ${colors.foreground}
+label-active-foreground = ${colors.background}
 label-active-background = ${colors.background-alt}
-label-active-underline= ${colors.foreground}
+label-active-underline= ${colors.background}
 label-active-padding = 2
 
 label-occupied = %name%
-label-occupied-underline= ${colors.foreground}
-label-occupied-background = ${colors.highlight}
+label-occupied-underline= ${colors.background-alt}
+label-occupied-background = ${colors.background-alt}
+label-occupied-foreground = ${colors.background}
 label-occupied-padding = 2
 
 label-urgent = %name%
 label-urgent-foreground = ${colors.foreground}
-label-urgent-background = ${colors.highlight}
+label-urgent-background = ${colors.background-alt}
 label-urgent-underline = ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = %name%
-label-empty-foreground = ${colors.foreground}
-label-empty-background = ${colors.highlight}
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-background = ${colors.background-alt}
 label-empty-padding = 2
 
 ; }}}
@@ -225,11 +204,11 @@ label-empty-padding = 2
 [module/xwindow]
 type = internal/xwindow
 format-prefix = 
-format-prefix-background = ${colors.highlight}
+format-prefix-background = ${colors.background-alt}
 format-prefix-padding = 2
-label =  %title:0:25:...%
+label =  %title:0:30:...%
 label-foreground = ${colors.foreground}
-label-background = ${colors.highlight}
+label-background = ${colors.background-alt}
 label-padding = 1
 ;label-margin = 1
 
@@ -241,6 +220,8 @@ label-padding = 1
 type = custom/scripts
 exec = xmonad-log
 tail = true
+format-foreground = ${colors.background}
+format-background = ${colors.background-alt}
 
 ; }}}
 
@@ -256,20 +237,20 @@ label-focused-underline= ${colors.foreground}
 label-focused-padding = 2
 
 label-occupied = %name%
-label-occupied-underline= ${colors.foreground}
+label-occupied-underline= ${colors.background-alt}
 label-occupied-padding = 2
-label-occupied-background = ${colors.highlight}
+label-occupied-background = ${colors.background-alt}
 label-occupied-foreground = ${colors.foreground}
 
 label-urgent =  %name%
 label-urgent-foreground = ${colors.foreground}
-label-urgent-background = ${colors.highlight}
+label-urgent-background = ${colors.background-alt}
 label-urgent-underline = ${colors.alert}
 label-urgent-padding = 2
 
 label-empty = %name%
-label-empty-foreground = ${colors.foreground}
-label-empty-background = ${colors.highlight}
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-background = ${colors.background-alt}
 label-empty-padding = 2
 
 ; Separator in between workspaces
@@ -297,10 +278,10 @@ label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-underline = ${colors.foreground} 
+label-unfocused-underline = ${colors.background-alt} 
 label-unfocused-padding = ${self.label-focused-padding}
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.highlight}
+label-unfocused-background = ${colors.background-alt}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
@@ -310,7 +291,7 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
-label-urgent-background = ${colors.highlight}
+label-urgent-background = ${colors.background-alt}
 label-urgent-foreground = ${colors.foreground}
 label-urgent-underline = ${colors.alert}
 label-urgent-padding = ${self.label-focused-padding}
@@ -343,7 +324,7 @@ spacing = 4
 
 format-mounted = <label-mounted>
 format-mounted-padding = 2
-format-mounted-background = ${colors.highlight}
+format-mounted-background = ${colors.background-alt}
 format-mounted-prefix = %{T3}%{T-}
 format-mounted-prefix-foreground = ${colors.foreground}
 label-mounted = "  %mountpoint% : %percentage_used%%"
@@ -360,10 +341,10 @@ port = 6600
 password =
 
 format-online = <icon-prev> <toggle> <icon-next> <icon-repeat> <label-song> <label-time>
-format-online-background = ${colors.highlight}
+format-online-background = ${colors.background-alt}
 format-online-padding = 2
 format-offline = <label-offline>
-format-offline-background = ${colors.highlight}
+format-offline-background = ${colors.background-alt}
 format-offline-prefix = 
 format-offline-prefix-foreground = ${colors.alert}
 format-offline-padding = 2
@@ -394,7 +375,7 @@ icon-stop = 
 icon-stop-margin = 1
 
 toggle-on-foreground = ${colors.foreground}
-toggle-off-foreground = ${colors.highlight-alt}
+toggle-off-foreground = ${colors.foreground-alt}
 
 click-right = ncmpcpp &
 
@@ -407,7 +388,7 @@ type = internal/cpu
 interval = 2
 format = <ramp-load> <label>
 format-padding = 2
-format-background = ${colors.highlight}
+format-background = ${colors.background-alt}
 
 ramp-load-0 = 
 ramp-load-0-foreground = ${colors.foreground}
@@ -445,7 +426,7 @@ type = internal/memory
 interval = 2
 format = <ramp-used> <label>
 format-padding = 2
-format-background = ${colors.highlight}
+format-background = ${colors.background-alt}
 
 ramp-used-0 = " "
 ramp-used-0-foreground = ${colors.foreground}
@@ -512,12 +493,12 @@ time = %a %H:%M
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground}
-format-prefix-background = ${colors.highlight}
+format-prefix-background = ${colors.background-alt}
 format-prefix-padding = 2
 
 label =  %date%, %time%
 label-foreground = ${colors.foreground}
-label-background = ${colors.highlight}
+label-background = ${colors.background-alt}
 label-padding = 1
 ;label-margin = 1
 
@@ -530,7 +511,7 @@ type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 2
-format-volume-background = ${colors.highlight}
+format-volume-background = ${colors.background-alt}
 label-volume = %percentage%% 
 label-volume-foreground = ${colors.foreground}
 label-volume-padding = 1
@@ -558,7 +539,7 @@ ramp-volume-9-foreground = ${colors.alert}
 
 label-muted =  
 label-muted-foreground = ${colors.alert}
-label-muted-background = ${colors.highlight}
+label-muted-background = ${colors.background-alt}
 label-muted-padding = 2
 
 click-right = pavucontrol &
@@ -574,7 +555,7 @@ warn-temperature = 60
 
 format = <ramp> <label>
 format-padding = 2
-format-background = ${colors.highlight}
+format-background = ${colors.background-alt}
 format-warn = <ramp> <label-warn>
 
 ramp-0 = 

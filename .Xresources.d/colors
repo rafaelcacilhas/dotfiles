@@ -2,24 +2,24 @@
 !! MY COLOR SCHEME
 ! special
 #define FOREGROUND 	#ffffff
-#define BACKGROUND	#182032
-#define HIGHLIGHT 	#f2024b
-#define COLOR0		#1b1918
-#define COLOR8		#766e6b
-#define COLOR1		#f22c40
-#define COLOR9		#f22c40
-#define COLOR2		#5ab738
-#define COLOR10		#5ab738
-#define COLOR3		#d5911a
-#define COLOR11		#d5911a
-#define COLOR4		#0f5ff9
-#define COLOR12		#0f5ff9
-#define COLOR5		#6666ea
-#define COLOR13		#6666ea
-#define COLOR6		#00ad9c
-#define COLOR14		#00ad9c
-#define COLOR7		#a8a19f
-#define COLOR15		#f1efee
+#define BACKGROUND	#2E3440
+#define HIGHLIGHT 	#D8DEE9
+#define COLOR0		#3B4252
+#define COLOR8		#3B4252
+#define COLOR1		#FF5555
+#define COLOR9		#FF6E67
+#define COLOR2		#50FA7B
+#define COLOR10		#5AF78E
+#define COLOR3		#F1FA8C
+#define COLOR11		#F4F99D
+#define COLOR4		#BD93F9
+#define COLOR12		#CAA9FA
+#define COLOR5		#FF79C6
+#define COLOR13		#FF92D0
+#define COLOR6		#8BE9FD
+#define COLOR14		#9AEDFE
+#define COLOR7		#BFBFBF
+#define COLOR15		#E6E6E6
 
 *.foreground:    FOREGROUND 	
 *.background:    BACKGROUND	
