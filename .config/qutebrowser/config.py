@@ -90,7 +90,7 @@ alt_foreground = "#888888"
 c.colors.webpage.bg = background
 
 if xresources["*.background"] != "#ffffff":
-    c.colors.webpage.darkmode.enabled = False
+    c.colors.webpage.darkmode.enabled = True
 
 # --- Context menu ---
 c.colors.contextmenu.menu.bg = background
@@ -104,7 +104,7 @@ c.colors.completion.odd.bg = background
 c.colors.completion.even.bg = background
 c.colors.completion.category.fg = background
 c.colors.completion.category.bg = foreground
-c.colors.completion.category.border.top = background
+c.colors.completion.category.border.top = foreground
 c.colors.completion.category.border.bottom = background
 c.colors.completion.item.selected.fg = background
 c.colors.completion.item.selected.bg = foreground
