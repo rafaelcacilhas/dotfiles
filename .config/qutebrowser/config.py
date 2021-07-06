@@ -57,6 +57,10 @@ c.tabs.favicons.show = 'never'    # valuse: always, never
 # --- Scrolling ---
 c.scrolling.smooth = False
 
+# --- Scrollbar ---
+c.completion.scrollbar.width = 12
+c.completion.scrollbar.padding = 4
+
 # --- Statusbar ---
 c.statusbar.padding = {"bottom":1, "left":1, "right":1, "top":1}
 
@@ -106,15 +110,14 @@ c.colors.completion.category.fg = background
 c.colors.completion.category.bg = foreground
 c.colors.completion.category.border.top = foreground
 c.colors.completion.category.border.bottom = background
-c.colors.completion.item.selected.fg = background
-c.colors.completion.item.selected.bg = foreground
+c.colors.completion.item.selected.fg = foreground
+c.colors.completion.item.selected.bg = alt_background
 c.colors.completion.item.selected.border.top = alt_background
 c.colors.completion.item.selected.border.bottom = alt_background
 c.colors.completion.item.selected.match.fg = background
 c.colors.completion.match.fg = foreground 
 c.colors.completion.scrollbar.fg = alt_background 
 c.colors.completion.scrollbar.bg = background 
-#c.colors.completion.scrollbar.width = '8'
 
 # --- Downloads ---
 c.colors.downloads.bar.bg = alt_background 
@@ -136,7 +139,7 @@ c.colors.prompts.fg = foreground
 
 # --- Statusbar ---
 c.colors.statusbar.normal.bg = background 
-c.colors.statusbar.insert.fg = background 
+c.colors.statusbar.insert.fg = foreground 
 c.colors.statusbar.insert.bg = alt_background 
 c.colors.statusbar.passthrough.bg = background 
 c.colors.statusbar.command.bg = alt_background 
