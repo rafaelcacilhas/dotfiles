@@ -32,10 +32,10 @@
 }
 #window {
     background-color: @background;
-    border:           0;
-    border-color:     @background;
+    border:           2;
+    border-color:     @foreground;
     border-radius:    0px;
-    padding:          0;
+    padding:          5;
 }
 #mainbox {
     border:  0;
