@@ -30,6 +30,9 @@ Plugin 'scrooloose/nerdtree'			" added nerdtree
 Plugin 'junegunn/goyo.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/vim-emoji'
 
 " Syntax highlighting
 Plugin 'vim-python/python-syntax'
@@ -338,6 +341,39 @@ let g:livepreview_previewer = 'zathura'
 let g:livepreview_engine = 'xelatex' 
 
 map <leader>lp :LLPStartPreview
+
+" }}}
+
+" FZF {{{
+
+" " This is the default option:
+" "   - Preview window on the right with 50% width
+" "   - CTRL-/ will toggle preview window.
+" " - Note that this array is passed as arguments to fzf#vim#with_preview function.
+" " - To learn more about preview window options, see `--preview-window` section of `man fzf`.
+" let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+" " Preview window on the upper side of the window with 40% height,
+" " hidden by default, ctrl-/ to toggle
+" let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+
+" " Empty value to disable preview window altogether
+" let g:fzf_preview_window = []
+
+ 
+nnoremap <A-g> :GFiles<CR>
+nnoremap <A-z> :Files<CR>
+
+command! -bang -nargs=? -complete=dir Files
+			\ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat {}']}, <bang>0)
+command! -bang -nargs=? -complete=dir GFiles
+			\ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', 'batcat {}']}, <bang>0)
+
+" }}}
+
+" EMOJI {{{
+
+set completefunc=emoji#complete
 
 " }}}
 

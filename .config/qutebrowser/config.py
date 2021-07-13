@@ -180,6 +180,7 @@ config.bind('ch', 'history-clear')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('D', 'tab-only')
+config.bind('ww', 'open -w')
 
 config.bind(';i', 'set downloads.location.directory ~/Pictures ;; hint links download')
 config.bind(';I', 'set downloads.location.directory ~/Pictures ;; hint images download')
