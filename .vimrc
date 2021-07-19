@@ -21,9 +21,9 @@ call vundle#begin('~/.vim/plugins')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vifm/vifm.vim'
+" Plugin 'vifm/vifm.vim'
 Plugin 'ryanoasis/vim-devicons'			" For icons
-Plugin 'francoiscabrol/ranger.vim'
+" Plugin 'francoiscabrol/ranger.vim'
 Plugin 'ap/vim-css-color'            		" Color previews for CSS
 Plugin 'tpope/vim-surround'    
 Plugin 'scrooloose/nerdtree'			" added nerdtree
@@ -32,10 +32,11 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/vim-emoji'
 Plugin 'mattn/emmet-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-eunuch'
+Plugin 'mhinz/vim-startify'
 
 " Syntax highlighting
 Plugin 'vim-python/python-syntax'
@@ -96,6 +97,15 @@ map <leader>C :setlocal formatoptions=cro<CR>
 "Eable and disbale auto indentation
 map <leader>a :setlocal autoindent<CR>
 map <leader>A :setlocal noautoindent<CR>
+
+" }}}
+
+" EMMET-VIM {{{
+
+let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_mode='a'    "enable all function in all mode.
+" let g:user_emmet_install_global = 0
+" autocmd FileType html,css EmmetInstall
 
 " }}}
 
@@ -369,12 +379,6 @@ command! -bang -nargs=? -complete=dir Files
 			\ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat {}']}, <bang>0)
 command! -bang -nargs=? -complete=dir GFiles
 			\ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', 'batcat {}']}, <bang>0)
-
-" }}}
-
-" EMOJI {{{
-
-set completefunc=emoji#complete
 
 " }}}
 
