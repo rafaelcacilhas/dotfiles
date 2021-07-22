@@ -55,15 +55,20 @@ filetype plugin indent on
 syntax enable
 set number relativenumber
 set wildmode=longest,list,full
+set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf
 set encoding=UTF-8
 set foldmethod=marker
 set foldmarker={{{,}}}
 set cursorline
 set showmatch			" Show matching brackets.
+set linebreak
 set ignorecase			" Do case insensitive matching
 set smartcase			" Do smart case matching
 set clipboard+=unnamedplus	" Use System Clipboard
 set mouse=a			" Enable mouse usage (all modes)
+set tabstop=4     
+set shiftwidth=4  
+set softtabstop=4 
 
 " Customize cursor line
 highlight CursorLine cterm=NONE ctermbg=Black 
@@ -97,6 +102,12 @@ map <leader>C :setlocal formatoptions=cro<CR>
 "Eable and disbale auto indentation
 map <leader>a :setlocal autoindent<CR>
 map <leader>A :setlocal noautoindent<CR>
+
+" }}}
+
+" STARTIFY {{{
+
+
 
 " }}}
 
@@ -350,7 +361,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 let g:livepreview_previewer = 'zathura'
 let g:livepreview_engine = 'xelatex' 
 
-map <leader>lp :LLPStartPreview
+map <leader>lp :LLPStartPreview<CR>
 
 " }}}
 
@@ -382,9 +393,11 @@ command! -bang -nargs=? -complete=dir GFiles
 
 " }}}
 
-" TABS AND SPLITS {{{
+" TABS, SPLITS AND BUFFERS {{{
 
-map <Insert> :TabVifm<CR>
+" MANAGING BUFFERS
+nnoremap <A-C> :bprevious<CR>
+nnoremap <A-c> :bnext<CR>
 
 " MANAGING TABS
 nnoremap <Tab> gt
