@@ -89,6 +89,9 @@ inoremap ;; <Esc>
 " Disabling Escape key
 " inoremap <Esc> <Nop>
 
+" Remap za to space
+" nnoremap <space> za
+
 " Map leader
 let mapleader = ";"
 
@@ -382,7 +385,8 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 let g:fzf_preview_window = []
 
  
-nnoremap <A-g> :GFiles<CR>
+nnoremap <leader>g :GFiles<CR>
+nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>e :History<CR>
 
