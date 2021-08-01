@@ -6,7 +6,7 @@
 -- IMPORTS {{{
 
 import Data.Monoid
-import qualified Data.Map        as M
+import qualified Data.Map as M
 import qualified DBus as D
 import qualified DBus.Client as D
 import qualified Codec.Binary.UTF8.String as UTF8
@@ -151,26 +151,12 @@ myKeys =
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
-    --
-    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-    --
-    -- [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-    --     | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-    --     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-
 -- }}}
 
 -- LAYOUTS {{{
 
---Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
 mySpacing i = spacingRaw False (Border i i i i) True (Border i i i i) True
-
--- Below is a variation of the above except no borders are applied
--- if fewer than two windows. So a single window has no gaps.
-mySpacing' :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
-mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
 tall     = renamed [Replace "tall"]
            $ windowNavigation
@@ -197,9 +183,9 @@ wideAccordion  = renamed [Replace "wideAccordion"]
 
 myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats
                $ myDefaultLayout
-             where
-               myDefaultLayout =     withBorder myBorderWidth tall
-	       			 ||| Mirror tall
+			where
+               myDefaultLayout = withBorder myBorderWidth tall
+								 ||| Mirror tall
                                  ||| floats
                                  ||| noBorders monocle
                                  ||| grid
@@ -292,19 +278,19 @@ defaults = defaultConfig {
         layoutHook         = myLayoutHook,
         manageHook         = myManageHook <+> manageDocks ,
         handleEventHook    = myEventHook,
-        logHook = dynamicLogWithPP (myLogHook dbus) -- $ xmobarPP
+        logHook = dynamicLogWithPP (myLogHook dbus) $ xmobarPP
               -- the following variables beginning with 'pp' are settings for xmobar.
-              -- { ppOutput = \x -> hPutStrLn xmproc x                          -- xmobar on monitor 1
-              -- , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace
-              -- , ppVisible = xmobarColor "#98be65" "" . clickable              -- Visible but not current workspace
-              -- , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" "" . clickable -- Hidden workspaces
-              -- , ppHiddenNoWindows = xmobarColor "#c792ea" ""  . clickable     -- Hidden workspaces (no windows)
-              -- , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window
-              -- , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
-              -- , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
-              -- , ppExtras  = [windowCount]                                     -- # of windows current workspace
-              -- , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
-              -- }
+              { ppOutput = \x -> hPutStrLn xmproc x                          -- xmobar on monitor 1
+              , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace
+              , ppVisible = xmobarColor "#98be65" "" . clickable              -- Visible but not current workspace
+              , ppHidden = xmobarColor "#82AAFF" "" . wrap "*" "" . clickable -- Hidden workspaces
+              , ppHiddenNoWindows = xmobarColor "#c792ea" ""  . clickable     -- Hidden workspaces (no windows)
+              , ppTitle = xmobarColor "#b3afc2" "" . shorten 60               -- Title of active window
+              , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
+              , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
+              , ppExtras  = [windowCount]                                     -- # of windows current workspace
+              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
+              }
         startupHook        = myStartupHook
     } `additionalKeysP` myKeys
 

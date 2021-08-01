@@ -217,7 +217,7 @@ label-padding = 1
 ; XMONAD {{{
 
 [module/xmonad]
-type = custom/scripts
+type = custom/script
 exec = xmonad-log
 tail = true
 format-foreground = ${colors.background}
