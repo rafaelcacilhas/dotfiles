@@ -10,6 +10,7 @@ runtime! debian.vim
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+source /home/dilip/.filetype.vimrc
 " }}}
 
 " PLUGINS {{{
@@ -69,6 +70,14 @@ set mouse=a			" Enable mouse usage (all modes)
 set tabstop=4     
 set shiftwidth=4  
 set softtabstop=4 
+set spelllang=en_us
+
+" Makes comments italic
+highlight Comment cterm=italic
+
+" Customize spell check highlighting
+highlight SpellBad ctermbg=Red ctermfg=White
+highlight SpellLocal cterm=underline ctermbg=NONE
 
 " Customize cursor line
 highlight CursorLine cterm=NONE ctermbg=Black 
@@ -95,14 +104,14 @@ inoremap ;; <Esc>
 " Map leader
 let mapleader = ";"
 
-" Enable and disable spell cheacker
+" Enable and disable spell checker
 map <silent> <leader>s :setlocal spell!<CR>
 
 "Enable and disable auto comment
 map <leader>c :setlocal formatoptions-=cro<CR>
 map <leader>C :setlocal formatoptions=cro<CR>
 
-"Eable and disbale auto indentation
+"Enable and disable auto indentation
 map <leader>a :setlocal autoindent<CR>
 map <leader>A :setlocal noautoindent<CR>
 
