@@ -202,10 +202,7 @@ widget_defaults = dict(
     fontsize=11,
     padding=4,
 )
-widget = dict(
-    fontsize=11,
-    padding=4,
-)
+
 extension_defaults = widget_defaults.copy()
 
 screens = [
@@ -220,37 +217,13 @@ screens = [
                     rounded = False,
                     background = colors["*.cursorColor"],
                     **widget_defaults),
-               widget.TextBox(
-                    font='Sauce Code Pro Nerd Font',
-                    text = '',
-                    background = colors["*.color6"],
-                    foreground = colors["*.cursorColor"],
-                    padding = 0,
-                    fontsize = 30
-                       ),
-               widget.TextBox(
-                    font='Sauce Code Pro Nerd Font',
-                    text = '',
-                    background = colors["*.background"],
-                    foreground = colors["*.color6"],
-                    padding = 0,
-                    fontsize = 30
-                       ),
-              # widget.WindowName(
-              #      background = colors["*.color6"],
-              #      foreground = colors["*.foreground"],
-              #       empty_group_string = '',
-              #       max_chars = 0,
-              #       **widget_defaults),
+              widget.WindowName(
+                   background = colors["*.color6"],
+                   foreground = colors["*.foreground"],
+                    empty_group_string = '',
+                    max_chars = 0,
+                    **widget_defaults),
                widget.Spacer(),
-               widget.TextBox(
-                    font='Sauce Code Pro Nerd Font',
-                       text = '',
-                       background = colors["*.background"],
-                       foreground = colors["*.color6"],
-                       padding = 0,
-                       fontsize = 30
-                       ),
                # widget.CurrentLayoutIcon(
                #         custom_icon_paths = [os.path.expanduser("~/.config/qtile/layout_icons")],
                #         foreground = colors["*.foreground"],
@@ -261,14 +234,6 @@ screens = [
                widget.CurrentLayout(
                    background = colors["*.color6"],
                     **widget_defaults),
-               widget.TextBox(
-                        font='Sauce Code Pro Nerd Font',
-                       text = '',
-                       background = colors["*.color6"],
-                       foreground = colors["*.cursorColor"],
-                       padding = 0,
-                       fontsize = 30
-                       ),
                widget.Clock(
                     background = colors["*.cursorColor"],
                     format='%d %b, %H:%M',
