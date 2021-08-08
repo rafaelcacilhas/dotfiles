@@ -8,10 +8,11 @@
 # AUTO START PROGRAMS {{{
 
 nitrogen --restore &
+./.config/polybar/launch.sh herbs-bar &
 urxvtd -q -o -f &
 dunst &
 nm-applet &
-# telegram-desktop -startintray &
+telegram-desktop -startintray &
 kdeconnect-indicator &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 picom --experimental-backends &
@@ -72,10 +73,6 @@ hc keybind $Mod-Control-k  chain , split top 0.5 , focus up
 hc keybind $Mod-Control-l  chain , split right 0.5 , focus right
 
 
-# flip layouts
-hc keybind $Mod-Control-Shift-h mirror horizontal
-hc keybind $Mod-Control-Shift-v mirror vertical
-
 # resizing frames and floating clients
 resizestep=0.05
 hc keybind $Mod-Mod1-h       resize left +$resizestep
@@ -108,12 +105,16 @@ hc keybind $Mod-comma  use_index -1 --skip-visible
 
 # LAYOUTING {{{
 
-hc keybind $Mod-Control-r remove
+# hc keybind $Mod-Control-r remove
 hc keybind $Mod-s floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-Shift-f set_attr clients.focus.floating toggle
 hc keybind $Mod-Shift-t pseudotile toggle
 hc keybind $Mod-Control-r chain , lock , rotate , unlock
+
+# flip layouts
+hc keybind $Mod-Control-Shift-h mirror horizontal
+hc keybind $Mod-Control-Shift-v mirror vertical
 
 # }}}
 
@@ -158,7 +159,6 @@ hc set frame_border_width 0
 hc set always_show_frame off
 hc set frame_bg_transparent on
 hc set frame_transparent_width 0
-hc set frame_gap 0
 
 hc attr theme.active.color '#FFFFFF'
 hc attr theme.normal.color '#2E3440'
@@ -212,11 +212,11 @@ hc unlock
 # hc detect_monitors
 
 # find the panel
-panel=~/.config/herbstluftwm/panel.sh
-[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(hc list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" "$monitor" &
-done
+# panel=~/.config/herbstluftwm/panel.sh
+# [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+# for monitor in $(hc list_monitors | cut -d: -f1) ; do
+#     # start it on each monitor
+#     "$panel" "$monitor" &
+# done
 
 # }}}
