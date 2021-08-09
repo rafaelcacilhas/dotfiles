@@ -58,15 +58,16 @@ set number relativenumber
 set wildmode=longest,list,full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf
 set encoding=UTF-8
+set foldenable
 set foldmethod=marker
 set foldmarker={{{,}}}
 set cursorline
-set showmatch			" Show matching brackets.
+set showmatch				" Show matching brackets.
 set linebreak
-set ignorecase			" Do case insensitive matching
-set smartcase			" Do smart case matching
+set ignorecase				" Do case insensitive matching
+set smartcase				" Do smart case matching
 set clipboard+=unnamedplus	" Use System Clipboard
-set mouse=a			" Enable mouse usage (all modes)
+set mouse=a					" Enable mouse usage (all modes)
 set tabstop=4     
 set shiftwidth=4  
 set softtabstop=4 
@@ -77,6 +78,8 @@ highlight Comment cterm=italic
 
 " Customize spell check highlighting
 highlight SpellBad ctermbg=Red ctermfg=White
+highlight SpellCap cterm=NONE ctermbg=NONE
+highlight SpellRare cterm=NONE ctermbg=NONE
 highlight SpellLocal cterm=underline ctermbg=NONE
 
 " Customize cursor line
@@ -119,7 +122,24 @@ map <leader>A :setlocal noautoindent<CR>
 
 " STARTIFY {{{
 
+let g:startify_files_number = 10
+let g:startify_session_autoload = 0
+let g:startify_session_dir = '~/.vim/session'
+let g:startify_custom_header =
+            \ startify#pad(split(system('figlet -f chunky technicaldc'), '\n'))
 
+let g:startify_lists = [
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks:']      },
+          \ { 'type': 'files',     'header': ['   Recents:']            },
+          \ { 'type': 'dir',       'header': ['   Current directory: '. getcwd()] },
+          \ { 'type': 'sessions',  'header': ['   Sessions:']       },
+          \ { 'type': 'commands',  'header': ['   Commands:']       },
+          \ ]
+
+let g:startify_bookmarks = [
+		\ { 'v': '~/.vimrc' },
+		\ { 'z': '~/.zshrc' },
+		\]
 
 " }}}
 
