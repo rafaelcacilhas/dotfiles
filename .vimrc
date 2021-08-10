@@ -20,12 +20,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/plugins')
 
 Plugin 'VundleVim/Vundle.vim'
+
+" Customization
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'vifm/vifm.vim'
 Plugin 'ryanoasis/vim-devicons'			" For icons
-" Plugin 'francoiscabrol/ranger.vim'
-Plugin 'ap/vim-css-color'            		" Color previews for CSS
+
+" Must have
 Plugin 'tpope/vim-surround'    
 Plugin 'scrooloose/nerdtree'			" added nerdtree
 Plugin 'junegunn/goyo.vim'
@@ -33,11 +34,14 @@ Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
-Plugin 'mattn/emmet-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-eunuch'
 Plugin 'mhinz/vim-startify'
+
+" Web Development
+Plugin 'ap/vim-css-color'            		" Color previews for CSS
+Plugin 'mattn/emmet-vim'
 
 " Syntax highlighting
 Plugin 'vim-python/python-syntax'
