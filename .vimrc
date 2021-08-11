@@ -40,8 +40,11 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'mhinz/vim-startify'
 
 " Web Development
-Plugin 'ap/vim-css-color'            		" Color previews for CSS
+Plugin 'ap/vim-css-color'            		
 Plugin 'mattn/emmet-vim'
+
+" Python Development
+Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Syntax highlighting
 Plugin 'vim-python/python-syntax'
@@ -99,6 +102,10 @@ highlight Folded ctermfg=White ctermbg=Black
 "Vertically center documents when in insert mode
 autocmd InsertEnter * norm zz
 
+" }}}
+
+" BASIC KEY BINDING {{{
+
 " Remapping escape key
 inoremap ;; <Esc>
 
@@ -110,6 +117,13 @@ inoremap ;; <Esc>
 
 " Map leader
 let mapleader = ";"
+
+" Guide navigation
+inoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
+noremap <leader><Tab> <Esc>/<++><Enter>"_c4l
+
+" General insert command
+inoremap ;g <++>
 
 " Enable and disable spell checker
 map <silent> <leader>s :setlocal spell!<CR>
@@ -141,6 +155,8 @@ let g:startify_lists = [
           \ ]
 
 let g:startify_bookmarks = [
+		\ { 'f': '~/.filetype.vimrc' },
+		\ { 'g': '~/githib_token.md' },
 		\ { 'v': '~/.vimrc' },
 		\ { 'z': '~/.zshrc' },
 		\]
@@ -446,6 +462,10 @@ nnoremap <silent> <A-.> :tabmove +<CR>
 
 " MANAGING SPLITS
 set splitbelow splitright
+
+" Open terminal in split
+nnoremap <leader>st :sp<space>\|<space>terminal<CR>
+nnoremap <leader>vt :vs<space>\|<space>terminal<CR>
 
 " Remap splits navigation to just ( Ctrl + hjkl)
 nnoremap <C-h> <C-w>h
