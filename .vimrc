@@ -138,6 +138,12 @@ map <leader>A :setlocal noautoindent<CR>
 
 " }}}
 
+" VIMWIKI {{{
+
+let g:vimwiki_list = [{'auto_diary_index': 1}]
+
+" }}}
+
 " STARTIFY {{{
 
 let g:startify_files_number = 10
