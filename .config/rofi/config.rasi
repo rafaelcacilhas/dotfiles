@@ -10,9 +10,9 @@ configuration {
 	width: 30;
 	columns: 1;
 	lines: 10;
-	fixed-num-lines: false;
-	location: 2;
-	yoffset: 30;
+	fixed-num-lines: true;
+	location: 0;
+	yoffset: 0;
 	sidebar-mode: false;
 	fullscreen: false;
 }
