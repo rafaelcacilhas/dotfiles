@@ -141,6 +141,7 @@ exec = uptime -p | cut -d' ' -f2,3
 format-prefix = 
 format-padding = 2
 format-prefix-padding = 2
+format-background = ${colors.background-alt}
 ; exec-if = pgrep -x myservice
 tail = true
 interval = 60

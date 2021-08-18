@@ -79,6 +79,7 @@ set tabstop=4
 set shiftwidth=4  
 set softtabstop=4 
 set spelllang=en_us
+set fillchars+=vert:\ 
 
 " Makes comments italic
 highlight Comment cterm=italic
@@ -100,7 +101,7 @@ highlight LineNr ctermbg=Black ctermfg=DarkGrey
 highlight Folded ctermfg=White ctermbg=Black
 
 "Vertically center documents when in insert mode
-autocmd InsertEnter * norm zz
+" autocmd InsertEnter * norm zz
 
 " }}}
 
@@ -144,6 +145,11 @@ let g:vimwiki_list = [{'auto_diary_index': 1}]
 
 " }}}
 
+" MARKDOWN {{{
+let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_toc_autofit = 1
+" }}}
+
 " STARTIFY {{{
 
 let g:startify_files_number = 10
@@ -164,6 +170,7 @@ let g:startify_bookmarks = [
 		\ { 'f': '~/.filetype.vimrc' },
 		\ { 'g': '~/githib_token.md' },
 		\ { 'v': '~/.vimrc' },
+		\ { 'w': '~/vimwiki/index.wiki' },
 		\ { 'z': '~/.zshrc' },
 		\]
 
