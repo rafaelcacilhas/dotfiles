@@ -117,7 +117,7 @@ format-background = ${colors.background}
 ; UPTIME {{{
 [module/uptime]
 type = custom/script
-exec = uptime -p | cut -d' ' -f2,3  
+exec = uptime -p | cut -d' ' -f2,3,4,5
 format-prefix = 
 format-padding = 2
 format-prefix-padding = 2
