@@ -5,10 +5,10 @@ configuration {
 	combi-modi: "drun, window";
 	kb-mode-next: "Shift+Right";
 	kb-mode-previous: "Shift+Left";
-	show-icons: false;
+	show-icons: true;
 	drun-display-format: "{name}";
 	width: 30;
-	columns: 1;
+	columns: 2;
 	lines: 10;
 	fixed-num-lines: true;
 	location: 0;
