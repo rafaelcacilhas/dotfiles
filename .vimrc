@@ -25,6 +25,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'			" For icons
+Plugin 'dracula/vim', { 'name': 'dracula' } 
 
 " Must have
 Plugin 'tpope/vim-surround'    
@@ -81,6 +82,13 @@ set softtabstop=4
 set spelllang=en_us
 set fillchars+=vert:\ 
 
+set guioptions-=L
+set guioptions-=T
+set guioptions-=m
+set guioptions-=r
+
+" colorscheme dracula
+
 " Makes comments italic
 highlight Comment cterm=italic
 
@@ -88,17 +96,17 @@ highlight Comment cterm=italic
 highlight SpellBad ctermbg=Red ctermfg=White
 highlight SpellCap cterm=NONE ctermbg=NONE
 highlight SpellRare cterm=NONE ctermbg=NONE
-highlight SpellLocal cterm=underline ctermbg=NONE
+highlight SpellLocal cterm=undercurl ctermbg=NONE
 
 " Customize cursor line
 highlight CursorLine cterm=NONE ctermbg=Black 
 highlight CursorLineNr cterm=NONE ctermbg=Black ctermfg=White
 
-" Customize line number
-highlight LineNr ctermbg=Black ctermfg=DarkGrey
+highlight LineNr ctermbg=Black
+highlight VertSplit ctermbg=Black
 
 " Customize folds
-highlight Folded ctermfg=White ctermbg=Black
+highlight Folded ctermfg=White ctermbg=Black cterm=bold
 
 "Vertically center documents when in insert mode
 " autocmd InsertEnter * norm zz
@@ -188,7 +196,7 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 " VIM AIRLINE THEME {{{
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 " let g:airline_theme='murmur'
 let g:airline_theme='minimalist'
 " let g:airline_theme='bubblegum'
