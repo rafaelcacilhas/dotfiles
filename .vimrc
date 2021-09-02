@@ -100,9 +100,9 @@ highlight SpellLocal cterm=undercurl ctermbg=NONE
 
 " Customize cursor line
 highlight CursorLine cterm=NONE ctermbg=Black 
-highlight CursorLineNr cterm=NONE ctermbg=Black ctermfg=White
+highlight CursorLineNr cterm=Bold ctermbg=Black ctermfg=Green
 
-highlight LineNr ctermbg=Black
+highlight LineNr ctermbg=Black ctermfg=White 
 highlight VertSplit ctermbg=Black
 
 " Customize folds
