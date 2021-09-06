@@ -32,7 +32,7 @@
 }
 #window {
     background-color: @background;
-    border:           0;
+    border:           1;
     border-color:     @foreground;
     border-radius:    0px;
     padding:          5;
@@ -60,7 +60,7 @@
 }
 #element {
     border:  0;
-    padding: 8px 20px;
+    padding: 5px;
 }
 #element.normal.normal {
     background-color: @normal-background;
@@ -131,12 +131,12 @@
 }
 #entry {
     spacing:    0;
-    padding: 10px 0px 0px 0px;
+    padding: 5px 0px 0px 0px;
     text-color: @normal-foreground;
 }
 #prompt {
     spacing:    0;
-    padding: 10px 5px 0px 20px;
+    padding: 5px 5px 0px 5px;
     text-color: @normal-foreground;
 }
 #inputbar {
@@ -144,7 +144,7 @@
 }
 #textbox-prompt-colon {
     expand:     false;
-    padding: 10px 0px 0px 0px;
+    padding: 5px 0px 0px 0px;
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
