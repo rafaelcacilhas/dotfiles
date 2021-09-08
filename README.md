@@ -15,7 +15,7 @@
 - Ranger
 - Rofi
 - Sxhkd
-- Sxiv ( with key handler)
+- Sxiv (with key handler)
 - Urxvt
 - Vim/Neovim
 - Xresources
