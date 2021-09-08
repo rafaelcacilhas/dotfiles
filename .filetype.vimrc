@@ -7,65 +7,65 @@ autocmd FileType python nnoremap <leader>r !python3 %p
 " MARKDOWN {{{
 
 " Headers
-autocmd filetype markdown inoremap ;1 #<space>
-autocmd filetype markdown inoremap ;2 ##<space>
-autocmd filetype markdown inoremap ;3 ###<space>
-autocmd filetype markdown inoremap ;4 ####<space>
-autocmd filetype markdown inoremap ;5 #####<space>
-autocmd filetype markdown inoremap ;6 ######<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;1 #<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;2 ##<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;3 ###<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;4 ####<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;5 #####<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;6 ######<space>
 
 " Text formatting
-autocmd filetype markdown inoremap ;b ****<Esc>hi
-autocmd filetype markdown inoremap ;i __<Esc>i
-autocmd filetype markdown inoremap ;s ~~~~<Esc>hi
+autocmd BufEnter,BufNewFile *.md inoremap ;b ****<Esc>hi
+autocmd BufEnter,BufNewFile *.md inoremap ;i __<Esc>i
+autocmd BufEnter,BufNewFile *.md inoremap ;s ~~~~<Esc>hi
 
 " Image and Link
-autocmd filetype markdown inoremap ;ig ![](){#fig:<Space>}<Esc>F]i
-autocmd filetype markdown inoremap ;l []()<Esc>F]i
+autocmd BufEnter,BufNewFile *.md inoremap ;ig ![](){#fig:<Space>}<Esc>F]i
+autocmd BufEnter,BufNewFile *.md inoremap ;l []()<Esc>F]i
 
 " List
-autocmd filetype markdown inoremap ;o 1.<space>
-autocmd filetype markdown inoremap ;u *<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;o 1.<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;u *<space>
 
 " Task
-autocmd filetype markdown inoremap ;t -<space>[<space>]<space>
+autocmd BufEnter,BufNewFile *.md inoremap ;t -<space>[<space>]<space>
 
 " Code block
-autocmd filetype markdown inoremap ;cb ```<Enter>```<esc>O
+autocmd BufEnter,BufNewFile *.md inoremap ;cb ```<Enter>```<esc>kA
 
 " }}}
 
 " VIMWIKI {{{
 
 " Headers
-autocmd filetype vimwiki inoremap ;1 =<space><space>=<esc>hi
-autocmd filetype vimwiki inoremap ;2 ==<space><space>==<esc>2hi
-autocmd filetype vimwiki inoremap ;3 ===<space><space>===<esc>3hi
-autocmd filetype vimwiki inoremap ;4 ====<space><space>====<esc>4hi
-autocmd filetype vimwiki inoremap ;5 =====<space><space>=====<esc>5hi
-autocmd filetype vimwiki inoremap ;6 ======<space><space>======<esc>6hi
+autocmd BufEnter,BufNewFile *.wiki inoremap ;1 =<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;2 ##<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;3 ###<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;4 ####<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;5 #####<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;6 ######<space>
 
 " Text formatting
-autocmd filetype vimwiki inoremap ;b **<Esc>i
-autocmd filetype vimwiki inoremap ;i __<Esc>i
+" autocmd BufEnter,BufNewFile *.wiki inoremap ;b **<Esc>i
+autocmd BufEnter,BufNewFile *.wiki inoremap ;i __<Esc>i
 
 " List
-autocmd filetype vimwiki inoremap ;no 1)<space>
-autocmd filetype vimwiki inoremap ;Ro I)<space>
-autocmd filetype vimwiki inoremap ;ro i)<space>
-autocmd filetype vimwiki inoremap ;Ao A)<space>
-autocmd filetype vimwiki inoremap ;ao a)<space>
-autocmd filetype vimwiki inoremap ;u *<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;no 1)<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;Ro I)<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;ro i)<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;Ao A)<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;ao a)<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;u *<space>
 
 " Image and Link
-autocmd filetype vimwiki inoremap ;ig ![](){#fig:<Space>}<Esc>F]i
-autocmd filetype vimwiki inoremap ;l [[]]<Esc>hi
+autocmd BufEnter,BufNewFile *.wiki inoremap ;ig ![](){#fig:<Space>}<Esc>F]i
+autocmd BufEnter,BufNewFile *.wiki inoremap ;l [[]]<Esc>hi
 
 " Task
-autocmd filetype vimwiki inoremap ;t -<space>[<space>]<space>
+autocmd BufEnter,BufNewFile *.wiki inoremap ;t -<space>[<space>]<space>
 
 " Code block
-autocmd filetype vimwiki inoremap ;cb {{{<Enter>}}}<esc>O
+autocmd BufEnter,BufNewFile *.wiki inoremap ;cb {{{<Enter>}}}<esc>kA
 
 " }}}
 
