@@ -15,7 +15,7 @@ set $alt Mod1
 
 #Needed for i3-gaps
 #hide_edge_borders both
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 gaps inner 10
 gaps outer 0
 
@@ -177,14 +177,15 @@ bindsym $mod+Mod1+n exec urxvt -e nvim
 set_from_resource $normal background
 set_from_resource $focus foreground
 set_from_resource $alert color1
+
 # }}}
 
 # WINDOW DECORARTION {{{
 
 #                       border  bg      text    indicator
 client.focused          $focus	$focus	$focus	$focus
-client.unfocused        $normal	$normal	$normal	$normal
-client.focused_inactive $bg	$bg	$bg	$bg
+client.unfocused        #888888	#888888	#888888	#888888
+client.focused_inactive $bg		$bg		$bg		$bg
 client.urgent           $alert	$alert	$alert	$alert
 
 # }}}
