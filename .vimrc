@@ -2,7 +2,7 @@
 " .--.--.|__|.--------.----.----.
 " |  |  ||  ||        |   _|  __|
 "  \___/ |__||__|__|__|__| |____|
-
+"
 " REQUIRED {{{ 
 
 runtime! debian.vim
@@ -81,7 +81,8 @@ set shiftwidth=4
 set softtabstop=4 
 set spelllang=en_us
 set fillchars+=vert:\ 
-
+set list
+set listchars=tab:\|\ 
 
 " Makes comments italic
 highlight Comment cterm=italic
@@ -96,11 +97,11 @@ highlight SpellLocal cterm=undercurl ctermbg=NONE
 highlight CursorLine cterm=NONE ctermbg=Black 
 highlight CursorLineNr cterm=Bold ctermbg=Black ctermfg=Green
 
-highlight LineNr ctermbg=NONE ctermfg=White 
+highlight LineNr ctermbg=NONE ctermfg=Magenta
 highlight VertSplit ctermbg=Black
 
 " Customize folds
-highlight Folded ctermfg=White ctermbg=Black cterm=bold
+highlight Folded ctermfg=White ctermbg=NONE cterm=bold
 
 "Vertically center documents when in insert mode
 " autocmd InsertEnter * norm zz
@@ -120,6 +121,9 @@ inoremap ;; <Esc>
 
 " Map leader
 let mapleader = ";"
+
+" Swap line with lower line
+map <leader>x ddp
 
 " Guide navigation
 inoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
