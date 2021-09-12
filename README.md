@@ -30,3 +30,5 @@
 ![Screenshots](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-08-26-211542_1366x768_scrot.png)
 
 ![Screenshots](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-08-25-232503_1366x768_scrot.png)
+
+![Screenshots](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-09-12-113855_1366x768_scrot.png)
