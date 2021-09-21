@@ -7,8 +7,6 @@
 
 import Data.Monoid
 import qualified Data.Map as M
-import qualified DBus as D
-import qualified DBus.Client as D
 import qualified Codec.Binary.UTF8.String as UTF8
 import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
 import qualified XMonad.StackSet as W
@@ -65,7 +63,6 @@ myFocusedBorderColor = "#FFFFFF"
 
 myKeys :: [(String, X ())]
 myKeys =
-
     -- APPLICATIONS BINDINGS:
     -- launch a terminal
     [ ("M-<Return>", spawn $ XMonad.terminal conf)
@@ -91,7 +88,7 @@ myKeys =
     -- close focused window
     , ("M-q", kill)
 
-     -- Rotate through the available layout algorithms
+    -- Rotate through the available layout algorithms
     , ("M-<xK_Tab>", sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
@@ -149,7 +146,6 @@ myKeys =
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    ++
 
 -- }}}
 
@@ -182,15 +178,14 @@ wideAccordion  = renamed [Replace "wideAccordion"]
            $ Mirror Accordion
 
 myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats
-               $ myDefaultLayout
-			where
+               $ myDefaultLayout where
                myDefaultLayout = withBorder myBorderWidth tall
-								 ||| Mirror tall
-                                 ||| floats
-                                 ||| noBorders monocle
-                                 ||| grid
-                                 ||| tallAccordion
-                                 ||| wideAccordion
+			   ||| Mirror tall
+			   ||| floats
+			   ||| noBorders monocle
+			   ||| grid
+			   ||| tallAccordion
+			   ||| wideAccordion
 
 -- }}}
 
@@ -212,31 +207,7 @@ myEventHook = mempty
 
 -- STATUS BARS AND LOGGING {{{
 
--- Override the PP values as you would otherwise, adding colors etc depending
--- on  the statusbar used
-myLogHook :: D.Client -> PP
-myLogHook dbus = def
-    { ppOutput = dbusOutput dbus
-    , ppCurrent = wrap ("%{B" ++ bg2 ++ "} ") " %{B-}"
-    , ppVisible = wrap ("%{B" ++ bg1 ++ "} ") " %{B-}"
-    , ppUrgent = wrap ("%{F" ++ red ++ "} ") " %{F-}"
-    , ppHidden = wrap " " " "
-    , ppWsSep = ""
-    , ppSep = " : "
-    , ppTitle = shorten 40
-    }
-
--- Emit a DBus signal on log updates
-dbusOutput :: D.Client -> String -> IO ()
-dbusOutput dbus str = do
-    let signal = (D.signal objectPath interfaceName memberName) {
-            D.signalBody = [D.toVariant $ UTF8.decodeString str]
-        }
-    D.emit dbus signal
-  where
-    objectPath = D.objectPath_ "/org/xmonad/Log"
-    interfaceName = D.interfaceName_ "org.xmonad.Log"
-    memberName = D.memberName_ "Update"
+-- myLogHook dbus = 
 
 -- }}}
 
@@ -247,22 +218,18 @@ myStartupHook = do
     spawnOnce "picom --experimental-backends &"
     spawnOnce "nm-applet &"
     spawnOnce "volumeicon &"
-    spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
-    spawnOnce "urxvtd -q -o -f &"      -- urxvt daemon for better performance
-    spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
+    -- spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
+    spawnOnce "urxvtd -q -o -f &"     
+    spawnOnce "nitrogen --restore &" 
 
 -- }}}
 
 -- OTHERS {{{
 
+main :: IO ()
 main = do
-	dbus <- D.connectSession
-    -- Request access to the DBus name
-    D.requestName dbus (D.busName_ "org.xmonad.Log")
-        [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
-
-	xmproc <- spawnPipe "xmobar -x 0 /home/dilip/.xmonad/xmobarrc"
 	xmonad $ docks defaults
+	xmproc <- spawnPipe "xmobar -x 0 /home/dilip/.xmonad/xmobarrc"
 
 defaults = defaultConfig {
       -- simple stuff
@@ -278,7 +245,7 @@ defaults = defaultConfig {
         layoutHook         = myLayoutHook,
         manageHook         = myManageHook <+> manageDocks ,
         handleEventHook    = myEventHook,
-        logHook = dynamicLogWithPP (myLogHook dbus) $ xmobarPP
+        logHook			   = dynamicLogWithPP $ xmobarPP
               -- the following variables beginning with 'pp' are settings for xmobar.
               { ppOutput = \x -> hPutStrLn xmproc x                          -- xmobar on monitor 1
               , ppCurrent = xmobarColor "#98be65" "" . wrap "[" "]"           -- Current workspace
@@ -290,7 +257,7 @@ defaults = defaultConfig {
               , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
               , ppExtras  = [windowCount]                                     -- # of windows current workspace
               , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
-              }
+              },
         startupHook        = myStartupHook
     } `additionalKeysP` myKeys
 

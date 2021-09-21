@@ -7,9 +7,9 @@ configuration {
 	kb-mode-previous: "Shift+Left";
 	show-icons: true;
 	drun-display-format: "{name}";
-	width: 30;
+	width: 40;
 	columns: 2;
-	lines: 10;
+	lines: 15;
 	fixed-num-lines: true;
 	location: 0;
 	yoffset: 0;

@@ -1,8 +1,8 @@
-#         __   __ __        
+#         __   __ __
 # .-----.|  |_|__|  |.-----.
 # |  _  ||   _|  |  ||  -__|
 # |__   ||____|__|__||_____|
-#    |__| 
+#    |__|
 
 # IMPORTS {{{
 
@@ -21,7 +21,7 @@ import subprocess
 mod = "mod4"
 terminal = "urxvt"
 
-keys = [    
+keys = [
     # Launch applications:
     Key([mod], "d",
         lazy.spawn("rofi -show drun"),
@@ -32,8 +32,8 @@ keys = [
     Key([mod], "w",
         lazy.spwan("rofi -show window"),
         desc="Show opened windows"),
-    Key([mod], "Return", 
-        lazy.spawn(terminal), 
+    Key([mod], "Return",
+        lazy.spawn(terminal),
         desc="Launch terminal"),
     Key([mod], "e",
         lazy.spawn("./.config/rofi/scripts/rofi-configmenu.sh"),
@@ -57,35 +57,35 @@ keys = [
 
 
     # Switch between windows
-    Key([mod], "h", 
-        lazy.layout.left(), 
+    Key([mod], "h",
+        lazy.layout.left(),
         desc="Move focus to left"),
-    Key([mod], "l", 
-        lazy.layout.right(), 
+    Key([mod], "l",
+        lazy.layout.right(),
         desc="Move focus to right"),
-    Key([mod], "j", 
-        lazy.layout.down(), 
+    Key([mod], "j",
+        lazy.layout.down(),
         desc="Move focus down"),
-    Key([mod], "k", 
-        lazy.layout.up(), 
+    Key([mod], "k",
+        lazy.layout.up(),
         desc="Move focus up"),
-    Key([mod], "space", 
+    Key([mod], "space",
         lazy.layout.next(),
         desc="Move window focus to other window"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", 
+    Key([mod, "shift"], "h",
         lazy.layout.shuffle_left(),
         desc="Move window to the left"),
-    Key([mod, "shift"], "l", 
+    Key([mod, "shift"], "l",
         lazy.layout.shuffle_right(),
         desc="Move window to the right"),
-    Key([mod, "shift"], "j", 
+    Key([mod, "shift"], "j",
         lazy.layout.shuffle_down(),
         desc="Move window down"),
-    Key([mod, "shift"], "k", 
-        lazy.layout.shuffle_up(), 
+    Key([mod, "shift"], "k",
+        lazy.layout.shuffle_up(),
         desc="Move window up"),
 
     # Grow windows. If current window is on the edge of screen and direction
@@ -114,17 +114,17 @@ keys = [
         ),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", 
-        lazy.next_layout(), 
+    Key([mod], "Tab",
+        lazy.next_layout(),
         desc="Toggle between layouts"),
-    Key([mod], "q", 
-        lazy.window.kill(), 
+    Key([mod], "q",
+        lazy.window.kill(),
         desc="Kill focused window"),
 
-    Key([mod, "shift"], "r", 
-        lazy.restart(), 
+    Key([mod, "shift"], "r",
+        lazy.restart(),
         desc="Restart Qtile"),
-    Key([mod, "shift"], "q", 
+    Key([mod, "shift"], "q",
         lazy.shutdown(),
         desc="Exit qtile")
     ]
@@ -200,7 +200,7 @@ layouts = [
 widget_defaults = dict(
     font='Open Sans Condensed Bold',
     fontsize=11,
-    padding=4,
+    padding=3,
 )
 
 extension_defaults = widget_defaults.copy()
@@ -211,62 +211,55 @@ screens = [
             [
                widget.GroupBox(
                     active = colors["*.foreground"],
-                    inactive="#dddddd",
-                    highlight_color = ["#e83269","#e83269"],
+                    inactive="#A5ABB6",
+                    highlight_color = ["#D8DEE9","#D8DEE9"],
                     highlight_method = "line",
                     rounded = False,
-                    background = colors["*.cursorColor"],
+                    background = colors["*.background"],
                     **widget_defaults),
               widget.WindowName(
-                   background = colors["*.color6"],
+                   background = colors["*.background"],
                    foreground = colors["*.foreground"],
                     empty_group_string = '',
                     max_chars = 0,
                     **widget_defaults),
                widget.Spacer(),
-               # widget.CurrentLayoutIcon(
-               #         custom_icon_paths = [os.path.expanduser("~/.config/qtile/layout_icons")],
-               #         foreground = colors["*.foreground"],
-               #         background = colors["*.color6"],
-               #         padding = 0,
-               #         scale = 0.7
-               #         ),
                widget.CurrentLayout(
-                   background = colors["*.color6"],
+                   background = colors["*.background"],
                     **widget_defaults),
                widget.Clock(
-                    background = colors["*.cursorColor"],
+                    background = colors["*.background"],
                     format='%d %b, %H:%M',
                     **widget_defaults),
                widget.Systray(
-                    background = colors["*.cursorColor"]),
+                    background = colors["*.background"]),
                widget.Sep(
-                    background = colors["*.cursorColor"],
+                    background = colors["*.background"],
                     linewidth=0,
                     padding=10,
                     ),
                widget.QuickExit(
                     # font='Sauce Code Pro Nerd Font',
-                    background = colors["*.cursorColor"],
-                    default_text="   ",
-                    countdown_format = '  {}s ',
+                    background = colors["*.background"],
+                    default_text="LOGOUT",
+                    countdown_format = 'LOGOUT {}s ',
                     **widget_defaults
                     ),
                widget.Sep(
-                    background = colors["*.cursorColor"],
+                    background = colors["*.background"],
                     linewidth=0,
                     padding=10,
                     ),
             ],
             22,
-            opacity=0.8,
-            background=colors["*.background"],
+            opacity=0.9,
+            background=colors["#000000"],
         ),
     ),
 ]
 
 # }}}
- 
+
 # FLOATING {{{
 
 # Drag floating layouts.

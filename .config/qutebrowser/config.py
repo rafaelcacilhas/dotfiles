@@ -1,7 +1,7 @@
-#  _______         __          __                                         
+#  _______         __          __
 # |       |.--.--.|  |_.-----.|  |--.----.-----.--.--.--.-----.-----.----.
 # |   -  _||  |  ||   _|  -__||  _  |   _|  _  |  |  |  |__ --|  -__|   _|
-# |_______||_____||____|_____||_____|__| |_____|________|_____|_____|__|  
+# |_______||_____||____|_____||_____|__| |_____|________|_____|_____|__|
 
 
 import os
@@ -16,7 +16,7 @@ c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'r': 'restar
 c.downloads.location.directory = '/home/dilip/Downloads'
 c.url.searchengines = {
         'DEFAULT': 'https://duckduckgo.com/?q={}',
-        'wk':'https://en.wikipedia.org/wiki/{}', 
+        'wk':'https://en.wikipedia.org/wiki/{}',
         'yt': 'https://www.youtube.com/results?search_query={}',
         'amz':'https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={}'
 }
@@ -27,8 +27,11 @@ c.content.javascript.enabled = True
 
 # Valid values:
 #   - all: Accept all cookies.
-#   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
-#   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
+#   - no-3rdparty: Accept cookies from the same origin only. This is known to
+#   break some sites, such as GMail.
+#   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a
+#   cookie is already set for the domain. On QtWebEngine, this is the same as
+#   no-3rdparty.
 #   - never: Don't accept cookies at all.
 c.content.cookies.accept = 'all'
 c.content.headers.user_agent = 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}'
@@ -68,7 +71,7 @@ c.statusbar.padding = {"bottom":1, "left":1, "right":1, "top":1}
 # UI COLROS CONFIGURATION #
 ###########################
 
-# ====================== xresources ======================= 
+# ====================== xresources =======================
 # taken from https://qutebrowser.org/doc/help/configuring.html
 def read_xresources(prefix):
     """
@@ -103,7 +106,7 @@ c.colors.contextmenu.selected.bg = foreground
 c.colors.contextmenu.selected.fg = background
 
 # --- Completions ---
-c.colors.completion.fg = alt_foreground  
+c.colors.completion.fg = alt_foreground
 c.colors.completion.odd.bg = background
 c.colors.completion.even.bg = background
 c.colors.completion.category.fg = background
@@ -115,12 +118,12 @@ c.colors.completion.item.selected.bg = alt_background
 c.colors.completion.item.selected.border.top = alt_background
 c.colors.completion.item.selected.border.bottom = alt_background
 c.colors.completion.item.selected.match.fg = background
-c.colors.completion.match.fg = foreground 
-c.colors.completion.scrollbar.fg = alt_background 
-c.colors.completion.scrollbar.bg = background 
+c.colors.completion.match.fg = foreground
+c.colors.completion.scrollbar.fg = alt_background
+c.colors.completion.scrollbar.bg = background
 
 # --- Downloads ---
-c.colors.downloads.bar.bg = alt_background 
+c.colors.downloads.bar.bg = alt_background
 c.colors.downloads.error.bg = error
 
 # --- Hints ---
@@ -129,8 +132,8 @@ c.colors.hints.fg = alt_background
 c.colors.hints.match.fg = foreground
 
 # --- Messages ---
-c.colors.messages.info.bg = alt_background 
-c.colors.messages.error.bg = error 
+c.colors.messages.info.bg = alt_background
+c.colors.messages.error.bg = error
 
 # --- Prompts ---
 c.colors.prompts.bg = alt_background
@@ -138,20 +141,20 @@ c.colors.prompts.selected.bg = foreground
 c.colors.prompts.fg = foreground
 
 # --- Statusbar ---
-c.colors.statusbar.normal.bg = background 
-c.colors.statusbar.insert.fg = foreground 
-c.colors.statusbar.insert.bg = alt_background 
-c.colors.statusbar.passthrough.bg = background 
-c.colors.statusbar.command.bg = alt_background 
-c.colors.statusbar.command.fg = foreground 
+c.colors.statusbar.normal.bg = background
+c.colors.statusbar.insert.fg = foreground
+c.colors.statusbar.insert.bg = alt_background
+c.colors.statusbar.passthrough.bg = background
+c.colors.statusbar.command.bg = alt_background
+c.colors.statusbar.command.fg = foreground
 c.colors.statusbar.url.warn.fg = 'yellow'
 
 # --- Tabs ---
-c.colors.tabs.bar.bg = background 
-c.colors.tabs.odd.bg = background 
-c.colors.tabs.even.bg = background 
-c.colors.tabs.selected.odd.bg = alt_background 
-c.colors.tabs.selected.even.bg = alt_background 
+c.colors.tabs.bar.bg = background
+c.colors.tabs.odd.bg = background
+c.colors.tabs.even.bg = background
+c.colors.tabs.selected.odd.bg = alt_background
+c.colors.tabs.selected.even.bg = alt_background
 c.colors.tabs.pinned.odd.bg = background
 c.colors.tabs.pinned.even.bg = background
 c.colors.tabs.pinned.selected.odd.bg = alt_background

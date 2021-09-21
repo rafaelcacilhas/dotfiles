@@ -5,6 +5,7 @@ alias config='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 # Simple aliases
 
 alias q='exit'
+alias :q='exit'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
