@@ -23,14 +23,14 @@
 
 # Screenshots:
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/01.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/screenshots/01.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/02.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/screenshots/02.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/03.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/screenshots/03.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/04.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/screenshots/04.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/05.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/screenshots/05.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/06.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/screenshots/06.png)
