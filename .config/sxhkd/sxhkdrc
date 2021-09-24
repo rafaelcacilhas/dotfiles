@@ -85,6 +85,9 @@ super + y
 super + shift + s
 	bspc node -s biggest.window.local
 
+super + {_,shift +}z
+	bspc config window_gap {10,20}
+
 # }}}
 
 # STATE / FLAGS {{{

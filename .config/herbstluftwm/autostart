@@ -55,6 +55,9 @@ hc keybind $Mod-Mod1-q spawn ./.config/rofi/scripts/rofi-quickmarks.sh
 hc keybind $Mod-Mod1-r spawn urxvt -e ranger
 hc keybind $Mod-Mod1-n spawn urxvt -e nvim
 
+hc keybind $Mod-z set window_gap 10
+hc keybind $Mod-Shift-z set window_gap 20
+
 hc keybind $Mod-h     focus left
 hc keybind $Mod-j     focus down
 hc keybind $Mod-k     focus up
