@@ -23,16 +23,14 @@
 
 # Screenshots:
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-09-20-232054_1366x768_scrot.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/01.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-09-20-232149_1366x768_scrot.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/02.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-09-20-233741_1366x768_scrot.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/03.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-09-20-231511_1366x768_scrot.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/04.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-09-20-232209_1366x768_scrot.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/05.png)
 
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-09-20-232000_1366x768_scrot.png)
-
-![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/2021-09-20-231620_1366x768_scrot.png)
+![screenshot](https://github.com/TechnicalDC/dotfiles/blob/main/Screenshots/06.png)
