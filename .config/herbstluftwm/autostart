@@ -7,15 +7,16 @@
 
 # AUTO START PROGRAMS {{{
 
-nitrogen --restore &
-./.config/polybar/launch.sh herbs-bar &
-urxvtd -q -o -f &
-dunst &
-nm-applet &
-telegram-desktop -startintray &
-kdeconnect-indicator &
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-picom --experimental-backends &
+bash /home/dilip/.scripts/autostart.sh
+# nitrogen --restore &
+# ./.config/polybar/launch.sh herbs-bar &
+# urxvtd -q -o -f &
+# dunst &
+# nm-applet &
+# telegram-desktop -startintray &
+# kdeconnect-indicator &
+# /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+# picom --experimental-backends &
 
 # }}}
 

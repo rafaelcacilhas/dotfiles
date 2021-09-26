@@ -89,8 +89,9 @@ xresources = read_xresources("*")
 
 background = xresources["*.background"]
 foreground = xresources["*.foreground"]
+header = xresources["*.cursorColor"]
 error = xresources["*.color1"]
-alt_background = "#5F6773"
+alt_background = xresources["*.color5"]
 alt_foreground = "#888888"
 
 # --- Webpages ---
@@ -106,14 +107,14 @@ c.colors.contextmenu.selected.bg = foreground
 c.colors.contextmenu.selected.fg = background
 
 # --- Completions ---
-c.colors.completion.fg = alt_foreground
+c.colors.completion.fg = foreground
 c.colors.completion.odd.bg = background
 c.colors.completion.even.bg = background
 c.colors.completion.category.fg = background
-c.colors.completion.category.bg = foreground
-c.colors.completion.category.border.top = foreground
+c.colors.completion.category.bg = header
+c.colors.completion.category.border.top = header
 c.colors.completion.category.border.bottom = background
-c.colors.completion.item.selected.fg = foreground
+c.colors.completion.item.selected.fg = background
 c.colors.completion.item.selected.bg = alt_background
 c.colors.completion.item.selected.border.top = alt_background
 c.colors.completion.item.selected.border.bottom = alt_background
@@ -136,17 +137,17 @@ c.colors.messages.info.bg = alt_background
 c.colors.messages.error.bg = error
 
 # --- Prompts ---
-c.colors.prompts.bg = alt_background
-c.colors.prompts.selected.bg = foreground
+c.colors.prompts.bg = background
+c.colors.prompts.selected.bg = alt_background
 c.colors.prompts.fg = foreground
 
 # --- Statusbar ---
 c.colors.statusbar.normal.bg = background
-c.colors.statusbar.insert.fg = foreground
-c.colors.statusbar.insert.bg = alt_background
+c.colors.statusbar.insert.fg = background
+c.colors.statusbar.insert.bg = header
 c.colors.statusbar.passthrough.bg = background
 c.colors.statusbar.command.bg = alt_background
-c.colors.statusbar.command.fg = foreground
+c.colors.statusbar.command.fg = background
 c.colors.statusbar.url.warn.fg = 'yellow'
 
 # --- Tabs ---
@@ -154,7 +155,9 @@ c.colors.tabs.bar.bg = background
 c.colors.tabs.odd.bg = background
 c.colors.tabs.even.bg = background
 c.colors.tabs.selected.odd.bg = alt_background
+c.colors.tabs.selected.odd.fg = background
 c.colors.tabs.selected.even.bg = alt_background
+c.colors.tabs.selected.even.fg = background
 c.colors.tabs.pinned.odd.bg = background
 c.colors.tabs.pinned.even.bg = background
 c.colors.tabs.pinned.selected.odd.bg = alt_background
@@ -165,13 +168,13 @@ c.colors.tabs.pinned.selected.even.bg = alt_background
 # FONT SETTING #
 ################
 
-c.fonts.default_family = '11px "SauceCodePro Nerd Font"'
+c.fonts.default_family = '11px "Roboto"'
 c.fonts.default_size = '11px'
-c.fonts.contextmenu = '11px "SauceCodePro Nerd Font"'
-c.fonts.completion.entry = '11px "SauceCodePro Nerd Font"'    # Font used in the completion widget.
-c.fonts.debug_console = '11px "SauceCodePro Nerd Font"'       # Font used for the debugging console.
-c.fonts.prompts = 'default_size SauceCodePro Nerd Font'       # Font used for prompts.
-c.fonts.statusbar = '11px "SauceCodePro Nerd Font"'           # Font used in the statusbar.
+c.fonts.contextmenu = '11px "Roboto"'
+c.fonts.completion.entry = '11px "Roboto"'    # Font used in the completion widget.
+c.fonts.debug_console = '11px "Roboto"'       # Font used for the debugging console.
+c.fonts.prompts = 'default_size Roboto'       # Font used for prompts.
+c.fonts.statusbar = '11px "Roboto"'           # Font used in the statusbar.
 
 
 ################################

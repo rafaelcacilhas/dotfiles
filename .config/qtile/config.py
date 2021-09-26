@@ -1,4 +1,4 @@
-#         __   __ __
+         __   __ __
 # .-----.|  |_|__|  |.-----.
 # |  _  ||   _|  |  ||  -__|
 # |__   ||____|__|__||_____|
@@ -308,7 +308,7 @@ focus_on_window_activation = "smart"
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    home = os.path.expanduser('~/.scripts/autostart.sh')
     subprocess.call([home])
 
 # }}}

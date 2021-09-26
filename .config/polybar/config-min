@@ -7,8 +7,8 @@
 ; COLORS {{{
 [colors]
 background = ${xrdb:background}
-foreground = ${xrdb:foreground}
-foreground-alt = #A5ABB6
+foreground = ${xrdb:cursorColor}
+foreground-alt = #FF79C6
 alert = ${xrdb:color1}
 red = ${xrdb:color1}
 green = ${xrdb:color2}
@@ -53,7 +53,7 @@ font-3 = Font Awesome 5 Free Brand:style=Regular:size=9;1
 font-4 ="Sauce Code Pro Nerd Font:size=10;2"
 font-5 = "Sauce Code Pro Nerd Font:size=13;3"
 
-modules-right = picom-toggle uptime pulseaudio date 
+modules-right = picom-toggle uptime pulseaudio cpu memory date 
 
 tray-position = right
 tray-padding = 4

@@ -1,5 +1,5 @@
 configuration {
-	theme: "~/.config/rofi/themes/Nord.rasi";
+	theme: "~/.config/rofi/themes/Dracula.rasi";
 	font: "Sauce Code Pro Nerd Font 9";
 	modi: "drun,window,run";
 	combi-modi: "drun, window";
@@ -7,12 +7,12 @@ configuration {
 	kb-mode-previous: "Shift+Left";
 	show-icons: true;
 	drun-display-format: "{name}";
-	width: 40;
-	columns: 2;
+	width: 35;
+	columns: 1;
 	lines: 15;
-	fixed-num-lines: true;
-	location: 0;
-	yoffset: 0;
+	fixed-num-lines: false;
+	location: 2;
+	yoffset: 35;
 	sidebar-mode: false;
 	fullscreen: false;
 }

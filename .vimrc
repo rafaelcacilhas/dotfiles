@@ -40,8 +40,10 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-eunuch'
 Plugin 'mhinz/vim-startify'
 
+Plugin 'komissarex/vim-progress'
+
 " Web Development
-Plugin 'ap/vim-css-color'            		
+Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
 
 " Python Development
@@ -69,7 +71,7 @@ set encoding=UTF-8
 set foldenable
 set foldmethod=marker
 set foldmarker={{{,}}}
-set cursorline
+set nocursorline
 set showmatch				" Show matching brackets.
 set linebreak
 set ignorecase				" Do case insensitive matching
@@ -84,6 +86,12 @@ set fillchars+=vert:\
 set list
 set listchars=tab:\|\ 
 
+colorscheme dracula
+hi Normal ctermbg=NONE
+
+" Highlight Whitespaces
+highlight Whitespace ctermfg=Grey
+
 " Makes comments italic
 highlight Comment cterm=italic
 
@@ -94,11 +102,11 @@ highlight SpellRare cterm=NONE ctermbg=NONE
 highlight SpellLocal cterm=undercurl ctermbg=NONE
 
 " Customize cursor line
-highlight CursorLine cterm=NONE ctermbg=Black 
-highlight CursorLineNr cterm=Bold ctermbg=Black ctermfg=White
+" highlight CursorLine cterm=NONE ctermbg=Black 
+" highlight CursorLineNr cterm=Bold ctermbg=Black ctermfg=White
 
-highlight LineNr ctermbg=NONE ctermfg=White
-highlight VertSplit ctermbg=Black
+" highlight LineNr ctermbg=NONE ctermfg=White
+highlight VertSplit ctermbg=Magenta
 
 " Customize folds
 highlight Folded ctermfg=White ctermbg=NONE cterm=bold
@@ -196,8 +204,8 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 0
 " let g:airline_theme='murmur'
-let g:airline_theme='minimalist'
-" let g:airline_theme='bubblegum'
+" let g:airline_theme='minimalist'
+let g:airline_theme='dracula'
 
 " }}}
 
