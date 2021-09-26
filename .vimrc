@@ -82,9 +82,9 @@ set tabstop=4
 set shiftwidth=4  
 set softtabstop=4 
 set spelllang=en_us
-set fillchars+=vert:\ 
+set fillchars+=vert:\ ,fold:-,eob:\ 
 set list
-set listchars=tab:\|\ 
+set listchars=tab:│\ 
 
 colorscheme dracula
 hi Normal ctermbg=NONE
@@ -106,7 +106,7 @@ highlight SpellLocal cterm=undercurl ctermbg=NONE
 " highlight CursorLineNr cterm=Bold ctermbg=Black ctermfg=White
 
 " highlight LineNr ctermbg=NONE ctermfg=White
-highlight VertSplit ctermbg=Magenta
+highlight VertSplit ctermbg=Black
 
 " Customize folds
 highlight Folded ctermfg=White ctermbg=NONE cterm=bold
