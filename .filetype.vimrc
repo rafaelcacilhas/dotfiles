@@ -1,7 +1,12 @@
+
 " PYTHON {{{
 
 autocmd FileType python nnoremap <leader>r !python3 %p
 
+" }}}
+
+" PROGRESS {{{
+autocmd BufEnter,BufNewFile *.p set filetype=progress
 " }}}
 
 " MARKDOWN {{{

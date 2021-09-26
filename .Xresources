@@ -3,10 +3,8 @@
 ! |-     -||   _|  -__|  _  |  |  |   _|  __|  -__|__ --|
 ! |___|___||__| |_____|_____|_____|__| |____|_____|_____|
 
-#include ".Xresources.d/colors"
-!#include ".Xresources.d/dracula"
-!#include ".Xresources.d/nord"
 #include ".Xresources.d/urxvt"
+#include ".Xresources.d/dracula"
 !#include ".Xresources.d/rofi"
 #include ".Xresources.d/xterm"
 #include ".Xresources.d/dwm"
