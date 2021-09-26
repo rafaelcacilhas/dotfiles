@@ -494,6 +494,12 @@ set splitbelow splitright
 nnoremap <leader>st :sp<space>\|<space>terminal<CR>
 nnoremap <leader>vt :vs<space>\|<space>terminal<CR>
 
+" Change splits from vertical to horizontal and vice versa
+" Horizontal to vertical
+map <leader>th <C-w>t<C-w>H
+" Vertical to horizontal
+map <leader>tk <C-w>t<C-w>K
+
 " Remap splits navigation to just ( Ctrl + hjkl)
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
