@@ -169,8 +169,8 @@ let g:vim_markdown_toc_autofit = 1
 let g:startify_files_number = 10
 let g:startify_session_autoload = 0
 let g:startify_session_dir = '~/.vim/session'
-let g:startify_custom_header =
-            \ startify#pad(split(system('figlet -f chunky technicaldc'), '\n'))
+" let g:startify_custom_header =
+"             \ startify#pad(split(system('figlet -f chunky technicaldc'), '\n'))
 
 let g:startify_lists = [
           \ { 'type': 'bookmarks', 'header': ['   Bookmarks:']      },
@@ -187,6 +187,17 @@ let g:startify_bookmarks = [
 		\ { 'w': '~/vimwiki/index.wiki' },
 		\ { 'z': '~/.zshrc' },
 		\]
+
+let g:startify_custom_header = [ "", 
+	\ "",
+	\ "	███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗		",
+	\ "	████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║      ",
+	\ "	██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║      ",
+	\ "	██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║      ",
+	\ "	██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║		",
+	\ "	╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝		",
+	\ "",
+	\ ]
 
 " }}}
 
