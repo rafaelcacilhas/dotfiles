@@ -167,6 +167,9 @@ let g:vim_markdown_toc_autofit = 1
 " STARTIFY {{{
 
 let g:startify_files_number = 10
+let g:startify_update_oldfiles = 1
+let g:startify_change_to_vcs_root = 0
+let g:startify_padding_left = 4
 let g:startify_session_autoload = 0
 let g:startify_session_dir = '~/.vim/session'
 " let g:startify_custom_header =
@@ -198,6 +201,14 @@ let g:startify_custom_header = [ "",
 	\ "	╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝		",
 	\ "",
 	\ ]
+
+let g:startify_custom_footer = ''
+
+highlight StartifyBracket ctermfg=Green
+highlight StartifySlash ctermfg=Green
+highlight StartifyFile ctermfg=Yellow
+highlight StartifySection cterm=Bold ctermfg=Red
+highlight StartifySpecial ctermfg=Magenta
 
 " }}}
 
