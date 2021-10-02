@@ -135,6 +135,7 @@ c.colors.hints.match.fg = foreground
 
 # --- Messages ---
 c.colors.messages.info.bg = alt_background
+c.colors.messages.info.fg = background
 c.colors.messages.error.bg = error
 c.colors.messages.warning.bg = warn
 c.colors.messages.warning.fg = background

@@ -27,12 +27,6 @@ bindsym $mod+Shift+z	gaps outer 20
 
 # }}}
 
-#########
-# FONTS #
-#########
-
-font pango:monospace 8
-
 # KEY BINDINGS {{{
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -171,7 +165,7 @@ bindsym $mod+Mod1+n exec urxvt -e nvim
 
 # COLOR SETTINGS {{{
 
-set_from_resource $normal background
+set_from_resource $normal color5
 set_from_resource $focus foreground
 set_from_resource $alert color1
 
