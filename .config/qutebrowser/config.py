@@ -1,4 +1,4 @@
-#  _______         __          __
+
 # |       |.--.--.|  |_.-----.|  |--.----.-----.--.--.--.-----.-----.----.
 # |   -  _||  |  ||   _|  -__||  _  |   _|  _  |  |  |  |__ --|  -__|   _|
 # |_______||_____||____|_____||_____|__| |_____|________|_____|_____|__|
@@ -91,6 +91,7 @@ background = xresources["*.background"]
 foreground = xresources["*.foreground"]
 header = xresources["*.cursorColor"]
 error = xresources["*.color1"]
+warn = xresources["*.color3"]
 alt_background = xresources["*.color5"]
 alt_foreground = "#888888"
 
@@ -103,7 +104,7 @@ if xresources["*.background"] != "#ffffff":
 # --- Context menu ---
 c.colors.contextmenu.menu.bg = background
 c.colors.contextmenu.menu.fg = foreground
-c.colors.contextmenu.selected.bg = foreground
+c.colors.contextmenu.selected.bg = alt_background
 c.colors.contextmenu.selected.fg = background
 
 # --- Completions ---
@@ -135,6 +136,8 @@ c.colors.hints.match.fg = foreground
 # --- Messages ---
 c.colors.messages.info.bg = alt_background
 c.colors.messages.error.bg = error
+c.colors.messages.warning.bg = warn
+c.colors.messages.warning.fg = background
 
 # --- Prompts ---
 c.colors.prompts.bg = background
