@@ -12,7 +12,7 @@ configuration {
 	lines: 15;
 	fixed-num-lines: false;
 	location: 2;
-	yoffset: 35;
+	yoffset: 49;
 	sidebar-mode: false;
 	fullscreen: false;
 }

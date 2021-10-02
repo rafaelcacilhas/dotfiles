@@ -17,7 +17,7 @@
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
-    geometry = "250x100-8+32"
+    geometry = "250x100-10+49"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
