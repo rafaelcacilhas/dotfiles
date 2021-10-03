@@ -176,11 +176,11 @@ let g:startify_session_dir = '~/.vim/session'
 "             \ startify#pad(split(system('figlet -f chunky technicaldc'), '\n'))
 
 let g:startify_lists = [
-          \ { 'type': 'bookmarks', 'header': ['   Bookmarks:']      },
-          \ { 'type': 'files',     'header': ['   Recents:']            },
-          \ { 'type': 'dir',       'header': ['   Current directory: '. getcwd()] },
-          \ { 'type': 'sessions',  'header': ['   Sessions:']       },
-          \ { 'type': 'commands',  'header': ['   Commands:']       },
+          \ { 'type': 'bookmarks', 'header': ['   BOOKMARKS:']      },
+          \ { 'type': 'files',     'header': ['   RECENTS:']            },
+          \ { 'type': 'dir',       'header': ['   CURRENT DIRECTORY: '. getcwd()] },
+          \ { 'type': 'sessions',  'header': ['   SESSIONS:']       },
+          \ { 'type': 'commands',  'header': ['   COMMANDS:']       },
           \ ]
 
 let g:startify_bookmarks = [
@@ -239,10 +239,10 @@ let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers=0
 let NERDTreeShowHidden=0
 let NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize=28
+let g:NERDTreeWinSize=23
 
 " Start NERDTree and put the cursor back in the other window.
-"autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -291,7 +291,7 @@ let g:NERDToggleCheckAllLines = 1
 " GOYO {{{
 
 let g:goyo_width = 80
-let g:goyo_height = 80
+let g:goyo_height = 30
 let g:goyo_liner = 0
 
 map <silent> <leader>gy :Goyo<CR> 
