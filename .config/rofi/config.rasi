@@ -9,11 +9,11 @@ configuration {
 	drun-display-format: "{name}";
 	width: 35;
 	columns: 1;
-	lines: 15;
-	fixed-num-lines: false;
+	lines: 12;
+	fixed-num-lines: true;
 	location: 2;
 	yoffset: 49;
-	sidebar-mode: false;
+	sidebar-mode: true;
 	fullscreen: false;
 }
 
