@@ -3,8 +3,6 @@ configuration {
 	font: "Sauce Code Pro Nerd Font 9";
 	modi: "drun,window,run";
 	combi-modi: "drun, window";
-	kb-mode-next: "Shift+Right";
-	kb-mode-previous: "Shift+Left";
 	show-icons: true;
 	drun-display-format: "{name}";
 	width: 35;
@@ -15,5 +13,15 @@ configuration {
 	yoffset: 49;
 	sidebar-mode: true;
 	fullscreen: false;
+	
+	/* Key bindings: */
+	kb-mode-next: "Control+Right";
+	kb-mode-previous: "Control+Left";
+	kb-move-word-back: "Control+b";
+	kb-move-word-forward: "Control+w";
+	kb-move-char-back: "Control+h";
+	kb-move-char-forward: "Control+l";
+	kb-clear-line: "";
+	kb-remove-char-back: "";
 }
 
