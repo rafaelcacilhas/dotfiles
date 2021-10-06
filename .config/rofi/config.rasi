@@ -13,6 +13,9 @@ configuration {
 	yoffset: 49;
 	sidebar-mode: true;
 	fullscreen: false;
+	display-drun: " ";
+	display-run: " ";
+	display-window: " ";
 	
 	/* Key bindings: */
 	kb-mode-next: "Control+Right";
