@@ -1,0 +1,6 @@
+dwm.normbordercolor:	BACKGROUND
+dwm.normbgcolor:	BACKGROUND
+dwm.normfgcolor:	FOREGROUND
+dwm.selbordercolor:	HIGHLIGHT
+dwm.selbgcolor:		HIGHLIGHT
+dwm.selfgcolor:		FOREGROUND

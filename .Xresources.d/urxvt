@@ -14,8 +14,8 @@ URxvt.depth: 24
 URxvt.iso14755: false
 
 !! URvxt Font
-URxvt.font: xft:SauceCodePro Nerd Font Mono:style=Regular:pixelsize=13
-URxvt.boldFont: xft:SauceCodePro Nerd Font Mono:style=Bold:pixelsize:13
+URxvt.font: xft:Iosevka Nerd Font Mono:style=Regular:pixelsize=13
+URxvt.boldFont: xft:Iosevka Nerd Font Mono:style=Bold:pixelsize:13
 
 
 !!  Extensions

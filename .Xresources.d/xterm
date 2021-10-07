@@ -1,0 +1,26 @@
+!!  XFONTS CONFIG
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgba
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+!! XTERM CONFIGURATION
+XTerm*renderFont: true
+XTerm*faceName: xft:SauceCodePro Nerd Font Mono:style=Regular:pixelsize=13
+XTerm*faceSize: 10
+XTerm*utf8: 2
+XTerm*locale: true
+XTerm*savelines: 5120
+
+!! UXTERM CONFIGURATION
+UXTerm*renderFont: true
+UXTerm*faceName:  xft:SauceCodePro Nerd Font Mono:style=Regular:pixelsize=13
+UXTerm*faceSize: 10
+UXTerm*utf8: 2
+UXTerm*locale: true
+UXTerm*savelines: 5120
+
+
