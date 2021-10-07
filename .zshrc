@@ -118,12 +118,12 @@ bindkey -v
 
 # color script
 
-colorscript --random
+# colorscript --random
 # colorscript --exec bars
 # colorscript --exec alpha
 # colorscript --exec blocks1
 # colorscript --exec crunch
-# colorscript --exec crunchbang-mini
+colorscript --exec crunchbang-mini
 # colorscript --exec dna
 # colorscript --exec elfman
 # colorscript --exec faces
