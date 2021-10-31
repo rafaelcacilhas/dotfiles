@@ -1,7 +1,8 @@
 configuration {
 	theme: "~/.config/rofi/themes/Dracula.rasi";
-	font: "Sauce Code Pro Nerd Font 9";
-	modi: "drun,window,run";
+	icon-theme: "~/.icons/Fluent-purple-dark";
+	font: "Iosevka Nerd Font 9";
+	modi: "window,drun,run";
 	combi-modi: "drun, window";
 	show-icons: true;
 	drun-display-format: "{name}";
@@ -9,8 +10,8 @@ configuration {
 	columns: 1;
 	lines: 12;
 	fixed-num-lines: true;
-	location: 2;
-	yoffset: 49;
+	location: 0;
+	yoffset: 0;
 	sidebar-mode: true;
 	fullscreen: false;
 	display-drun: " ";
@@ -25,6 +26,6 @@ configuration {
 	kb-move-char-back: "Control+h";
 	kb-move-char-forward: "Control+l";
 	kb-clear-line: "";
-	kb-remove-char-back: "";
+	kb-remove-char-back: "BackSpace";
 }
 

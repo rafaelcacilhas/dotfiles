@@ -43,7 +43,7 @@ super + w
 
 # scrot
 Print
-	scrot -e 'mv $f ~/Pictures/Scrot/'
+	scrot -e 'mv $f ~/Pictures/Scrot/' && notify-send -a 'Scrot' 'Screenshot saved.' -i 'dialog-information' -t 2000
 
 # scrot menu
 shift + Print

@@ -50,8 +50,8 @@ font-0 = Open Sans Condensed:style=Bold:size=10
 font-1 = Font Awesome 5 Free Regular:style=Regular:size=9;1
 font-2 = Font Awesome 5 Free Solid:style=Solid:size=9;1
 font-3 = Font Awesome 5 Free Brand:style=Regular:size=9;1
-font-4 ="Sauce Code Pro Nerd Font:size=10;2"
-font-5 = "Sauce Code Pro Nerd Font:size=13;3"
+font-4 ="Iosevka Nerd Font:size=10;2"
+font-5 = "Iosevka Nerd Font:size=13;3"
 
 modules-right = picom-toggle uptime pulseaudio cpu memory date 
 

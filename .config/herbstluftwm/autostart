@@ -7,7 +7,7 @@
 
 # AUTO START PROGRAMS {{{
 
-bash /home/dilip/.scripts/autostart.sh
+bash /home/dilip/.scripts/autostart.sh herbs-bar
 # nitrogen --restore &
 # ./.config/polybar/launch.sh herbs-bar &
 # urxvtd -q -o -f &
