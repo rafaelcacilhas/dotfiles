@@ -31,7 +31,7 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'tpope/vim-surround'    
 Plugin 'scrooloose/nerdtree'			" added nerdtree
 Plugin 'junegunn/goyo.vim'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+"Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
@@ -65,6 +65,7 @@ call vundle#end()
 filetype plugin indent on
 syntax enable
 set number relativenumber
+set path+=**
 set wildmode=longest,list,full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf
 set encoding=UTF-8
@@ -83,7 +84,7 @@ set shiftwidth=4
 set softtabstop=4 
 set spelllang=en_us
 set fillchars+=vert:\ ,fold:-,eob:\ 
-set list
+set nolist
 set listchars=tab:│\ 
 
 colorscheme dracula
@@ -129,6 +130,9 @@ inoremap ;; <Esc>
 
 " Map leader
 let mapleader = ";"
+
+" Yank all content
+nnoremap <leader>y ggVGy<C-o>
 
 " Swap line with lower line
 map <leader>x ddp

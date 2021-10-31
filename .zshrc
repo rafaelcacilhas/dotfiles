@@ -135,3 +135,5 @@ colorscript --exec crunchbang-mini
 # colorscript --exec tanks
 # colorscript --exec tiefighter1row
 # colorscript --exec tux
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
