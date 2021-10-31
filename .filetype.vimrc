@@ -51,7 +51,7 @@ autocmd BufEnter,BufNewFile *.wiki inoremap ;5 #####<space>
 autocmd BufEnter,BufNewFile *.wiki inoremap ;6 ######<space>
 
 " Text formatting
-" autocmd BufEnter,BufNewFile *.wiki inoremap ;b **<Esc>i
+autocmd BufEnter,BufNewFile *.wiki inoremap ;b **<Esc>i
 autocmd BufEnter,BufNewFile *.wiki inoremap ;i __<Esc>i
 
 " List
