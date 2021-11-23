@@ -17,6 +17,8 @@ URxvt.iso14755: false
 URxvt.font: xft:Iosevka Nerd Font Mono:style=Regular:pixelsize=13
 URxvt.boldFont: xft:Iosevka Nerd Font Mono:style=Bold:pixelsize:13
 
+!URxvt.font: xft:SauceCode Pro Nerd Font Mono:style=Regular:pixelsize=13
+!URxvt.boldFont: xft:SauceCode Pro Nerd Font Mono:style=Bold:pixelsize:13
 
 !!  Extensions
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,font-size

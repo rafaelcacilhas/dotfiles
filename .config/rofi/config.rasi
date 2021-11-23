@@ -1,18 +1,18 @@
 configuration {
-	theme: "~/.config/rofi/themes/Dracula.rasi";
+	theme: "~/.config/rofi/themes/awesome.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
 	font: "Iosevka Nerd Font 9";
 	modi: "window,drun,run";
 	combi-modi: "drun, window";
 	show-icons: true;
 	drun-display-format: "{name}";
-	width: 35;
+	width: 30;
 	columns: 1;
 	lines: 12;
 	fixed-num-lines: true;
 	location: 0;
 	yoffset: 0;
-	sidebar-mode: true;
+	sidebar-mode: false;
 	fullscreen: false;
 	display-drun: " ";
 	display-run: " ";
