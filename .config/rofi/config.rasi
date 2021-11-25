@@ -1,5 +1,5 @@
 configuration {
-	theme: "~/.config/rofi/themes/awesome.rasi";
+	theme: "~/.config/rofi/themes/dracula.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
 	font: "Iosevka Nerd Font 9";
 	modi: "window,drun,run";
