@@ -12,6 +12,7 @@ filetype off                  " required
 
 source /home/dilip/.filetype.vim
 source /home/dilip/.abbreviations.vim
+source /home/dilip/.keybindings.vim
 " }}}
 
 " PLUGINS {{{
@@ -55,7 +56,7 @@ Plugin 'vim-python/python-syntax'
 Plugin 'plasticboy/vim-markdown'
 
 " Vim Wiki
-" Plugin 'vimwiki/vimwiki'
+Plugin 'vimwiki/vimwiki'
 
 call vundle#end()
 
@@ -65,6 +66,7 @@ call vundle#end()
 
 filetype plugin indent on
 syntax enable
+set noswapfile
 set number relativenumber
 set path+=**
 set wildmode=longest,list,full
@@ -84,7 +86,7 @@ set tabstop=4
 set shiftwidth=4  
 set softtabstop=4 
 set spelllang=en_us
-set fillchars+=vert:\ ,fold:-,eob:\ 
+set fillchars+=vert:│,fold:-,eob:\ 
 set nolist
 set listchars=tab:│\ 
 
@@ -108,59 +110,13 @@ highlight CursorLine cterm=NONE ctermbg=Black
 " highlight CursorLineNr cterm=Bold ctermbg=Black ctermfg=White
 
 " highlight LineNr ctermbg=NONE ctermfg=White
-highlight VertSplit ctermbg=Black
+highlight VertSplit ctermbg=NONE ctermfg=White
 
 " Customize folds
 highlight Folded ctermfg=White ctermbg=NONE cterm=bold
 
-"Vertically center documents when in insert mode
+" Vertically center documents when in insert mode
 " autocmd InsertEnter * norm zz
-
-" }}}
-
-" BASIC KEY BINDING {{{
-
-" Remapping escape key
-inoremap ;; <Esc>
-
-" Disabling Escape key
-" inoremap <Esc> <Nop>
-
-" Remap za to space
-" nnoremap <space> za
-
-" Map leader
-let mapleader = ";"
-
-" Guide navigation
-inoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
-noremap <leader><Tab> <Esc>/<++><Enter>"_c4l
-
-" General insert command
-inoremap ;g <++>
-
-" Enable and disable spell checker
-map <silent> <leader>s :setlocal spell!<CR>
-
-"Enable and disable auto comment
-map <leader>c :setlocal formatoptions-=cro<CR>
-map <leader>C :setlocal formatoptions=cro<CR>
-
-"Enable and disable auto indentation
-map <leader>a :setlocal autoindent<CR>
-map <leader>A :setlocal noautoindent<CR>
-
-" }}}
-
-" KEYBINDING HACKS {{{
-vnoremap < <gv
-vnoremap > >gv
-
-" Yank all content
-nnoremap <leader>y ggVGy<C-o>
-
-" Swap line with lower line
-map <leader>x ddp
 
 " }}}
 

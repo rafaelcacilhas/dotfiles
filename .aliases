@@ -9,10 +9,10 @@ alias :q='exit'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
-#alias ls='exa --color=always'
-alias la='exa -a --color=always'
-alias ll='exa -l --color=always -h'
-alias all='exa -al --color=always -h'
+#alias ls='exa --color=always --icons'
+alias la='exa -a --color=always --icons'
+alias ll='exa -l --color=always -h --icons --tree --level=1'
+alias all='exa -al --color=always -h --icons --tree --level=1''
 alias cat="batcat"
 alias nv="nvim"
 
@@ -20,4 +20,4 @@ alias nv="nvim"
 
 alias -s pdf=zathura
 alias -s {jpg,jpeg,png,gif}=sxiv
-alias -s {conf,css,rasi,html,txt,sh,py,md}=nvim
+alias -s {conf,css,rasi,html,txt,sh,py,tex,lua,md}=nvim
