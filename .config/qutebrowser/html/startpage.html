@@ -20,6 +20,7 @@
 				width:100%;
 				height:100%;
 				background-color: var(--bg);
+				overflow-y: hidden;
 			}
 			.circle{
 				background-color: var(--bg_alt);
@@ -28,18 +29,18 @@
 			.one{
 				-webkit-clip-path: circle(50% at 79% 17%);
 				clip-path: circle(50% at 79% 17%);
-				width: 800px;
+				width: 100vh;
 				right: 0px;
 				top: 0px;
-				height: 800px;
+				height: 100vh;
 			}
 			.two{
 				-webkit-clip-path: circle(27.5% at 12% 93%);
 				clip-path: circle(27.5% at 12% 93%);
 				bottom: 0px;
 				left: 0px;
-				width: 700px;
-				height: 700px;
+				width: 50vh;
+				height: 50vh;
 			}
 			.container{
 				position:absolute;
@@ -52,6 +53,8 @@
 				width: 100%;
 			}
 			.sub-container{
+				max-height: 300px;
+				overflow-y: scroll;
 			}
 			.form, .form * {
 				background-color: var(--bg);
@@ -61,11 +64,7 @@
 				padding: 8px;
 				box-shadow: 0px 0px 10px #0008;
 				background-color: var(--bg);
-				backdrop-filter: blur(16px);
-				-ms-backdrop-filter: blur(16px);
-				-webkit-backdrop-filter: blur(16px);
 				border-radius: 8px;
-				opacity: 0.8;
 				border: 1px solid rgba(255, 255, 255, 0.125);
 				margin: 10px 0px;
 			}
@@ -79,17 +78,23 @@
 				display: flex;
 				justify-content: space-between;
 			}
-			.form .search {
+			.search {
 				width:90%;
 				padding: 10px;
 			}
-			.form .search:focus {
+			.search:active {
 				border-color: var(--hl);
+				color: var(--fg)
 			}
-			.form  .sub {
+			.sub {
 				width: 15%;
+				color: White;
 				padding: 0px 10px;
-				<!-- font-family: "SauceCode Pro Nerd Font"; -->
+			}
+			.sub:hover{
+				background-color: var(--hl);
+				color: White;
+				box-shadow: 0px 0px 15px var(--hl);
 			}
 			.icons{
 				text-decoration: none;
@@ -103,10 +108,12 @@
 				display: block;
 				padding: 10px;
 				text-decoration: none;
-				margin: 10px 0px;
+				margin: 10px;
+				color: White;
 				border-radius: 5px;
 			}
 			.link:hover{ background-color: var(--hl2); color: white; }
+			.link:visited { color: White; }
 		</style>
 	</head>
 	<body>
@@ -118,9 +125,14 @@
 				<input type=submit value="Let's Go" class="sub">
 			</form>
 			<div class="sub-container glass">
+				<a class="link" href="qute://settings/">Qutebrower Setting</a>
+				<a class="link" href="https://web.whatsapp.com/">Whatsapp Web</a>
 				<a class="link" href="https://github.com/TechnicalDC">Github</a>
 				<a class="link" href="https://www.youtube.com/">Youtube</a>
 				<a class="link" href="https://www.nerdfonts.com/">Nerd Fonts</a>
+				<a class="link" href="https://awesomewm.org/doc/api/">Awesomewm Docs</a>
+				<a class="link" href="https://duckduckgo.com/">Duckduck Go</a>
+				<a class="link" href="https://www.amazon.in/">Amazon</a>
 			</div>
 		</div>
 	</body>

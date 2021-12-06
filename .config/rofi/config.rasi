@@ -1,5 +1,5 @@
 configuration {
-	theme: "~/.config/rofi/themes/dracula.rasi";
+	theme: "~/.config/rofi/themes/fullscreen.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
 	font: "Iosevka Nerd Font 9";
 	modi: "window,drun,run";
@@ -12,8 +12,8 @@ configuration {
 	fixed-num-lines: true;
 	location: 0;
 	yoffset: 0;
-	sidebar-mode: false;
-	fullscreen: false;
+	sidebar-mode: true;
+	fullscreen: true;
 	display-drun: " ";
 	display-run: " ";
 	display-window: " ";

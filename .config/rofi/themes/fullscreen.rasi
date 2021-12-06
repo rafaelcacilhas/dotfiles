@@ -28,10 +28,10 @@
     selected-active-background:  @selected-normal-background;
 }
 #window {
-    background-color: #0000;
-    border:           2;
+	background-color: @background;
+    border:           0;
     border-color:     @border-color;
-    padding:          0;
+    padding:          200 300;
 }
 #mainbox {
     border:  0;
@@ -48,14 +48,14 @@
 #listview {
     fixed-height: 0;
     spacing:      0px ;
-	background-color: @background;
     scrollbar:    false;
-    padding:      8px;
+    padding:      20px 0px;
+	margin:		30 0;
 }
 #element {
     border:  0;
 	border-radius: 3px;
-    padding: 5px;
+    padding: 8px;
 }
 #element.normal.normal {
     background-color: @normal-background;
@@ -101,23 +101,22 @@
     padding:      3;
 }
 #mode-switcher{
-    padding: 4;
-    spacing: 8;
-    border: 1;
-    border-color: rgba( 100, 100, 100, 100% );
+	padding: 3px;
+    spacing:    0;
+	border-radius: 5;
+	border: 1;
+	margin: 0 200;
+	border-color: @active-background;
 }
 #button {
     spacing:    0;
+	border-radius: 5;
+    padding: 5px;
     text-color: @normal-foreground;
 }
 #button.selected {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
-}
-#inputbar {
-    spacing:    0;
-    text-color: @normal-foreground;
-    padding:    1px ;
 }
 #case-indicator {
     spacing:    0;
@@ -135,14 +134,13 @@
     text-color: @normal-foreground;
 }
 #inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
-	background-color: #282A36E0;
-	padding: 5px;
-}
-#textbox-prompt-colon {
-    expand:     false;
-    padding: 5px 0px 0px 0px;
-    str:        "";
-    margin:     0px 0.3em 0em 0em ;
+    children:   [ prompt,entry,case-indicator ];
+	padding: 3px;
+    spacing:    0;
+	border-radius: 5;
+	border: 1;
+	background-color: @active-background;
+	border-color: @active-background;
     text-color: @normal-foreground;
+	margin: 0 200;
 }

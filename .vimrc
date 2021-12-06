@@ -72,7 +72,7 @@ set path+=**
 set wildmode=longest,list,full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf
 set encoding=UTF-8
-set foldenable
+set nofoldenable
 set foldmethod=marker
 set foldmarker={{{,}}}
 set nocursorline
