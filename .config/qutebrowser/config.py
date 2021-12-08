@@ -45,8 +45,11 @@ c.content.headers.user_agent = 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_vers
 c.completion.shrink = True
 
 # --- File Select ---
-c.fileselect.single_file.command = ["urxvt", "-e", "ranger", "--choosefile={}"]
-c.fileselect.multiple_files.command = ["urxvt", "-e", "ranger", "--choosefiles={}"]
+config.set("fileselect.handler", "external")
+config.set("fileselect.single_file.command" , ["urxvt", "-e", "ranger", "--choosefile", "{}"])
+config.set("fileselect.multiple_files.command", ["urxvt", "-e", "ranger", "--choosefiles" "{}"])
+
+c.content.pdfjs = True
 
 # --- Insert Mode ---
 c.input.insert_mode.auto_enter = True
