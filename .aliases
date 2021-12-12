@@ -14,7 +14,7 @@ alias la='exa -a --color=always --icons'
 alias ll='exa -l --color=always -h --icons --tree --level=1'
 alias all='exa -al --color=always -h --icons --tree --level=1''
 alias cat="batcat"
-alias nv="nvim"
+alias n="nvim"
 
 # Suffix aliases
 

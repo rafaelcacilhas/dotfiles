@@ -31,7 +31,7 @@
 	background-color: @background;
     border:           0;
     border-color:     @border-color;
-    padding:          200 300;
+    padding:          10% 25%;
 }
 #mainbox {
     border:  0;
@@ -54,8 +54,14 @@
 }
 #element {
     border:  0;
+	orientation:                    vertical;
 	border-radius: 3px;
     padding: 8px;
+	margin: 8 0;
+	height: 100px;
+}
+#element-icon{
+	size: 100px;
 }
 #element.normal.normal {
     background-color: @normal-background;
@@ -95,10 +101,11 @@
 }
 #scrollbar {
     width:        0px ;
-    border:       1;
-    handle-color: @border-color;
-    handle-width: 8px ;
-    padding:      3;
+    border:       0;
+	border-radius: 3px;
+    handle-color: @active-background;
+    handle-width: 5px ;
+    padding:      5;
 }
 #mode-switcher{
 	padding: 3px;

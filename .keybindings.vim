@@ -7,6 +7,9 @@ vnoremap > >gv
 nnoremap <leader>y ggVGy<C-o>
 nnoremap Y y$
 
+" Run text from line as command
+nmap Q :.!sh<CR>
+
 " Swap line with lower line
 map <leader>x ddp
 
