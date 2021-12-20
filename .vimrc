@@ -25,9 +25,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Customization
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'			" For icons
 Plugin 'dracula/vim', { 'name': 'dracula' } 
+Plugin 'dylanaraps/wal.vim'
 
 " Must have
 Plugin 'tpope/vim-surround'    
@@ -90,7 +91,7 @@ set fillchars+=vert:│,fold:-,eob:\
 set nolist
 set listchars=tab:│\ 
 
-colorscheme dracula
+colorscheme wal
 hi Normal ctermbg=NONE
 
 " Highlight Whitespaces
@@ -151,11 +152,8 @@ let g:startify_lists = [
           \ ]
 
 let g:startify_bookmarks = [
-		\ { 'f': '~/.filetype.vimrc' },
 		\ { 'g': '~/github_token.md' },
-		\ { 'v': '~/.vimrc' },
 		\ { 'w': '~/vimwiki/index.wiki' },
-		\ { 'z': '~/.zshrc' },
 		\]
 
 let g:startify_custom_header = [ "", 
@@ -191,10 +189,10 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 " VIM AIRLINE THEME {{{
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 " let g:airline_theme='murmur'
 " let g:airline_theme='minimalist'
-let g:airline_theme='dracula'
+" let g:airline_theme='dracula'
 
 " }}}
 

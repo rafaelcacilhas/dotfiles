@@ -92,7 +92,7 @@ xresources = read_xresources("*")
 
 background = xresources["*.background"]
 foreground = xresources["*.foreground"]
-header = xresources["*.cursorColor"]
+header = xresources["*.color4"]
 error = xresources["*.color1"]
 warn = xresources["*.color3"]
 alt_background = xresources["*.color5"]
@@ -194,6 +194,8 @@ config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('D', 'tab-only')
 config.bind('ww', 'open -w')
+config.bind('r', 'reload')
+config.bind('R', 'config-source')
 
 config.bind(';i', 'set downloads.location.directory ~/Pictures ;; hint links download')
 config.bind(';I', 'set downloads.location.directory ~/Pictures ;; hint images download')
