@@ -4,7 +4,8 @@
 ! |___|___||__| |_____|_____|_____|__| |____|_____|_____|
 
 #include ".Xresources.d/urxvt"
-#include ".Xresources.d/dracula"
+#include ".cache/wal/colors.Xresources"
+!#include ".Xresources.d/dracula"
 !#include ".Xresources.d/rofi"
 #include ".Xresources.d/xterm"
 #include ".Xresources.d/dwm"
