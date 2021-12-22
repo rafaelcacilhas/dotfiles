@@ -23,4 +23,4 @@
 
 # Screenshots:
 
-![gif]()
+![gif](https://github.com/TechnicalDC/dotfiles/blob/main/res/awesome.gif)
