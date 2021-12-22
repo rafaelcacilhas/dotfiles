@@ -11,9 +11,13 @@ do
 		notify-send -a 'Kde Connect' 'Files sent...' -i 'dialog-information' -t 5000 ||
 		notify-send -a 'Kde Connect' 'Files not sent...' -i 'dialog-error' -t 5000 ;;
 	"w")
-		nitrogen --save --set-zoom-fill $fullpath &&
+		# nitrogen --save --set-zoom-fill $fullpath &&
+		feh --bg-fill $fullpath &&
+		wal -i $fullpath &&
+		xrdb ~/.Xresources &&
 		notify-send -a 'Sxiv' 'Wallpaper changed...' -i 'nitrogen' 
-		mantablockscreen -i $fullpath ;;
+		mantablockscreen -i $fullpath &&
+		notify-send -a 'Sxiv' 'Lockscreen changed...' -i 'nitrogen' ;;
 	"r")
 		convert -rotate 90 "$file" "$file" ;;
 	"R")
