@@ -1,5 +1,5 @@
 configuration {
-	theme: "~/.config/rofi/themes/fullscreen.rasi";
+	theme: "~/.config/rofi/themes/wal.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
 	font: "Iosevka Nerd Font 9";
 	modi: "window,drun,run";
@@ -10,10 +10,10 @@ configuration {
 	columns: 1;
 	lines: 12;
 	fixed-num-lines: true;
-	location: 0;
+	location: 4;
 	yoffset: 0;
-	sidebar-mode: true;
-	fullscreen: true;
+	sidebar-mode: false;
+	fullscreen: false;
 	display-drun: " ";
 	display-run: " ";
 	display-window: " ";
