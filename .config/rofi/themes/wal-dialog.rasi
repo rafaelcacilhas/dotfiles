@@ -13,9 +13,8 @@
 }
 
 #window {
-	height: 100%;
 	border:           0 0 0 30 ;
-	border-color:     @selected-urgent-background;
+	border-color:     @border-color;
 
 }
 
