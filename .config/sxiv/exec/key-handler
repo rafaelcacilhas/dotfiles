@@ -15,7 +15,9 @@ do
 		feh --bg-fill $fullpath &&
 		wal -i $fullpath &&
 		xrdb ~/.Xresources &&
-		notify-send -a 'Sxiv' 'Wallpaper changed...' -i 'nitrogen' 
+		bash /home/dilip/.scripts/genzathurarc >> ~/.config/zathura/zathurarc &&
+		notify-send -a 'Sxiv' 'Theme changed...' -i 'nitrogen' ;;
+	"W")
 		mantablockscreen -i $fullpath &&
 		notify-send -a 'Sxiv' 'Lockscreen changed...' -i 'nitrogen' ;;
 	"r")
@@ -27,6 +29,6 @@ do
 	"v")
 		convert -flip "$file" "$file" ;;
 	"D")
-		rm -f "$file" ;;
+		trash-put "$file" ;;
 	esac
 done
