@@ -34,6 +34,7 @@ Plugin 'dylanaraps/wal.vim'
 Plugin 'tpope/vim-surround'    
 Plugin 'scrooloose/nerdtree'			" added nerdtree
 Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -42,8 +43,6 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-eunuch'
 Plugin 'mhinz/vim-startify'
-
-Plugin 'komissarex/vim-progress'
 
 " Web Development
 Plugin 'ap/vim-css-color'
@@ -73,7 +72,7 @@ set path+=**
 set wildmode=longest,list,full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf
 set encoding=UTF-8
-set nofoldenable
+set foldenable
 set foldmethod=marker
 set foldmarker={{{,}}}
 set nocursorline
@@ -96,6 +95,7 @@ hi Normal ctermbg=NONE
 
 " Highlight Whitespaces
 highlight Whitespace ctermfg=Grey
+
 
 " Makes comments italic
 highlight Comment cterm=italic

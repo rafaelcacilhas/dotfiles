@@ -7,14 +7,14 @@
 ; COLORS {{{
 [colors]
 background = ${xrdb:background}
-foreground = ${xrdb:background}
-foreground-alt = #A5ABB6
+foreground = ${xrdb:color6}
+foreground-alt = ${xrdb:foreground}
 background-alt = ${xrdb:cursorColor} 
 alert = ${xrdb:color1}
 red = ${xrdb:color1}
 green = ${xrdb:color2}
 yellow = ${xrdb:color3}
-blue = ${xrdb:color4}
+purple = ${xrdb:color4}
 magenta = ${xrdb:color5}
 cyan = ${xrdb:color6}
 
@@ -32,7 +32,7 @@ radius = 0
 fixed-center = true
 enable-ipc = true
 
-line-size = 2
+line-size = 0
 line-color = #fff
 
 background = ${colors.background}
@@ -54,7 +54,7 @@ font-3 = Font Awesome 5 Free Brand:style=Regular:size=9;1
 font-4 ="Sauce Code Pro Nerd Font:size=10;2"
 font-5 = "Sauce Code Pro Nerd Font:size=13;3"
 
-modules-right = slash2 picom-toggle uptime pulseaudio cpu memory date 
+modules-right = picom-toggle uptime pulseaudio cpu memory date 
 
 tray-position = right
 tray-padding = 4
@@ -71,7 +71,7 @@ wm-restack = bspwm
 ; BSPWM-BAR {{{
 [bar/bspwm-bar]
 inherit = bar/base
-modules-left = bspwm mpd slash1
+modules-left = bspwm mpd 
 wm-restack = bspwm
 
 ; }}}
@@ -81,7 +81,7 @@ wm-restack = bspwm
 inherit = bar/base
 
 ;override-redirect = true
-modules-left = i3 mpd slash1
+modules-left = i3 mpd 
 wm-restack = i3
 
 ; }}}
@@ -90,34 +90,7 @@ wm-restack = i3
 [bar/herbs-bar]
 inherit = bar/base
 padding-left = 0
-modules-left = xworkspaces mpd slash1 
-
-; }}}
-
-; XMONAD-BAR {{{
-[bar/xmonad-bar]
-inherit = bar/base
-padding-left = 0
-modules-left = xmonad
-
-; }}}
-
-; SLASH MODULES {{{
-
-[module/slash1]
-type = custom/text
-content = "%{T6} %{T-}"
-content-font = 2
-content-foreground = ${colors.background-alt}
-content-background = ${colors.background}
-
-[module/slash2]
-type = custom/text
-content = "%{T6} %{T-}"
-content-font = 2
-content-foreground = ${colors.background-alt}
-content-background = ${colors.background}
-
+modules-left = xworkspaces mpd 
 
 ; }}}
 
@@ -160,19 +133,6 @@ format-background = ${colors.background-alt}
 
 ; }}}
 
-; XRESOURCES-TOGGLE {{{
-
-[module/xresources-toggle]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = echo ""
-initial = 1
-click-left = /home/dilip/.config/polybar/scripts/poly-xresources.sh &
-format-padding = 2
-format-background = ${colors.background-alt}
-
-; }}}
-
 ; XWORKSPACES {{{
 
 [module/xworkspaces]
@@ -188,26 +148,23 @@ format = <label-state>
 label-monitor = %name%
 
 label-active = %name%
-label-active-foreground = ${colors.background}
-label-active-background = ${colors.background-alt}
-label-active-underline= ${colors.background}
+label-active-foreground = ${colors.purple}
+label-active-background = ${colors.background}
 label-active-padding = 2
 
 label-occupied = %name%
-label-occupied-underline= ${colors.background-alt}
-label-occupied-background = ${colors.background-alt}
-label-occupied-foreground = ${colors.background}
+label-occupied-background = ${colors.background}
+label-occupied-foreground = ${colors.green}
 label-occupied-padding = 2
 
 label-urgent = %name%
-label-urgent-foreground = ${colors.foreground}
-label-urgent-background = ${colors.background-alt}
-label-urgent-underline = ${colors.alert}
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.background}
 label-urgent-padding = 2
 
 label-empty = %name%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-background = ${colors.background-alt}
+label-empty-foreground = ${colors.cyan}
+label-empty-background = ${colors.background}
 label-empty-padding = 2
 
 ; }}}
@@ -548,11 +505,11 @@ ramp-volume-7-foreground = ${colors.foreground}
 ramp-volume-8 = 
 ramp-volume-8-foreground = ${colors.foreground}
 ramp-volume-9 = 
-ramp-volume-9-foreground = ${colors.alert}
+ramp-volume-9-foreground = ${colors.red}
 
 label-muted =  
-label-muted-foreground = ${colors.alert}
-label-muted-background = ${colors.background-alt}
+label-muted-foreground = ${colors.red}
+label-muted-background = ${colors.background}
 label-muted-padding = 2
 
 click-right = pavucontrol &
