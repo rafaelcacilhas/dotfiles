@@ -6,7 +6,6 @@
 ##### directories ######
 
 ncmpcpp_directory = ~/.config/ncmpcpp
-
 lyrics_directory = ~/.config/ncmpcpp/lyrics
 
 ##### connection settings #####
@@ -97,9 +96,9 @@ visualizer_color = blue, cyan, green, yellow, magenta, red
 ## Note: colors can be nested.
 ##
 #
-#song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
+song_list_format = {%a - }{%t}
 #
-#song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
+song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
 #
 #song_library_format = {%n - }{%t}|{%f}
 #
@@ -130,7 +129,7 @@ visualizer_color = blue, cyan, green, yellow, magenta, red
 ##
 ## Note: attributes are not supported for the following variables.
 ##
-#song_window_title_format = {%a - }{%t}|{%f}
+song_window_title_format = {%a - }{%t}|{%f}
 ##
 ## Note: Below variables are used for sorting songs in browser.  The sort mode
 ## determines how songs are sorted, and can be used in combination with a sort
@@ -138,9 +137,8 @@ visualizer_color = blue, cyan, green, yellow, magenta, red
 ## browser_sort_mode are "name", "mtime", "format" and "noop".
 ##
 #
-#browser_sort_mode = name
-#
-#browser_sort_format = {%a - }{%t}|{%f} {(%l)}
+browser_sort_mode = name
+browser_sort_format = {%a - }{%t}
 #
 ##### columns settings #####
 ##
@@ -177,7 +175,7 @@ visualizer_color = blue, cyan, green, yellow, magenta, red
 ##   available.
 ##
 #
-song_columns_list_format = (50)[cyan]{t|f:Title} (7f)[magenta]{l}
+song_columns_list_format = (50)[cyan]{t} (7f)[cyan]{l}
 #
 ##### various settings #####
 #
@@ -211,7 +209,7 @@ browser_display_mode = columns
 search_engine_display_mode = columns
 playlist_editor_display_mode = columns
 #
-#discard_colors_if_item_is_selected = yes
+discard_colors_if_item_is_selected = no
 #
 #show_duplicate_tags = yes
 #
@@ -229,16 +227,15 @@ playlist_editor_display_mode = columns
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-progressbar_look = 
+progressbar_look = 
 #
 ## Available values: database, playlist.
 ##
 #default_place_to_search_in = database
 #
 ## Available values: classic, alternative.
-##
-#user_interface = alternative
-#
+user_interface = classic
+
 #data_fetching_delay = yes
 #
 ## Available values: artist, album_artist, date, genre, composer, performer.
@@ -253,15 +250,11 @@ progressbar_look = 
 #
 #default_tag_editor_pattern = %n - %t
 #
-#header_visibility = yes
-#
+header_visibility = no
 statusbar_visibility = yes
-#
-#titles_visibility = yes
-#
+titles_visibility = no
 #header_text_scrolling = yes
-#
-#cyclic_scrolling = no
+cyclic_scrolling = yes
 #
 #lines_scrolled = 2
 #
@@ -288,7 +281,7 @@ allow_for_physical_item_deletion = yes
 #
 #space_add_mode = add_remove
 #
-#show_hidden_files_in_local_browser = no
+show_hidden_files_in_local_browser = yes
 #
 ##
 ## How shall screen switcher work?
@@ -300,12 +293,12 @@ allow_for_physical_item_deletion = yes
 ## media_library, playlist_editor, tag_editor, outputs, visualizer, clock,
 ## lyrics, last_fm.
 ##
-#screen_switcher_mode = playlist, browser
+screen_switcher_mode = playlist, browser
 #
 ##
 ## Note: You can define startup screen by choosing screen from the list above.
 ##
-#startup_screen = playlist
+startup_screen = playlist
 #
 ##
 ## Note: You can define startup slave screen by choosing screen from the list
@@ -328,7 +321,6 @@ allow_for_physical_item_deletion = yes
 #ask_before_clearing_playlists = yes
 #
 clock_display_seconds =yes 
-#
 display_volume_level = yes
 #
 #display_bitrate = no
@@ -380,7 +372,7 @@ external_editor = nvim
 #
 ## Note: set to yes if external editor is a console application.
 ##
-#use_console_editor = yes
+use_console_editor = yes
 #
 ##### colors definitions #####
 ##
@@ -412,33 +404,29 @@ external_editor = nvim
 ## are used there is a possibility that you'll be able to use only colors with
 ## transparent background.
 #
-#colors_enabled = yes
+colors_enabled = yes
 #
 #empty_tag_color = cyan
 #
 #header_window_color = default
 #
-#volume_color = default
+volume_color = default
 #
-#state_line_color = default
+state_line_color = cyan
 #
 #state_flags_color = default:b
 #
-#main_window_color = yellow
+# main_window_color = white
 #
 #color1 = white
 #
-#color2 = green
+color2 = cyan
 #
-#progressbar_color = black:b
-#
-#progressbar_elapsed_color = green:b
-#
-#statusbar_color = default
-#
-#statusbar_time_color = default:b
-#
-#player_state_color = default:b
+progressbar_color = black:b
+progressbar_elapsed_color = green:b
+statusbar_color = white
+statusbar_time_color = magenta:b
+player_state_color = magenta:b
 #
 #alternative_ui_separator_color = black:b
 #

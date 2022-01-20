@@ -1,4 +1,4 @@
-#               __              
+#               __            
 # .-----.-----.|  |--.----.----.
 # |-- __|__ --||     |   _|  __|
 # |_____|_____||__|__|__| |____|
@@ -8,6 +8,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/sbin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/root/.cargo/bin
+export PATH=$PATH:/home/dilip/.scripts
 
 #Path to your oh-my-zsh installation.
 export ZSH="/home/dilip/.oh-my-zsh"

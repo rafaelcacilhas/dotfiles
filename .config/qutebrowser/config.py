@@ -20,8 +20,8 @@ c.url.searchengines = {
         'yt': 'https://www.youtube.com/results?search_query={}',
         'amz':'https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={}'
 }
-c.url.default_page = '/home/dilip/.config/qutebrowser/html/startpage.html'
-c.url.start_pages = '/home/dilip/.config/qutebrowser/html/startpage.html'
+c.url.default_page = '/home/dilip/.config/qutebrowser/html/startpage_1.html'
+c.url.start_pages = '/home/dilip/.config/qutebrowser/html/startpage_1.html'
 c.content.images = True
 c.content.javascript.enabled = True
 
@@ -97,6 +97,9 @@ error = xresources["*.color1"]
 warn = xresources["*.color3"]
 alt_background = xresources["*.color5"]
 alt_foreground = "#888888"
+
+# --- Custom CSS ---
+# config.set("content.user_stylesheets","~/.config/qutebrowser/stylesheets/wal-stylesheet.css")
 
 # --- Webpages ---
 c.colors.webpage.bg = background
