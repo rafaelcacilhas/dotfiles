@@ -2,10 +2,12 @@
 
 alias config='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
-# Simple aliases
-
-alias q='exit'
+# For Vim's bad habits
 alias :q='exit'
+alias :wq='exit'
+alias :x='exit'
+
+# Simple aliases
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
@@ -15,9 +17,10 @@ alias ll='exa -l --color=always -h --icons --tree --level=1'
 alias all='exa -al --color=always -h --icons --tree --level=1''
 alias cat="batcat"
 alias n="nvim"
+alias history"history -n | fzf | sort | uiq | xclip -selection clipboard"
 
 # Suffix aliases
-
 alias -s pdf=zathura
+alias -s {mp4}=mpv
 alias -s {jpg,jpeg,png,gif}=sxiv
 alias -s {conf,css,rasi,html,txt,sh,py,tex,lua,md}=nvim
