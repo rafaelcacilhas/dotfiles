@@ -23,4 +23,4 @@
 
 # Screenshots:
 
-![gif](https://github.com/TechnicalDC/dotfiles/blob/main/res/awesome.gif)
+![gif](https://github.com/TechnicalDC/dotfiles/blob/main/res/bspwm.gif)
