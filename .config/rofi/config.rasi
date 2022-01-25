@@ -5,12 +5,12 @@ configuration {
 	modi: "window,drun,run";
 	combi-modi: "drun, window";
 	show-icons: false;
-	drun-display-format: "{name}";
+	/* drun-display-format: "{name}"; */
 	width: 30;
 	columns: 1;
-	lines: 12;
+	lines: 8;
 	fixed-num-lines: true;
-	location: 4;
+	location: 0;
 	yoffset: 0;
 	sidebar-mode: false;
 	fullscreen: false;
