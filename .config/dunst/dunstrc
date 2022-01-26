@@ -17,7 +17,7 @@
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
-    geometry = "250x100-10+49"
+    geometry = "250x100-10+47"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -37,7 +37,7 @@
     padding = 10
     horizontal_padding = 10
     frame_width = 2
-    frame_color = "#BD93F9"
+    # frame_color = "#BD93F9"
 
 
     # Define a color for the separator.
@@ -46,7 +46,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = "#282A36"
+    # separator_color = "#282A36"
 
     # Sort messages by urgency.
     sort = yes

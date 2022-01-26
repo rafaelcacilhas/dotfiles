@@ -9,7 +9,6 @@
 background = ${xrdb:background}
 foreground = ${xrdb:color6}
 foreground-alt = ${xrdb:foreground}
-background-alt = ${xrdb:cursorColor} 
 alert = ${xrdb:color1}
 red = ${xrdb:color1}
 green = ${xrdb:color2}
@@ -76,24 +75,6 @@ wm-restack = bspwm
 
 ; }}}
 
-; I3-BAR {{{
-[bar/i3-bar]
-inherit = bar/base
-
-;override-redirect = true
-modules-left = i3 mpd 
-wm-restack = i3
-
-; }}}
-
-; HERBS-BAR {{{
-[bar/herbs-bar]
-inherit = bar/base
-padding-left = 0
-modules-left = xworkspaces mpd 
-
-; }}}
-
 ; DUNST-TOOGLE {{{
 
 [module/dunst-toggle]
@@ -133,42 +114,6 @@ format-background = ${colors.background-alt}
 
 ; }}}
 
-; XWORKSPACES {{{
-
-[module/xworkspaces]
-type = internal/xworkspaces
-
-inactive-color =
-pin-workspaces = false
-enable-click = true
-enable-scroll = true
-reverse-scroll = true
-
-format = <label-state>
-label-monitor = %name%
-
-label-active = %name%
-label-active-foreground = ${colors.purple}
-label-active-background = ${colors.background}
-label-active-padding = 2
-
-label-occupied = %name%
-label-occupied-background = ${colors.background}
-label-occupied-foreground = ${colors.green}
-label-occupied-padding = 2
-
-label-urgent = %name%
-label-urgent-foreground = ${colors.red}
-label-urgent-background = ${colors.background}
-label-urgent-padding = 2
-
-label-empty = %name%
-label-empty-foreground = ${colors.cyan}
-label-empty-background = ${colors.background}
-label-empty-padding = 2
-
-; }}}
-
 ; XWINDOW {{{
 
 [module/xwindow]
@@ -184,43 +129,29 @@ label-padding = 1
 
 ; }}}
 
-; XMONAD {{{
-
-[module/xmonad]
-type = custom/script
-exec = xmonad-log
-tail = true
-format-foreground = ${colors.background}
-format-background = ${colors.background-alt}
-
-; }}}
-
 ; BSPWM {{{
 
 [module/bspwm]
 type = internal/bspwm
 
 label-focused = %name%
-label-focused-foreground= ${colors.foreground}
-label-focused-background=  ${colors.background-alt}
-label-focused-underline= ${colors.foreground}
+label-focused-foreground= ${colors.purple}
+label-focused-background=  ${colors.background}
 label-focused-padding = 2
 
 label-occupied = %name%
-label-occupied-underline= ${colors.background-alt}
 label-occupied-padding = 2
-label-occupied-background = ${colors.background-alt}
-label-occupied-foreground = ${colors.foreground}
+label-occupied-background = ${colors.background}
+label-occupied-foreground = ${colors.green}
 
 label-urgent =  %name%
-label-urgent-foreground = ${colors.foreground}
-label-urgent-background = ${colors.background-alt}
-label-urgent-underline = ${colors.alert}
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.background}
 label-urgent-padding = 2
 
 label-empty = %name%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-background = ${colors.background-alt}
+label-empty-foreground = ${colors.cyan}
+label-empty-background = ${colors.background}
 label-empty-padding = 2
 
 ; Separator in between workspaces

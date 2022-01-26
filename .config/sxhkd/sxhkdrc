@@ -59,11 +59,11 @@ super + shift + q
 
 # MPC Toggle
 super + alt + p
-	mpc toggle  && notify-send -a 'MPC' 'Player state changed.' -i 'dialog-information' -t 2000
+	./.scripts/player toggle
 
 # Changing song
 super + alt + bracket{left,right}
-	{mpc prev && notify-send -a 'MPC' 'Playing previous song.' -i 'dialog-information' -t 2000,mpc next && notify-send -a 'MPC' 'Playing next song.' -i 'dialog-information' -t 2000}
+	{./.scripts/player prev, ./.scripts/player next}
 
 # }}}
 

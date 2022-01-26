@@ -20,7 +20,23 @@ do
 		convert -flop "$file" "$file" ;;
 	"v")
 		convert -flip "$file" "$file" ;;
+	"d")
+		YES=" Yes"
+		NO=" No"
+		CHOICE=$(echo "$YES|$NO" | rofi -dmenu -sep "|" -p "" -lines 2 -width 15) 
+		if (( $CHOICE -eq $YES ))
+		then
+			trash-put "$file" 
+			notify-send -a 'Sxiv' 'Moved to trash!' -i 'dialog-information' -t 2000
+		fi ;;
 	"D")
-		trash-put "$file" ;;
+		YES=" Yes"
+		NO=" No"
+		CHOICE=$(echo "$YES|$NO" | rofi -dmenu -sep "|" -p "" -lines 2 -width 15) 
+		if (( $CHOICE -eq $YES ))
+		then
+			rm "$file" 
+			notify-send -a 'Sxiv' 'Deleted!' -i 'dialog-information' -t 2000
+		fi ;;
 	esac
 done

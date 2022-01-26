@@ -71,7 +71,7 @@ modules-left = bspwm
 [bar/bspwm-bar-right]
 inherit = bar/base
 width = 14.3%
-offset-x = 1155
+offset-x = 1160
 modules-right = date
 tray-position = right
 tray-padding = 4
