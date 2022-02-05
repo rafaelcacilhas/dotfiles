@@ -25,16 +25,13 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Customization
 Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ryanoasis/vim-devicons'			" For icons
-Plugin 'dracula/vim', { 'name': 'dracula' } 
 Plugin 'dylanaraps/wal.vim'
 
 " Must have
 Plugin 'tpope/vim-surround'    
 Plugin 'scrooloose/nerdtree'			" added nerdtree
 Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -72,7 +69,7 @@ set path+=**
 set wildmode=longest,list,full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf
 set encoding=UTF-8
-set foldenable
+set nofoldenable
 set foldmethod=marker
 set foldmarker={{{,}}}
 set nocursorline

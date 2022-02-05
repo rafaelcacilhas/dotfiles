@@ -99,7 +99,7 @@ alt_background = xresources["*.color5"]
 alt_foreground = "#888888"
 
 # --- Custom CSS ---
-# config.set("content.user_stylesheets","~/.config/qutebrowser/stylesheets/wal-stylesheet.css")
+# config.set("content.user_stylesheets","~/.config/qutebrowser/stylesheets/wal-duckduckgo.com.css")
 
 # --- Webpages ---
 c.colors.webpage.bg = background

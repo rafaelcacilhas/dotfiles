@@ -11,13 +11,13 @@ alias :x='exit'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
-alias exa='exa --color=always --icons'
+alias exa="exa --color=always --icons"
 alias la='exa -a --color=always --icons'
 alias ll='exa -l --color=always -h --icons --tree --level=1'
-alias all='exa -al --color=always -h --icons --tree --level=1''
+alias all='exa -al --color=always -h --icons --tree --level=1'
 alias cat="batcat"
 alias n="nvim"
-alias history"history -n | fzf | sort | uiq | xclip -selection clipboard"
+alias hist="history -n | sort | uniq -u | fzf | xclip -selection clipboard"
 
 # Suffix aliases
 alias -s pdf=zathura

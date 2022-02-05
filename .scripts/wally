@@ -6,6 +6,8 @@
 # |________|___._||__|__||___  |
 #					     |_____|
 
+file=$(sxiv -o $HOME/Wallpapers/*)
+
 cp $1 ~/.cache/wal/wallpaper.jpg
 
 # nitrogen --save --set-zoom-fill $fullpath &&
@@ -15,4 +17,5 @@ mantablockscreen -i $1
 
 # script that generates zathurarc
 genzathurarc >> ~/.config/zathura/zathurarc
+wal-telegram --wal
 notify-send -a 'Sxiv' 'Them changed...' -i 'nitrogen' 
