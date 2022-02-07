@@ -19,7 +19,7 @@ super + r
 
 # launch qutebrowser
 super + alt + q
-	./.scripts/rofi-quickmarks.sh
+	./.scripts/rofi-bookmarks.sh
 
 # launch neovim
 super + alt + n
