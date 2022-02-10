@@ -113,9 +113,6 @@ highlight VertSplit ctermbg=NONE ctermfg=White
 " Customize folds
 highlight Folded ctermfg=White ctermbg=NONE cterm=bold
 
-" Vertically center documents when in insert mode
-" autocmd InsertEnter * norm zz
-
 " }}}
 
 " VIMWIKI {{{
