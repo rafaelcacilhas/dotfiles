@@ -25,6 +25,10 @@ super + alt + q
 super + alt + n
 	urxvt -e 'nvim'
 
+# launch neomutt
+super + alt + m
+	urxvt -e "neomutt"
+
 # launch ranger
 super + alt + r
 	urxvt -e 'ranger'
@@ -64,6 +68,13 @@ super + alt + p
 # Changing song
 super + alt + bracket{left,right}
 	{./.scripts/player prev, ./.scripts/player next}
+
+# Change brightness
+super + Next
+	./.scripts/lightctl dec 0.1
+
+super + Prior
+	./.scripts/lightctl inc 0.1
 
 # }}}
 
