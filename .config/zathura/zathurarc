@@ -5,111 +5,39 @@
 
 
 # colors
-set default-bg "#162336"
-set default-fg "#d3c7d3"
+set default-bg "#090B3B"
+set default-fg "#c9ecdb"
 
-set completion-bg "#162336"
-set completion-fg "#d3c7d3"
-set completion-group-bg "#162336"
-set completion-group-fg "#0898EB"
-set completion-highlight-bg "#d3c7d3"
-set completion-highlight-fg "#162336"
+set completion-bg "#090B3B"
+set completion-fg "#c9ecdb"
+set completion-group-bg "#090B3B"
+set completion-group-fg "#4C7495"
+set completion-highlight-bg "#c9ecdb"
+set completion-highlight-fg "#090B3B"
 
-set recolor-lightcolor "#162336"
-set recolor-darkcolor "#d3c7d3"
+set recolor-lightcolor "#090B3B"
+set recolor-darkcolor "#c9ecdb"
 
-set inputbar-bg "#162336"
-set inputbar-fg "#d3c7d3"
+set inputbar-bg "#090B3B"
+set inputbar-fg "#c9ecdb"
 
-set notification-bg "#162336"
-set notification-fg "#d3c7d3"
-set notification-error-bg "#48A7BD"
-set notification-error-fg "#d3c7d3"
-set notification-warning-bg "#48A7BD"
-set notification-warning-fg "#d3c7d3"
+set notification-bg "#090B3B"
+set notification-fg "#c9ecdb"
+set notification-error-bg "#386188"
+set notification-error-fg "#c9ecdb"
+set notification-warning-bg "#386188"
+set notification-warning-fg "#c9ecdb"
 
-set statusbar-bg "#162336"
-set statusbar-fg "#d3c7d3"
+set statusbar-bg "#090B3B"
+set statusbar-fg "#c9ecdb"
 
-set index-bg "#162336"
-set index-fg "#d3c7d3"
+set index-bg "#090B3B"
+set index-fg "#c9ecdb"
 
-set index-active-bg "#d3c7d3"
-set index-active-fg "#162336"
-set render-loading-bg "#162336"
-set render-loading-fg "#d3c7d3"
-
-# font
-set font "Roboto 9"
-
-# settings
-set window-height 700
-set window-width 500
-set adjust-open width
-set page-padding 8
-set show-hidden true
-set statusbar-basename true
-set statusbar-home-tilde true
-set page-right-to-left true
-set recolor true
-set recolor-reverse-video true
-set selection-clipboard clipboard
-
-# remove default key bindings
-unmap <C-n>
-
-# key bindings
-map K navigate previous
-map J navigate next
-map D toggle_page_mode
-map b toggle_statusbar
-map P print
-map r reload
-map R rotate
-map + zoom in
-map - zoom out
-map d recolor
-map <C-q> quit
-#  _______         __   __                     
-# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
-# |     __||  _  ||   _|     |  |  |   _|  _  |
-# |_______||___._||____|__|__|_____|__| |___._|
-
-
-# colors
-set default-bg "#162336"
-set default-fg "#d3c7d3"
-
-set completion-bg "#162336"
-set completion-fg "#d3c7d3"
-set completion-group-bg "#162336"
-set completion-group-fg "#0898EB"
-set completion-highlight-bg "#d3c7d3"
-set completion-highlight-fg "#162336"
-
-set recolor-lightcolor "#162336"
-set recolor-darkcolor "#d3c7d3"
-
-set inputbar-bg "#162336"
-set inputbar-fg "#d3c7d3"
-
-set notification-bg "#162336"
-set notification-fg "#d3c7d3"
-set notification-error-bg "#48A7BD"
-set notification-error-fg "#d3c7d3"
-set notification-warning-bg "#48A7BD"
-set notification-warning-fg "#d3c7d3"
-
-set statusbar-bg "#162336"
-set statusbar-fg "#d3c7d3"
-
-set index-bg "#162336"
-set index-fg "#d3c7d3"
-
-set index-active-bg "#d3c7d3"
-set index-active-fg "#162336"
-set render-loading-bg "#162336"
-set render-loading-fg "#d3c7d3"
+set index-active-bg "#c9ecdb"
+set index-active-fg "#090B3B"
+set render-loading-bg "#090B3B"
+set render-loading-fg "#c9ecdb"
 
 # font
 set font "Roboto 9"

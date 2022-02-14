@@ -96,7 +96,7 @@ visualizer_color = blue, cyan, green, yellow, magenta, red
 ## Note: colors can be nested.
 ##
 #
-song_list_format = {%a - }{%t}
+song_list_format = {%a - } {%b}
 #
 song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
 #
@@ -175,7 +175,7 @@ browser_sort_format = {%a - }{%t}
 ##   available.
 ##
 #
-song_columns_list_format = (50)[cyan]{t} (7f)[cyan]{l}
+song_columns_list_format = (50)[cyan]{t} (7f)[cyan]{}
 #
 ##### various settings #####
 #
@@ -217,9 +217,9 @@ discard_colors_if_item_is_selected = no
 #
 #seek_time = 1
 #
-#volume_change_step = 2
+volume_change_step = 2
 #
-#autocenter_mode = no
+autocenter_mode = no
 #
 #centered_cursor = no
 #
@@ -227,7 +227,7 @@ discard_colors_if_item_is_selected = no
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-progressbar_look = 
+progressbar_look = ﱢ
 #
 ## Available values: database, playlist.
 ##
@@ -316,7 +316,7 @@ startup_screen = playlist
 #
 #ask_for_locked_screen_width_part = yes
 #
-#jump_to_now_playing_song_at_start = yes
+jump_to_now_playing_song_at_start = yes
 #
 #ask_before_clearing_playlists = yes
 #

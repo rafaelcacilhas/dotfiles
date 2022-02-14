@@ -29,12 +29,12 @@ URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
 URxvt.font-size.step: 2
 !URxvt.copyCommand: xclip -i -selection clipboard
 !URxvt.pasteCommand: xclip -o -selection clipboard
-URxvt.keysym.C-S-c: perl:clipboard:copy
-URxvt.keysym.C-S-v: perl:clipboard:paste
+!URxvt.keysym.C-S-c: perl:clipboard:copy
+!URxvt.keysym.C-S-v: perl:clipboard:paste
 ! URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 ! URxvt.keysym.M-Escape: perl:keyboard-select:activate
 ! URxvt.keysym.M-s: perl:keyboard-select:search
 ! URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.urlLauncher: firefox
+URxvt.urlLauncher: x-www-browser
 URxvt.underlineURLs: true
 URxvt.urlButton: 1

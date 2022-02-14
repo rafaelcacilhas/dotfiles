@@ -152,14 +152,14 @@
 #def_key "mouse"
 #  mouse_event
 #
-def_key "up"
+def_key "k"
   scroll_up
 #
 #def_key "shift-up"
 #  select_item
 #  scroll_up
 #
-def_key "down"
+def_key "j"
   scroll_down
 #
 #def_key "shift-down"
@@ -184,11 +184,11 @@ def_key "down"
 #def_key "page_down"
 #  page_down
 #
-#def_key "home"
-#  move_home
+def_key "g"
+  move_home
 #
-#def_key "end"
-#  move_end
+def_key "G"
+  move_end
 #
 #def_key "insert"
 #  select_item
@@ -196,14 +196,14 @@ def_key "down"
 #def_key "enter"
 #  enter_directory
 #
-#def_key "enter"
-#  toggle_output
+def_key "enter"
+  toggle_output
 #
 #def_key "enter"
 #  run_action
 #
-#def_key "enter"
-#  play_item
+def_key "enter"
+  play_item
 #
 #def_key "space"
 #  add_item_to_playlist
@@ -232,8 +232,8 @@ def_key "down"
 #def_key "right"
 #  volume_up
 #
-#def_key "+"
-#  volume_up
+def_key "+"
+  volume_up
 #
 #def_key "left"
 #  previous_column
@@ -244,8 +244,8 @@ def_key "down"
 #def_key "left"
 #  volume_down
 #
-#def_key "-"
-#  volume_down
+def_key "-"
+  volume_down
 #
 #def_key ":"
 #  execute_command
@@ -292,8 +292,8 @@ def_key "down"
 #def_key "8"
 #  show_visualizer
 #
-#def_key "="
-#  show_clock
+def_key "0"
+  show_clock
 #
 #def_key "@"
 #  show_server_info
@@ -301,14 +301,14 @@ def_key "down"
 #def_key "s"
 #  stop
 #
-#def_key "p"
-#  pause
+def_key "p"
+  pause
 #
-#def_key ">"
-#  next
+def_key "]"
+  next
 #
-#def_key "<"
-#  previous
+def_key "["
+  previous
 #
 #def_key "ctrl-h"
 #  jump_to_parent_directory
@@ -322,11 +322,11 @@ def_key "down"
 #def_key "backspace"
 #  replay_song
 #
-#def_key "f"
-#  seek_forward
+def_key "l"
+  seek_forward
 #
-#def_key "b"
-#  seek_backward
+def_key "h"
+  seek_backward
 #
 #def_key "r"
 #  toggle_repeat
@@ -343,8 +343,8 @@ def_key "down"
 #def_key "y"
 #  toggle_single
 #
-#def_key "R"
-#  toggle_consume
+def_key "R"
+  toggle_consume
 #
 #def_key "Y"
 #  toggle_replay_gain_mode
@@ -538,6 +538,6 @@ def_key "down"
 #def_key "ctrl-p"
 #  set_selected_items_priority
 #
-#def_key "q"
-#  quit
+def_key "q"
+  quit
 #

@@ -17,7 +17,7 @@ alias ll='exa -l --color=always -h --icons --tree --level=1'
 alias all='exa -al --color=always -h --icons --tree --level=1'
 alias cat="batcat"
 alias n="nvim"
-alias hist="history -n | sort | uniq -u | fzf | xclip -selection clipboard"
+alias hist="history -n | sort -r | uniq -u | fzf | tr -d '\n' | xclip -selection clipboard"
 
 # Suffix aliases
 alias -s pdf=zathura
