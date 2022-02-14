@@ -1,0 +1,11 @@
+# vim: filetype=muttrc
+
+source ~/.config/neomutt/settings
+source ~/.config/neomutt/style
+source ~/.config/neomutt/mappings
+source ~/.config/neomutt/aliases
+
+# Accounts
+
+source ~/.config/mutt/accounts/chauhandilip305@gmail.com.muttrc 
+# source ~/.config/mutt/accounts/sunnyl02@outlook.com.muttrc
