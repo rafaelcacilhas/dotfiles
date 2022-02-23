@@ -51,6 +51,7 @@ Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " Syntax highlighting
 Plugin 'vim-python/python-syntax'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'neomutt/neomutt.vim'
 
 " Vim Wiki
 Plugin 'vimwiki/vimwiki'

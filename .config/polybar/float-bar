@@ -407,6 +407,8 @@ label-background = ${colors.background}
 label-padding = 1
 ;label-margin = 1
 
+; click-left = "calcurse"
+
 ; }}}
 
 ; PULSEAUDIO {{{

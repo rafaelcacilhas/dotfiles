@@ -6,8 +6,6 @@
 # |________|___._||__|__||___  |
 #					     |_____|
 
-file=$(sxiv -o $HOME/Wallpapers/*)
-
 cp $1 ~/.cache/wal/wallpaper.jpg
 
 # nitrogen --save --set-zoom-fill $fullpath &&

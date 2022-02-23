@@ -9,6 +9,8 @@ export PATH=$PATH:/sbin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/root/.cargo/bin
 export PATH=$PATH:/home/dilip/.scripts
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export EDITOR="nvim"
 
 #Path to your oh-my-zsh installation.
 export ZSH="/home/dilip/.oh-my-zsh"
@@ -16,12 +18,23 @@ export ZSH="/home/dilip/.oh-my-zsh"
 # Loading custom aliases
 source ~/.aliases
 
+# Custom Header
+PURPLE='\033[1;34m'
+WHITE_ITALIC='\033[3;37m'
+NORMAL='\033[0;37m'
+# WHITE_BLINKING='\033[5;37m'
+fortune > /tmp/fortune
+while read -r line ; do
+	echo -e "${PURPLE}│${WHITE_ITALIC} $line ${NORMAL}"
+done < /tmp/fortune
+echo ""
+
 # ZSH Plugin
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ##### THEMES FOR ZSH ######
 
-#ZSH_THEME="daveverwer"
+# ZSH_THEME="daveverwer"
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"   	# powerline
 ZSH_THEME="dstufft"
@@ -124,7 +137,7 @@ bindkey -v
 # colorscript --exec alpha
 # colorscript --exec blocks1
 # colorscript --exec crunch
-colorscript --exec crunchbang-mini
+# colorscript --exec crunchbang-mini
 # colorscript --exec dna
 # colorscript --exec elfman
 # colorscript --exec faces
@@ -137,4 +150,3 @@ colorscript --exec crunchbang-mini
 # colorscript --exec tiefighter1row
 # colorscript --exec tux
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -26,7 +26,7 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 set text_flowed
 set sort = 'reverse-date'
-set sidebar_visible = yes
+set sidebar_visible = no
 set sidebar_width = 20
 set sidebar_short_path = yes
 unset sig_dashes                     # no dashes before sig
