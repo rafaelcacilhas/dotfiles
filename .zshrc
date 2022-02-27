@@ -25,7 +25,7 @@ NORMAL='\033[0;37m'
 # WHITE_BLINKING='\033[5;37m'
 fortune > /tmp/fortune
 while read -r line ; do
-	echo -e "${PURPLE}│${WHITE_ITALIC} $line ${NORMAL}"
+	echo -e "${PURPLE}┃${WHITE_ITALIC} $line ${NORMAL}"
 done < /tmp/fortune
 echo ""
 
