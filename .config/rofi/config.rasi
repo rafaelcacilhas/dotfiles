@@ -1,5 +1,5 @@
 configuration {
-	theme: "~/.config/rofi/themes/wal.rasi";
+	theme: "~/.config/rofi/themes/minimal.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
 	font: "Iosevka Nerd Font 9";
 	modi: "window,drun,run";
@@ -8,10 +8,10 @@ configuration {
 	/* drun-display-format: "{name}"; */
 	width: 30;
 	columns: 1;
-	lines: 8;
-	fixed-num-lines: true;
-	location: 0;
-	yoffset: 0;
+	lines: 13;
+	fixed-num-lines: false;
+	location: 2;
+	yoffset: 100;
 	sidebar-mode: false;
 	fullscreen: false;
 	display-drun: " ";

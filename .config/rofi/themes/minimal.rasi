@@ -13,8 +13,9 @@
 }
 
 #window {
-	height: 100%;
-	border:           0 0 0 30 ;
+	width: 600px;
+	border:           0;
+	padding: 30px;
 	border-color:     @selected-urgent-background;
 
 }
@@ -34,7 +35,7 @@
 
 #element {
     border:  0;
-	border-radius: 3px;
+	border-radius: 0px;
 	orientation: vertical;
     padding: 6px;
 	margin: 3 0;
@@ -81,8 +82,8 @@
 	children:   [ prompt,entry,case-indicator ];
 	padding: 3px;
 	spacing:    0;
-	border-radius: 5;
-	border: 1;
+	border-radius: 0;
+	border: 0 0 2 0;
 	background-color: @background;
 	border-color: @selected-urgent-background;
 	text-color: @normal-foreground;

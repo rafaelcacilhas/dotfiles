@@ -1,8 +1,10 @@
 " ALL FILETYPE {{{
 " }}}
 
-" PYTHON {{{
+" For Neomutt and Mutt
+autocmd BufNewFile,BufRead Programs/neomutt/temp/* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 
+" PYTHON {{{
 autocmd FileType python nnoremap <leader>r !python3 %p
 
 " }}}
