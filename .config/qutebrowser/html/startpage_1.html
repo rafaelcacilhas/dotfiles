@@ -58,20 +58,25 @@
 				justify-content: space-between;
 			}
 			.form * {
-				border: 1px;
-				border-color: var(--color3);
+				border-bottom-width: 2px;
+				border-color: var(--background);
+				border-bottom-color: var(--color3);
 				border-style: solid; 
-				border-radius:4px; 
+				border-radius:0px; 
 				margin: 0px 4px;
 				color: var(--foreground);
 				background-color: var(--background);
 			}
 			.search {
-				width:90%;
+				width:100%;
 				padding: 10px;
 			}
 			.search:active {
-				border-color: var(--color4);
+				border-bottom-width: 2px;
+				border-color: var(--background);
+				border-bottom-color: var(--color3);
+				border-style: solid; 
+				border-radius:0px; 
 				color: var(--foreground);
 			}
 			.sub {
@@ -97,8 +102,8 @@
 				padding: 5px;
 			}
 			a:hover {
-				background-color: var(--color4);
-				border-radius: 4px;
+				background-color: var(--color3);
+				border-radius: 0px;
 				color: var(--background);
 			}
 			@media screen and (max-width: 700px) {
@@ -116,7 +121,7 @@
 			<div class="sub-container content">
 				<form action='https://duckduckgo.com/?' method='get' class="form">
 					<input type=search name="q" class="search" placeholder="Search">
-					<input type=submit value="Let's Go" class="sub">
+					<!-- <input type=submit value="Let's Go" class="sub"> -->
 				</form>
 				<div class="list">
 					<!-- <a class="link" href="https://technicaldc.github.io/">My Website</a> -->
