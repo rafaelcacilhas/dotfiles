@@ -15,15 +15,15 @@ set $alt Mod1
 
 #Needed for i3-gaps
 #hide_edge_borders both
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 gaps inner 10
 gaps outer 0
 
 # smart_gaps on
 # smart_borders on
 
-bindsym $mod+z			gaps outer 10
-bindsym $mod+Shift+z	gaps outer 20
+# bindsym $mod+z			gaps outer 10
+# bindsym $mod+Shift+z	gaps outer 20
 
 # }}}
 
@@ -109,7 +109,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec ./.config/rofi/scripts/rofi-powermenu.sh
+bindsym $mod+Shift+q exec ./.cripts/rofi-powermenu.sh
 
 # resize window (you can also use the mouse for that)
 
@@ -138,10 +138,10 @@ bindsym $mod+r exec rofi -show run -no-show-icons
 bindsym $mod+w exec rofi -show window 
 
 # config menu
-bindsym $mod+e exec ./.config/rofi/scripts/rofi-configmenu.sh
+bindsym $mod+e exec rofi-configmenu.sh
 
 #scrot menu
-bindsym Shift+Print exec ./.config/rofi/scripts/rofi-scrotmenu.sh
+bindsym Shift+Print exec rofi-scrotmenu.sh
 
 #scrot
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/' 
@@ -156,17 +156,25 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Mod1+r exec urxvt -e ranger
 
 # launch qutebrowser
-bindsym $mod+Mod1+q exec ./.config/rofi/scripts/rofi-quickmarks.sh
+bindsym $mod+Mod1+q exec rofi-quickmarks.sh
 
 # launch neovim
 bindsym $mod+Mod1+n exec urxvt -e nvim
+
+# launch neomutt
+bindsym $mod+Mod1+m exec urxvt -e neomutt
+
+# play mpd
+bindsym $mod+Mod1+p exec player toggle
+bindsym $mod+Mod1+] exec player next
+bindsym $mod+Mod1+[ exec player prev
 
 # }}}
 
 # COLOR SETTINGS {{{
 
-set_from_resource $normal color5
-set_from_resource $focus foreground
+set_from_resource $normal background
+set_from_resource $focus color4
 set_from_resource $alert color1
 
 # }}}
@@ -175,8 +183,8 @@ set_from_resource $alert color1
 
 #                       border  bg      text    indicator
 client.focused          $focus	$focus	$focus	$focus
-client.unfocused        #888888	#888888	#888888	#888888
-client.focused_inactive $bg		$bg		$bg		$bg
+client.unfocused        $normal $normal $normal $normal
+client.focused_inactive $normal $normal $normal $normal
 client.urgent           $alert	$alert	$alert	$alert
 
 # }}}
@@ -190,20 +198,20 @@ for_window [class="Pavucontrol"] resize shrink left 100, resize shrink right 100
 
 # PULSE AUDIO CONTROLS {{{
 
-bindsym $mod+F12 exec pamixer -i 5
-bindsym $mod+F11 exec pamixer -d 5
-bindsym $mod+shift+F12 exec pamixer --set-volume 0
+# bindsym $mod+F12 exec pamixer -i 5
+# bindsym $mod+F11 exec pamixer -d 5
+# bindsym $mod+shift+F12 exec pamixer --set-volume 0
 
 # }}}
 
 # AUTOSTART PROGRAMS {{{
 
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & 
-exec nitrogen --restore &
+exec ./.fehbg & 
+exec wal -R
 exec_always ./.config/polybar/launch.sh i3-bar & 
 exec nm-applet &
 exec kdeconnect-indicator &
-exec telegram-desktop -startintray &
 exec picom --experimental-backends &
 exec urxvtd -q -o -f &
 
