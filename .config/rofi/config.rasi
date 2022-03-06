@@ -1,7 +1,8 @@
 configuration {
 	theme: "~/.config/rofi/themes/minimal.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
-	font: "Iosevka Nerd Font 9";
+	/* font: "Iosevka Nerd Font 9"; */
+	font: "SauceCode Pro Nerd Font 9";
 	modi: "window,drun,run";
 	combi-modi: "drun, window";
 	show-icons: false;

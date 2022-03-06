@@ -66,7 +66,7 @@ wm-restack = bspwm
 inherit = bar/base
 width = 14.3%
 offset-x = 10
-modules-left = bspwm
+modules-left = bspwm i3
 
 [bar/bspwm-bar-right]
 inherit = bar/base
@@ -176,14 +176,14 @@ wrapping-scroll = false
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-underline = ${colors.foreground} 
+; label-focused-underline = ${colors.foreground} 
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.background}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-underline = ${colors.background} 
+; label-unfocused-underline = ${colors.background} 
 label-unfocused-padding = ${self.label-focused-padding}
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.background}
@@ -191,14 +191,14 @@ label-unfocused-background = ${colors.background}
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
 label-urgent-background = ${colors.background}
 label-urgent-foreground = ${colors.foreground}
-label-urgent-underline = ${colors.alert}
+; label-urgent-underline = ${colors.alert}
 label-urgent-padding = ${self.label-focused-padding}
 
 ; }}}

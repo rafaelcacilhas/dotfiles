@@ -7,8 +7,7 @@
 ; COLORS {{{
 [colors]
 background = ${xrdb:background}
-foreground = ${xrdb:color6}
-foreground-alt = ${xrdb:foreground}
+foreground = ${xrdb:foreground}
 alert = ${xrdb:color1}
 red = ${xrdb:color1}
 green = ${xrdb:color2}
@@ -53,11 +52,11 @@ font-3 = Font Awesome 5 Free Brand:style=Regular:size=9;1
 font-4 ="Sauce Code Pro Nerd Font:size=10;2"
 font-5 = "Sauce Code Pro Nerd Font:size=13;3"
 
-modules-right = picom-toggle uptime pulseaudio cpu memory date 
+modules-right = uptime pulseaudio date 
 
 tray-position = right
 tray-padding = 4
-tray-background = ${colors.background-alt}
+tray-background = ${colors.background}
 tray-maxsize = 16
 
 cursor-click = pointer
@@ -66,6 +65,12 @@ cursor-click = pointer
 wm-restack = bspwm
 
 ; }}}
+
+; I3-BAR
+[bar/i3-bar]
+inherit = bar/base
+modules-left = i3 mpd
+wm-restack = i3
 
 ; BSPWM-BAR {{{
 [bar/bspwm-bar]
@@ -84,7 +89,7 @@ hook-1 = echo "%{T3}%{T-}"
 initial = 1
 click-left = /home/dilip/.config/polybar/scripts/poly-dunst.sh &
 format-padding = 2
-format-background = ${colors.backlight-alt}
+format-background = ${colors.backlight}
 
 ; }}}
 
@@ -93,9 +98,10 @@ format-background = ${colors.backlight-alt}
 type = custom/script
 exec = uptime -p | cut -d' ' -f2,3  
 format-prefix = 
+format-prefix-foreground = ${colors.purple}
 format-padding = 2
 format-prefix-padding = 2
-format-background = ${colors.background-alt}
+format-background = ${colors.background}
 ; exec-if = pgrep -x myservice
 tail = true
 interval = 60
@@ -110,7 +116,7 @@ hook-1 = echo ""
 initial = 1
 click-left = /home/dilip/.config/polybar/scripts/poly-picom.sh &
 format-padding = 2
-format-background = ${colors.background-alt}
+format-background = ${colors.background}
 
 ; }}}
 
@@ -123,7 +129,7 @@ format-prefix-background = ${colors.background-alt}
 format-prefix-padding = 2
 label =  %title:0:30:...%
 label-foreground = ${colors.foreground}
-label-background = ${colors.background-alt}
+label-background = ${colors.background}
 label-padding = 1
 ;label-margin = 1
 
@@ -172,29 +178,29 @@ wrapping-scroll = false
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-underline = ${colors.foreground} 
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.background-alt}
+; label-focused-underline = ${colors.foreground} 
+label-focused-foreground = ${colors.purple}
+label-focused-background = ${colors.background}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-underline = ${colors.background-alt} 
+; label-unfocused-underline = ${colors.background-alt} 
 label-unfocused-padding = ${self.label-focused-padding}
-label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.background-alt}
+label-unfocused-foreground = ${colors.green}
+label-unfocused-background = ${colors.background}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+; label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
-label-urgent-background = ${colors.background-alt}
-label-urgent-foreground = ${colors.foreground}
-label-urgent-underline = ${colors.alert}
+label-urgent-background = ${colors.background}
+label-urgent-foreground = ${colors.alert}
+; label-urgent-underline = ${colors.alert}
 label-urgent-padding = ${self.label-focused-padding}
 
 ; }}}
@@ -208,6 +214,7 @@ output = VGA1
 
 format = <label>
 format-prefix =  
+format-prefix-foreground = ${colors.purple}
 label = %percentage%%
 label-foreground = ${colors.foreground}
 label-background = ${colors.background}
@@ -225,9 +232,9 @@ spacing = 4
 
 format-mounted = <label-mounted>
 format-mounted-padding = 2
-format-mounted-background = ${colors.background-alt}
+format-mounted-background = ${colors.background}
 format-mounted-prefix = %{T3}%{T-}
-format-mounted-prefix-foreground = ${colors.foreground}
+format-mounted-prefix-foreground = ${colors.purple}
 label-mounted = "  %mountpoint% : %percentage_used%%"
 
 ; }}}
@@ -242,10 +249,10 @@ port = 6600
 password =
 
 format-online = <icon-prev> <toggle> <icon-next> <icon-repeat> <label-song> <label-time>
-format-online-background = ${colors.background-alt}
+format-online-background = ${colors.background}
 format-online-padding = 2
 format-offline = <label-offline>
-format-offline-background = ${colors.background-alt}
+format-offline-background = ${colors.background}
 format-offline-prefix = 
 format-offline-prefix-foreground = ${colors.alert}
 format-offline-padding = 2
@@ -259,24 +266,31 @@ label-time-margin = 2
 ;        
 
 icon-seekb = 
+icon-seekb-foreground = ${colors.purple}
 icon-seekb-margin = 1
 icon-prev = 
+icon-prev-foreground = ${colors.purple}
 icon-prev-margin = 1
 icon-play = 
+icon-play-foreground = ${colors.purple}
 icon-play-margin = 1
 icon-pause-margin = 1
 icon-pause = 
+icon-pause-foreground = ${colors.purple}
 icon-seekf = 
+icon-seekf-foreground = ${colors.purple}
 icon-seekf-margin = 1
 icon-next = 
+icon-next-foreground = ${colors.purple}
 icon-next-margin = 1
 icon-repeat = 
 icon-repeat-margin = 1
 icon-stop = 
+icon-stop-foreground = ${colors.purple}
 icon-stop-margin = 1
 
-toggle-on-foreground = ${colors.foreground}
-toggle-off-foreground = ${colors.foreground-alt}
+toggle-on-foreground = ${colors.purple}
+toggle-off-foreground = ${colors.foreground}
 
 click-right = ncmpcpp &
 
@@ -289,26 +303,26 @@ type = internal/cpu
 interval = 2
 format = <ramp-load> <label>
 format-padding = 2
-format-background = ${colors.background-alt}
+format-background = ${colors.background}
 
 ramp-load-0 = 
-ramp-load-0-foreground = ${colors.foreground}
+ramp-load-0-foreground = ${colors.purple}
 ramp-load-1 = 
-ramp-load-1-foreground = ${colors.foreground}
+ramp-load-1-foreground = ${colors.purple}
 ramp-load-2 = 
-ramp-load-2-foreground = ${colors.foreground}
+ramp-load-2-foreground = ${colors.purple}
 ramp-load-3 = 
-ramp-load-3-foreground = ${colors.foreground}
+ramp-load-3-foreground = ${colors.purple}
 ramp-load-4 = 
-ramp-load-4-foreground = ${colors.foreground}
+ramp-load-4-foreground = ${colors.purple}
 ramp-load-5 = 
-ramp-load-5-foreground = ${colors.foreground}
+ramp-load-5-foreground = ${colors.purple}
 ramp-load-6 = 
-ramp-load-6-foreground = ${colors.foreground}
+ramp-load-6-foreground = ${colors.purple}
 ramp-load-7 = 
-ramp-load-7-foreground = ${colors.foreground}
+ramp-load-7-foreground = ${colors.purple}
 ramp-load-8 = 
-ramp-load-8-foreground = ${colors.foreground}
+ramp-load-8-foreground = ${colors.purple}
 ramp-load-9 = 
 ramp-load-9-foreground = ${colors.alert}
 
@@ -327,26 +341,26 @@ type = internal/memory
 interval = 2
 format = <ramp-used> <label>
 format-padding = 2
-format-background = ${colors.background-alt}
+format-background = ${colors.background}
 
 ramp-used-0 = " "
-ramp-used-0-foreground = ${colors.foreground}
+ramp-used-0-foreground = ${colors.purple}
 ramp-used-1 = " "
-ramp-used-1-foreground = ${colors.foreground}
+ramp-used-1-foreground = ${colors.purple}
 ramp-used-2 = " "
-ramp-used-2-foreground = ${colors.foreground}
+ramp-used-2-foreground = ${colors.purple}
 ramp-used-3 = " "
-ramp-used-3-foreground = ${colors.foreground}
+ramp-used-3-foreground = ${colors.purple}
 ramp-used-4 = " "
-ramp-used-4-foreground = ${colors.foreground}
+ramp-used-4-foreground = ${colors.purple}
 ramp-used-5 = " "
-ramp-used-5-foreground = ${colors.foreground}
+ramp-used-5-foreground = ${colors.purple}
 ramp-used-6 = " "
-ramp-used-6-foreground = ${colors.foreground}
+ramp-used-6-foreground = ${colors.purple}
 ramp-used-7 = " "
-ramp-used-7-foreground = ${colors.foreground}
+ramp-used-7-foreground = ${colors.purple}
 ramp-used-8 = " "
-ramp-used-8-foreground = ${colors.foreground}
+ramp-used-8-foreground = ${colors.purple}
 ramp-used-9 = " "
 ramp-used-9-foreground = ${colors.alert}
 
@@ -366,7 +380,7 @@ interval = 1.0
 
 format-connected = <label-connected>
 ;format-connected-underline = #55ff55
-label-connected = WIFI: %essid% IP: %local_ip%
+label-connected =  %essid%
 label-connected-foreground = ${colors.foreground}
 label-connected-padding = 1
 ;label-connected-margin = 1
@@ -393,16 +407,17 @@ date = "%d %b"
 time = %a %H:%M
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground}
-format-prefix-background = ${colors.background-alt}
+format-prefix-foreground = ${colors.purple}
+format-prefix-background = ${colors.background}
 format-prefix-padding = 2
 
 label =  %date%, %time%
 label-foreground = ${colors.foreground}
-label-background = ${colors.background-alt}
+label-background = ${colors.background}
 label-padding = 1
 ;label-margin = 1
 
+click-right = calcurse &
 ; }}}
 
 ; PULSEAUDIO {{{
@@ -412,29 +427,29 @@ type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 2
-format-volume-background = ${colors.background-alt}
+format-volume-background = ${colors.background}
 label-volume = %percentage%% 
 label-volume-foreground = ${colors.foreground}
 label-volume-padding = 1
 
 ramp-volume-0 = 
-ramp-volume-0-foreground = ${colors.foreground}
+ramp-volume-0-foreground = ${colors.purple}
 ramp-volume-1 = 
-ramp-volume-1-foreground = ${colors.foreground}
+ramp-volume-1-foreground = ${colors.purple}
 ramp-volume-2 = 
-ramp-volume-2-foreground = ${colors.foreground}
+ramp-volume-2-foreground = ${colors.purple}
 ramp-volume-3 = 
-ramp-volume-3-foreground = ${colors.foreground}
+ramp-volume-3-foreground = ${colors.purple}
 ramp-volume-4 = 
-ramp-volume-4-foreground = ${colors.foreground}
+ramp-volume-4-foreground = ${colors.purple}
 ramp-volume-5 = 
-ramp-volume-5-foreground = ${colors.foreground}
+ramp-volume-5-foreground = ${colors.purple}
 ramp-volume-6 = 
-ramp-volume-6-foreground = ${colors.foreground}
+ramp-volume-6-foreground = ${colors.purple}
 ramp-volume-7 = 
-ramp-volume-7-foreground = ${colors.foreground}
+ramp-volume-7-foreground = ${colors.purple}
 ramp-volume-8 = 
-ramp-volume-8-foreground = ${colors.foreground}
+ramp-volume-8-foreground = ${colors.purple}
 ramp-volume-9 = 
 ramp-volume-9-foreground = ${colors.red}
 
@@ -456,17 +471,17 @@ warn-temperature = 60
 
 format = <ramp> <label>
 format-padding = 2
-format-background = ${colors.background-alt}
+format-background = ${colors.background}
 format-warn = <ramp> <label-warn>
 
 ramp-0 = 
-ramp-0-foreground = ${colors.foreground}
+ramp-0-foreground = ${colors.purple}
 ramp-1 = 
-ramp-1-foreground = ${colors.foreground}
+ramp-1-foreground = ${colors.purple}
 ramp-2 = 
-ramp-2-foreground = ${colors.foreground}
+ramp-2-foreground = ${colors.purple}
 ramp-3 = 
-ramp-3-foreground = ${colors.foreground}
+ramp-3-foreground = ${colors.purple}
 ramp-4 = 
 ramp-4-foreground = ${colors.alert}
 

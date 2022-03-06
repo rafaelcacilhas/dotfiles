@@ -17,7 +17,7 @@ set $alt Mod1
 #hide_edge_borders both
 for_window [class="^.*"] border pixel 2
 gaps inner 10
-gaps outer 0
+gaps outer 10
 
 # smart_gaps on
 # smart_borders on
@@ -34,6 +34,11 @@ floating_modifier $mod
 
 # kill focused window
 bindsym $mod+q kill
+
+# Scratchpads
+for_window [title="scratchpad"] floating enable, move scratchpad
+bindsym $mod+x [instance="scratchpad"] scratchpad show, move position center 
+exec urxvt -name scratchpad -geometry 86x24-8-32
 
 
 # change focus
@@ -77,6 +82,9 @@ bindsym $mod+Shift+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+s floating toggle
 
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -109,7 +117,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec ./.cripts/rofi-powermenu.sh
+bindsym $mod+Shift+q exec ./.scripts/rofi-powermenu.sh
 
 # resize window (you can also use the mouse for that)
 
@@ -138,10 +146,10 @@ bindsym $mod+r exec rofi -show run -no-show-icons
 bindsym $mod+w exec rofi -show window 
 
 # config menu
-bindsym $mod+e exec rofi-configmenu.sh
+bindsym $mod+e exec ./.scripts/rofi-configmenu.sh
 
 #scrot menu
-bindsym Shift+Print exec rofi-scrotmenu.sh
+bindsym Shift+Print exec ./.scripts/rofi-scrotmenu.sh
 
 #scrot
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/' 
@@ -156,7 +164,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Mod1+r exec urxvt -e ranger
 
 # launch qutebrowser
-bindsym $mod+Mod1+q exec rofi-quickmarks.sh
+bindsym $mod+Mod1+q exec ./.scripts/rofi-quickmarks.sh
 
 # launch neovim
 bindsym $mod+Mod1+n exec urxvt -e nvim
@@ -165,15 +173,16 @@ bindsym $mod+Mod1+n exec urxvt -e nvim
 bindsym $mod+Mod1+m exec urxvt -e neomutt
 
 # play mpd
-bindsym $mod+Mod1+p exec player toggle
-bindsym $mod+Mod1+] exec player next
-bindsym $mod+Mod1+[ exec player prev
+bindsym $mod+Mod1+p exec ./.scripts/player toggle
+# bindsym $mod+Mod1+] exec ./.scripts/player next
+# bindsym $mod+Mod1+[ exec ./.scripts/player prev
 
 # }}}
 
 # COLOR SETTINGS {{{
 
 set_from_resource $normal background
+set_from_resource $foreground foreground
 set_from_resource $focus color4
 set_from_resource $alert color1
 
@@ -207,6 +216,7 @@ for_window [class="Pavucontrol"] resize shrink left 100, resize shrink right 100
 # AUTOSTART PROGRAMS {{{
 
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 & 
+exec dunst -sep_color "$normal" -frame_color "$focus" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
 exec ./.fehbg & 
 exec wal -R
 exec_always ./.config/polybar/launch.sh i3-bar & 
