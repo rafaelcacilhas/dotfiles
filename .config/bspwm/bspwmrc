@@ -32,6 +32,7 @@ bspc rule -a Zathura state=tiled
 bspc rule -a mpv state=fullscreen
 bspc rule -a Pavucontrol state=pseudo_tiled
 bspc rule -a SimpleScreenRecorder state=pseudo_tiled
+bspc rule -a filechooser state=floating
 
 # }}}
 

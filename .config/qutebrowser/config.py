@@ -46,8 +46,8 @@ c.completion.shrink = True
 
 # --- File Select ---
 config.set("fileselect.handler", "external")
-config.set("fileselect.single_file.command" , ["urxvt", "-e", "ranger", "--choosefile", "{}"])
-config.set("fileselect.multiple_files.command", ["urxvt", "-e", "ranger", "--choosefiles" "{}"])
+config.set("fileselect.single_file.command" , ["urxvt", "-name", "filechooser", "-e", "ranger", "--choosefile", "{}"])
+config.set("fileselect.multiple_files.command", ["urxvt", "-name", "filechooser", "-e", "ranger", "--choosefiles" "{}"])
 
 c.content.pdfjs = True
 
@@ -99,13 +99,13 @@ alt_background = xresources["*.color5"]
 alt_foreground = "#888888"
 
 # --- Custom CSS ---
-config.set("content.user_stylesheets","~/.config/qutebrowser/stylesheets/wal-duckduckgo.com.css")
+# config.set("content.user_stylesheets","~/.config/qutebrowser/stylesheets/wal-duckduckgo.com.css")
 
 # --- Webpages ---
 c.colors.webpage.bg = background
 
-# if xresources["*.background"] != "#ffffff" or xresources["*.background"] != "#FFFFFF":
-#     c.colors.webpage.darkmode.enabled = True
+if xresources["*.background"] != "#ffffff" or xresources["*.background"] != "#FFFFFF":
+    c.colors.webpage.darkmode.enabled = True
 
 # --- Context menu ---
 c.colors.contextmenu.menu.bg = background

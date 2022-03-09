@@ -52,7 +52,7 @@ font-3 = Font Awesome 5 Free Brand:style=Regular:size=9;1
 font-4 ="Sauce Code Pro Nerd Font:size=10;2"
 font-5 = "Sauce Code Pro Nerd Font:size=13;3"
 
-modules-right = uptime pulseaudio date 
+modules-right = pulseaudio date 
 
 tray-position = right
 tray-padding = 4
