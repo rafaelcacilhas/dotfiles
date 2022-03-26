@@ -17,14 +17,20 @@
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
-    geometry = "250x100-10+47"
+    geometry = "100x100-10+47"
+
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 50
+    progress_bar_max_width = 150
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
-    shrink = no
+    shrink = yes
 
     # The transparency of the window.  Range: [0; 100].
     transparency = 10
@@ -100,7 +106,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b><u>%a</u></b>\n%s\n%b"
+    format = "<b>%a</b>\n%s"
 
     alignment = left
     vertical_alignment = top
@@ -122,10 +128,10 @@
     ignore_newline = no
 
     # Stack together notifications with the same content
-    stack_duplicates = true
+    stack_duplicates = false
 
     # Hide the count of stacked notifications with the same content
-    hide_duplicate_count = false
+    hide_duplicate_count = true
 
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
@@ -153,7 +159,7 @@
     sticky_history = yes
 
     # Maximum amount of notifications kept in history
-    history_length = 10
+    history_length = 100
 
     ### Misc/Advanced ###
 

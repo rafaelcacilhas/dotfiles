@@ -3,6 +3,9 @@
 vnoremap < <gv
 vnoremap > >gv
 
+" Keybindings for coc-explorer
+nnoremap tt :CocCommand explorer<CR>
+
 " Yank all content
 nnoremap <leader>y ggVGy<C-o>
 nnoremap Y y$

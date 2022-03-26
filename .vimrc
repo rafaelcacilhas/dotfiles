@@ -9,10 +9,10 @@ runtime! debian.vim
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 source /home/dilip/.filetype.vim
 source /home/dilip/.abbreviations.vim
 source /home/dilip/.keybindings.vim
+
 " }}}
 
 " PLUGINS {{{
@@ -69,7 +69,7 @@ set noswapfile
 set number relativenumber
 set path+=**
 set wildmode=longest,list,full
-set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf
+set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf,*.gif,*.png,*.jpg,*.mp4,*mp3
 set encoding=UTF-8
 set nofoldenable
 set foldmethod=marker
@@ -106,7 +106,7 @@ highlight SpellRare cterm=NONE ctermbg=NONE
 highlight SpellLocal cterm=undercurl ctermbg=NONE
 
 " Customize cursor line
-highlight CursorLine cterm=NONE ctermbg=Black 
+highlight CursorLine cterm=NONE ctermbg=Black  ctermfg=White
 " highlight CursorLineNr cterm=Bold ctermbg=Black ctermfg=White
 
 " highlight LineNr ctermbg=NONE ctermfg=White
@@ -141,8 +141,7 @@ let g:startify_session_dir = '~/.vim/session'
 
 let g:startify_lists = [
           \ { 'type': 'bookmarks', 'header': ['   BOOKMARKS:']      },
-          \ { 'type': 'files',     'header': ['   RECENTS:']            },
-          \ { 'type': 'dir',       'header': ['   CURRENT DIRECTORY: '. getcwd()] },
+          \ { 'type': 'files',     'header': ['   RECENTS:']        },
           \ { 'type': 'sessions',  'header': ['   SESSIONS:']       },
           \ { 'type': 'commands',  'header': ['   COMMANDS:']       },
           \ ]
@@ -194,7 +193,7 @@ let g:airline_powerline_fonts = 1
 
 " NERD TREE CONFIG {{{
 
-nnoremap <silent> tt :NERDTreeToggle<CR>
+" nnoremap <silent> tt :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers=0

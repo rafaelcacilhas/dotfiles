@@ -17,10 +17,26 @@ alias ll='exa -l --color=always -h --icons --tree --level=1'
 alias all='exa -al --color=always -h --icons --tree --level=1'
 alias cat="batcat"
 alias n="nvim"
-alias hist="history -n | sort -r | uniq -u | fzf | tr -d '\n' | xclip -selection clipboard"
+# alias hist=""
 
 # Suffix aliases
 alias -s pdf=zathura
 alias -s {mp4}=mpv
 alias -s {jpg,jpeg,png,gif}=sxiv
-alias -s {conf,css,rasi,html,txt,sh,py,tex,lua,md}=nvim
+alias -s {conf,css,rasi,html,txt,tex,lua,md}=nvim
+
+# Function aliases
+function hist () {
+	OPTION=$(history -n | sort -r | uniq -u | fzf | tr -d '\n')
+	case $1 in 
+		# Copy selected command into clipboard
+		"-c")
+			echo $OPTION | xclip -selection clipboard
+			;;
+
+		# Execute selected command and copy its output to clipboard
+		"-o")
+			$OPTION | xclip -selection clipboard
+			;;
+	esac
+}
