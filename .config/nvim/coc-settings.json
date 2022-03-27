@@ -17,13 +17,15 @@
 		"typescript.tsx",
 		"graphql"
 	],
+	"explorer.width": 30,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.quitOnOpen": true,
 	"explorer.position": "left",
 	"explorer.file.showHiddenFiles": false,
 	"explorer.file.column.clip.copy": "",
 	"explorer.file.column.clip.cut": "",
-	"explorer.keyMappings": {
+	"explorer.keyMappings.global": {
+		"<C-z>": "toggleHidden",
 		"gk": "expandablePrev",
 		"gj": "expandableNext",
 		"<space>": "toggleSelection",
