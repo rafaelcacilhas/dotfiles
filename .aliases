@@ -23,7 +23,8 @@ alias n="nvim"
 alias -s pdf=zathura
 alias -s {mp4}=mpv
 alias -s {jpg,jpeg,png,gif}=sxiv
-alias -s {conf,css,rasi,html,txt,tex,lua,md}=nvim
+alias -s {conf,css,rasi,html,txt,tex,lua}=nvim
+alias -s md="glow -p"
 
 # Function aliases
 function hist () {
