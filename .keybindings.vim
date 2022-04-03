@@ -4,7 +4,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Keybindings for coc-explorer
-nnoremap tt :CocCommand explorer<CR>
+nnoremap <silent> tt :CocCommand explorer<CR>
 
 " Yank all content
 nnoremap <leader>y ggVGy<C-o>
@@ -12,6 +12,19 @@ nnoremap Y y$
 
 " Run text from line as command
 nmap Q :.!sh<CR>
+
+" Undo break points
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+
+" Keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Jumplist mutation
+" nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") 'j'
+" nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") 'k'
 
 " Vertically center documents when in insert mode
 autocmd InsertEnter * norm zz
@@ -29,10 +42,12 @@ inoremap ;; <Esc>
 let mapleader = ";"
 
 " Moving text
-vnoremap <C-S-j> :m '>+1<CR>gv=gv
-vnoremap <C-S-k> :m '<-2<CR>gv=gv
-nnoremap <A-S-j> :m .+1<CR>
-nnoremap <A-S-k> :m .-2<CR>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+inoremap <A-S-j> <Esc>:m .+1<CR>==i
+inoremap <A-S-k> <Esc>:m .-2<CR>==i
 
 " Guide navigation
 inoremap <leader><Tab> <Esc>/<++><Enter>"_c4l

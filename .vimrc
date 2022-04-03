@@ -30,7 +30,6 @@ Plugin 'dylanaraps/wal.vim'
 
 " Must have
 Plugin 'tpope/vim-surround'    
-Plugin 'scrooloose/nerdtree'			" added nerdtree
 Plugin 'junegunn/goyo.vim'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'farmergreg/vim-lastplace'
@@ -129,7 +128,10 @@ let g:vim_markdown_toc_autofit = 1
 " }}}
 
 " STARTIFY {{{
-
+" loading the devicons plugin
+let g:webdevicons_enable = 1
+" adding to vim-startify screen
+let g:webdevicons_enable_startify = 1
 let g:startify_files_number = 10
 let g:startify_update_oldfiles = 1
 let g:startify_change_to_vcs_root = 0
