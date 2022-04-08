@@ -5,7 +5,7 @@ configuration {
 	font: "SauceCode Pro Nerd Font 9";
 	modi: "window,drun,run";
 	combi-modi: "drun, window";
-	show-icons: false;
+	show-icons: true;
 	/* drun-display-format: "{name}"; */
 	width: 30;
 	columns: 1;

@@ -66,6 +66,7 @@
 		"H": "open:split",
 		"S": "open:split:plain",
 		"V": "open:vsplit",
+		"T": "open:tabedit",
 		"<bs>": "gotoParent",
 		"Y": "copyFile",
 		"X": "cutFile",

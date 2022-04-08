@@ -104,8 +104,8 @@ alt_foreground = "#888888"
 # --- Webpages ---
 c.colors.webpage.bg = background
 
-if xresources["*.background"] != "#ffffff" or xresources["*.background"] != "#FFFFFF":
-    c.colors.webpage.darkmode.enabled = True
+# if xresources["*.background"] != "#ffffff" or xresources["*.background"] != "#FFFFFF":
+#     c.colors.webpage.darkmode.enabled = True
 
 # --- Context menu ---
 c.colors.contextmenu.menu.bg = background

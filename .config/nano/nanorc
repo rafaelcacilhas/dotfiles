@@ -110,7 +110,7 @@ set nonewlines
 # set operatingdir ""
 
 ## Remember the cursor position in each file for the next editing session.
-# set positionlog
+set positionlog
 
 ## Preserve the XON and XOFF keys (^Q and ^S).
 # set preserve
@@ -171,7 +171,7 @@ set suspendable
 ## (The old form of this option, 'set suspend', is deprecated.)
 
 ## Use this tab size instead of the default; it must be greater than 0.
-set tabsize 8
+set tabsize 4
 
 ## Convert typed tabs to spaces.
 # set tabstospaces

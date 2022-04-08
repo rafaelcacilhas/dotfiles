@@ -35,9 +35,9 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ##### THEMES FOR ZSH ######
 
 # ZSH_THEME="daveverwer"
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"   	# powerline
-ZSH_THEME="dstufft"
+# ZSH_THEME="dstufft"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

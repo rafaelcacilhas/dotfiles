@@ -17,46 +17,46 @@ source /home/dilip/.keybindings.vim
 
 " PLUGINS {{{
 
-set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin('~/.vim/plugins')
+call plug#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " Customization
-Plugin 'vim-airline/vim-airline'
-Plugin 'ryanoasis/vim-devicons'			" For icons
-Plugin 'dylanaraps/wal.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'ryanoasis/vim-devicons'			" For icons
+Plug 'dylanaraps/wal.vim'
 
 " Must have
-Plugin 'tpope/vim-surround'    
-Plugin 'junegunn/goyo.vim'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'farmergreg/vim-lastplace'
-Plugin 'xuhdev/vim-latex-live-preview'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-eunuch'
-Plugin 'mhinz/vim-startify'
+Plug 'tpope/vim-surround'    
+Plug 'junegunn/goyo.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'farmergreg/vim-lastplace'
+Plug 'xuhdev/vim-latex-live-preview'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'mhinz/vim-startify'
 
 " Web Development
-Plugin 'ap/vim-css-color'
-Plugin 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim'
 
 " Python Development
-Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Syntax highlighting
-Plugin 'vim-python/python-syntax'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'neomutt/neomutt.vim'
+Plug 'vim-python/python-syntax'
+Plug 'plasticboy/vim-markdown'
+Plug 'neomutt/neomutt.vim'
 
 " Vim Wiki
-Plugin 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 
-call vundle#end()
+call plug#end()
 
 " }}}
 
