@@ -64,10 +64,11 @@ syntax enable
 set noswapfile
 set number relativenumber
 set path+=**
-set wildmode=longest,list,full
+set wildmenu
+set wildmode=longest:full,list:full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf,*.gif,*.png,*.jpg,*.mp4,*mp3
 set encoding=UTF-8
-set nofoldenable
+set foldenable
 set foldmethod=marker
 set foldmarker={{{,}}}
 set nocursorline
