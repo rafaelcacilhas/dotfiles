@@ -3,6 +3,7 @@
 " |  |  ||  ||        |   _|  __|
 "  \___/ |__||__|__|__|__| |____|
 "
+
 " REQUIRED {{{ 
 
 runtime! debian.vim
@@ -57,8 +58,9 @@ call plug#end()
 
 " }}}
 
-" BASIC CONFIGURATION {{{
+" CONFIGURATION {{{
 
+" Settings {{{
 filetype plugin indent on
 syntax enable
 set noswapfile
@@ -70,6 +72,7 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf,*.gif,*.p
 set encoding=UTF-8
 set foldenable
 set foldmethod=marker
+set foldtext=MyFoldText()
 set foldmarker={{{,}}}
 set nocursorline
 set showmatch				" Show matching brackets.
@@ -82,10 +85,12 @@ set tabstop=4
 set shiftwidth=4  
 set softtabstop=4 
 set spelllang=en_us
-set fillchars+=vert:│,fold:-,eob:\ 
+set fillchars+=vert:│,fold:\ ,eob:\ 
 set nolist
 set listchars=tab:│\ 
+" }}}
 
+" Styling {{{
 colorscheme wal
 hi Normal ctermbg=NONE
 
@@ -110,7 +115,17 @@ highlight CursorLine cterm=NONE ctermbg=Black  ctermfg=White
 highlight VertSplit ctermbg=NONE ctermfg=White
 
 " Customize folds
-highlight Folded ctermfg=White ctermbg=NONE cterm=bold
+highlight link Comment Folded 
+
+function! MyFoldText()
+    let line = getline(v:foldstart)
+    let folded_line_num = v:foldend - v:foldstart
+    let line_text = substitute(line, '^"{\+', '', 'g')
+    let fillcharcount = &textwidth - len(line_text) - len(folded_line_num)
+    return ''. repeat(' ', 4) . line_text . repeat(' ', fillcharcount) . ' [' . folded_line_num . ' L]'
+    " return ''. repeat(' ', 4) . line_text . repeat(' ', fillcharcount) . ' [' . folded_line_num . ' L]'
+endfunction
+" }}}
 
 " }}}
 
@@ -149,6 +164,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
 		\ { 'g': '~/github_token.md' },
 		\ { 'w': '~/vimwiki/index.wiki' },
+		\ { 'n': '~/.config/nvim/init.vim' },
 		\]
 
 let g:startify_custom_header = [ "", 
