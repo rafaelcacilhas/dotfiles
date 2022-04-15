@@ -11,6 +11,7 @@ export PATH=$PATH:/root/.cargo/bin
 export PATH=$PATH:/home/dilip/.scripts
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export EDITOR="nvim"
+export TERMINAL="st"
 
 #Path to your oh-my-zsh installation.
 export ZSH="/home/dilip/.oh-my-zsh"

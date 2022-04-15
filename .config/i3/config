@@ -34,6 +34,7 @@ bindsym $mod+q kill
 for_window [title="scratchpad"] floating enable, move scratchpad
 bindsym $mod+x [instance="scratchpad"] scratchpad show, move position center 
 exec urxvt -name scratchpad -geometry 86x24-8-32
+# exec st -n scratchpad -g 86x24-8-32
 
 
 # change focus
@@ -151,10 +152,10 @@ bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/'
 bindsym $mod+Mod1+s exec sxiv -t ~/Wallpapers/*
 
 # launch terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 
 # launch ranger
-bindsym $mod+Mod1+r exec urxvt -name ranger -e ranger
+bindsym $mod+Mod1+r exec st -n ranger -e ranger
 
 # launch qutebrowser
 bindsym $mod+Mod1+q exec ./.scripts/rofi-quickmarks.sh
@@ -163,10 +164,10 @@ bindsym $mod+Mod1+q exec ./.scripts/rofi-quickmarks.sh
 bindsym $mod+z exec ./.scripts/i3-layout-manager
 
 # launch neovim
-bindsym $mod+Mod1+n exec urxvt -name nvim -e nvim
+bindsym $mod+Mod1+n exec st -n nvim -e nvim
 
 # launch neomutt
-bindsym $mod+Mod1+m exec urxvt -name neomutt -e neomutt
+bindsym $mod+Mod1+m exec st -n neomutt -e neomutt
 
 # play mpd
 bindsym $mod+Mod1+p exec ./.scripts/player toggle

@@ -7,7 +7,7 @@
 
 # launch terminal
 super + Return
-	urxvt
+	st
 
 # launch rofi
 super + d
@@ -23,15 +23,15 @@ super + alt + q
 
 # launch neovim
 super + alt + n
-	urxvt -e 'nvim'
+	st -e 'nvim'
 
 # launch neomutt
 super + alt + m
-	urxvt -e "neomutt"
+	st -e "neomutt"
 
 # launch ranger
 super + alt + r
-	urxvt -e 'ranger'
+	st -e 'ranger'
 
 # sxiv for wallpapers
 super + alt + s

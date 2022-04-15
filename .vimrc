@@ -3,6 +3,7 @@
 " |  |  ||  ||        |   _|  __|
 "  \___/ |__||__|__|__|__| |____|
 "
+
 " REQUIRED {{{ 
 
 runtime! debian.vim
@@ -16,9 +17,6 @@ source /home/dilip/.keybindings.vim
 " }}}
 
 " PLUGINS {{{
-
-" set rtp+=~/.vim/bundle/Vundle.vim
-
 call plug#begin()
 
 Plug 'VundleVim/Vundle.vim'
@@ -46,7 +44,7 @@ Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim'
 
 " Python Development
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Syntax highlighting
 Plug 'vim-python/python-syntax'
@@ -60,18 +58,21 @@ call plug#end()
 
 " }}}
 
-" BASIC CONFIGURATION {{{
+" CONFIGURATION {{{
 
+" Settings {{{
 filetype plugin indent on
 syntax enable
 set noswapfile
 set number relativenumber
 set path+=**
-set wildmode=longest,list,full
+set wildmenu
+set wildmode=longest:full,list:full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf,*.gif,*.png,*.jpg,*.mp4,*mp3
 set encoding=UTF-8
-set nofoldenable
+set foldenable
 set foldmethod=marker
+set foldtext=MyFoldText()
 set foldmarker={{{,}}}
 set nocursorline
 set showmatch				" Show matching brackets.
@@ -84,10 +85,12 @@ set tabstop=4
 set shiftwidth=4  
 set softtabstop=4 
 set spelllang=en_us
-set fillchars+=vert:│,fold:-,eob:\ 
+set fillchars+=vert:│,fold:\ ,eob:\ 
 set nolist
 set listchars=tab:│\ 
+" }}}
 
+" Styling {{{
 colorscheme wal
 hi Normal ctermbg=NONE
 
@@ -112,7 +115,17 @@ highlight CursorLine cterm=NONE ctermbg=Black  ctermfg=White
 highlight VertSplit ctermbg=NONE ctermfg=White
 
 " Customize folds
-highlight Folded ctermfg=White ctermbg=NONE cterm=bold
+highlight link Comment Folded 
+
+function! MyFoldText()
+    let line = getline(v:foldstart)
+    let folded_line_num = v:foldend - v:foldstart
+    let line_text = substitute(line, '^"{\+', '', 'g')
+    let fillcharcount = &textwidth - len(line_text) - len(folded_line_num)
+    return ''. repeat(' ', 4) . line_text . repeat(' ', fillcharcount) . ' [' . folded_line_num . ' L]'
+    " return ''. repeat(' ', 4) . line_text . repeat(' ', fillcharcount) . ' [' . folded_line_num . ' L]'
+endfunction
+" }}}
 
 " }}}
 
