@@ -20,6 +20,8 @@ inoremap . .<C-g>u
 " Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap } }zzzv
+nnoremap { {zzzv
 nnoremap J mzJ`z
 
 " Jumplist mutation
