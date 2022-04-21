@@ -19,8 +19,6 @@ source /home/dilip/.config/nvim/keybindings.vim
 " PLUGINS {{{
 call plug#begin()
 
-Plug 'VundleVim/Vundle.vim'
-
 " Customization
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'			" For icons
@@ -28,22 +26,18 @@ Plug 'dylanaraps/wal.vim'
 
 " Must have
 Plug 'tpope/vim-surround'    
-Plug 'junegunn/goyo.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'farmergreg/vim-lastplace'
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
 Plug 'mhinz/vim-startify'
+Plug 'francoiscabrol/ranger.vim'
 
-" Web Development
+" Development
 Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim'
-
-" Python Development
 " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Syntax highlighting
@@ -53,6 +47,11 @@ Plug 'neomutt/neomutt.vim'
 
 " Vim Wiki
 Plug 'vimwiki/vimwiki'
+
+" Others
+Plug 'junegunn/goyo.vim'
+Plug 'xuhdev/vim-latex-live-preview'
+Plug 'tpope/vim-eunuch'
 
 call plug#end()
 
@@ -440,6 +439,11 @@ let g:livepreview_engine = 'xelatex'
 
 map <leader>lp :LLPStartPreview<CR>
 
+" }}}
+
+" RANGER {{{
+let g:ranger_replace_netrw = 1
+map <leader>F :RangerNewTab<CR>
 " }}}
 
 " FZF {{{
