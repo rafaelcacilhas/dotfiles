@@ -20,8 +20,8 @@ c.url.searchengines = {
         'yt': 'https://www.youtube.com/results?search_query={}',
         'amz':'https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={}'
 }
-c.url.default_page = '/home/dilip/.config/qutebrowser/html/startpage_1.html'
-c.url.start_pages = '/home/dilip/.config/qutebrowser/html/startpage_1.html'
+c.url.default_page = '/home/dilip/.config/StartPage/startpage.html'
+c.url.start_pages = '/home/dilip/.config/StartPage/startpage.html'
 c.content.images = True
 c.content.javascript.enabled = True
 
