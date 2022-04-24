@@ -10,9 +10,9 @@ runtime! debian.vim
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-source /home/dilip/.config/nvim/filetype.vim
-source /home/dilip/.config/nvim/abbreviations.vim
-source /home/dilip/.config/nvim/keybindings.vim
+source /home/dilip/.filetype.vim
+source /home/dilip/.abbreviations.vim
+source /home/dilip/.keybindings.vim
 
 " }}}
 
