@@ -6,6 +6,8 @@ configuration {
 	modi: "window,drun,run";
 	combi-modi: "drun, window";
 	show-icons: true;
+	terminal: "rofi-sensible-terminal";
+	run-shell-command: "{terminal} -e {cmd}";
 	/* drun-display-format: "{name}"; */
 	width: 30;
 	columns: 1;

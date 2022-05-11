@@ -96,9 +96,8 @@ hi Normal ctermbg=NONE
 " Highlight Whitespaces
 highlight Whitespace ctermfg=Grey
 
-
 " Makes comments italic
-highlight Comment cterm=italic
+" highlight Comment cterm=italic
 
 " Customize spell check highlighting
 highlight SpellBad ctermbg=Red ctermfg=White

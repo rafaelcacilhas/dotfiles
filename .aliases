@@ -28,16 +28,26 @@ alias -s md="glow -p"
 
 # Function aliases
 function hist () {
-	OPTION=$(history -n | sort -r | uniq -u | fzf | tr -d '\n')
 	case $1 in 
 		# Copy selected command into clipboard
 		"-c")
+			OPTION=$(history -n | sort -r | uniq -u | fzf | tr -d '\n')
 			echo $OPTION | xclip -selection clipboard
 			;;
 
 		# Execute selected command and copy its output to clipboard
 		"-o")
-			$OPTION | xclip -selection clipboard
+			$(history -n | sort -r | uniq -u | fzf | tr -d '\n') | xclip -selection clipboard
+			;;
+		*)
+			echo "hist is just a shell function!
+USAGE:
+	hist [option]
+
+OPTIONS:
+	
+	-c		Copy the selected command to clipboard
+	-o		Copy the output of selected command to clipboard "
 			;;
 	esac
 }
