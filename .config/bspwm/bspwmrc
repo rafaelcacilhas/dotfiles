@@ -43,6 +43,7 @@ urxvtd -q -o -f &
 ./.fehbg
 wal -R
 ./.config/polybar/launch.sh bspwm-bar &
+conky
 nm-applet &
 dunst -sep_color "$background" -frame_color "$color4" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
 kdeconnect-indicator &

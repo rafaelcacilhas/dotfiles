@@ -141,6 +141,7 @@ let g:vim_markdown_toc_autofit = 1
 
 " DASHBOARD {{{
 let g:dashboard_default_executive ='fzf'
+autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
 nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
 nnoremap <silent> <Leader>ff :DashboardFindFile<CR>
 nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
