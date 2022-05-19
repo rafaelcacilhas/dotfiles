@@ -66,15 +66,22 @@ wm-restack = bspwm
 
 ; }}}
 
-; I3-BAR
+; I3-BAR {{{
 [bar/i3-bar]
 inherit = bar/base
 modules-left = i3 mpd
 wm-restack = i3
+; }}}
 
 ; BSPWM-BAR {{{
 [bar/bspwm-bar]
 inherit = bar/base
+width = 98.5%
+height = 25
+offset-x = 10
+offset-y = 10
+border-size = 2
+border-color = ${colors.purple}
 modules-left = bspwm mpd 
 wm-restack = bspwm
 
