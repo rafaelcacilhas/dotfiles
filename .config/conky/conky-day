@@ -9,8 +9,8 @@ draw_shades=false,
 draw_outline=false,
 draw_borders=false,
 
-gap_x=30,
-gap_y=30,
+gap_x=0,
+gap_y=0,
 
 alignment="middle_middle",
 
@@ -39,5 +39,7 @@ color1='FFFFFF',
 }
 
 conky.text = [[
-${font Anurati:size=75}${exec date +%A | tr [a-z] [A-Z]}
+${alignc}${font Anurati:size=75}${exec date +%A | tr [a-z] [A-Z]}${font}
+
+${alignc}--- ${time %d.%B.%Y} ---
 ]];
