@@ -293,7 +293,7 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 " VIM AIRLINE THEME {{{
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 " let g:airline_theme='murmur'
 " let g:airline_theme='minimalist'
 " let g:airline_theme='dracula'

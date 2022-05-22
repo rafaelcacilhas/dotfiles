@@ -1,8 +1,10 @@
+
 #     __                     __   
 # .--|  |.--.--.-----.-----.|  |_ 
 # |  _  ||  |  |     |__ --||   _|
 # |_____||_____|__|__|_____||____|
 
+# GLOBAL {{{
 [global]
     ### Display ###
 
@@ -24,7 +26,7 @@
     progress_bar_frame_width = 1
     progress_bar_min_width = 50
     progress_bar_max_width = 150
-	highlight = "#040"
+	highlight = "#5696D7"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -41,10 +43,10 @@
     # to the font height and padding.
     notification_height = 0
     separator_height = 1
-    padding = 10
+    padding = 15
     horizontal_padding = 10
     frame_width = 2
-    # frame_color = "#BD93F9"
+    frame_color = "#060119"
 
 
     # Define a color for the separator.
@@ -53,7 +55,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    # separator_color = "#282A36"
+    separator_color = "#060119"
 
     # Sort messages by urgency.
     sort = yes
@@ -65,12 +67,7 @@
     # section for how to disable this if necessary
     idle_threshold = 120
 
-    ### Text ###
-
     font = Open Sans Condensed 10
-
-    # The spacing between lines.  If the height is smaller than the
-    # font height, it will get raised to the font height.
     line_height = 0
 
     # Possible values are:
@@ -116,20 +113,12 @@
     # seconds.
     # Set to -1 to disable.
     show_age_threshold = 60
-
-    # Split notifications into multiple lines if they don't fit into
-    # geometry.
     word_wrap = yes
-
-    # When word_wrap is set to no, specify where to make an ellipsis in long lines.
-    # Possible values are "start", "middle" and "end".
     ellipsize = middle
-
-    # Ignore newlines '\n' in notifications.
     ignore_newline = no
 
     # Stack together notifications with the same content
-    stack_duplicates = false
+    stack_duplicates = true
 
     # Hide the count of stacked notifications with the same content
     hide_duplicate_count = true
@@ -137,26 +126,14 @@
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
 
-    ### Icons ###
-
     # Align icons left/right/off
     icon_position = left
 
-    # Scale small icons up to this size, set to 0 to disable. Helpful
-    # for e.g. small files or high-dpi screens. In case of conflict,
-    # max_icon_size takes precedence over this.
     min_icon_size = 16
-
-    # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 32
-
-    # Paths to default icons.
     icon_path = /home/dilip/.icons/Papirus-Dark/32x32/devices:/home/dilip/.icons/Papirus-Dark/32x32/status:/home/dilip/.icons/Papirus-Dark/32x32/apps
 
     ### History ###
-
-    # Should a notification popped up from history be sticky or timeout
-    # as if it would normally do.
     sticky_history = yes
 
     # Maximum amount of notifications kept in history
@@ -165,7 +142,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = /usr/bin/rofi -p dunst:
 
     # Browser for opening urls in context menu.
     browser = qutebrowser
@@ -179,9 +156,6 @@
     # Define the class of the windows spawned by dunst
     class = Dunst
 
-    # Print a notification on startup.
-    # This is mainly for error detection, since dbus (re-)starts dunst
-    # automatically after a crash.
     startup_notification = false
 
     # Manage dunst's desire for talking
@@ -193,11 +167,6 @@
     # debug: all less than unimportant stuff
     verbosity = mesg
 
-    # Define the corner radius of the notification window
-    # in pixel size. If the radius is 0, you have no rounded
-    # corners.
-    # The radius will be automatically lowered if it exceeds half of the
-    # notification height to avoid clipping text and/or icons.
     corner_radius = 0
 
     # Ignore the dbus closeNotification message.
@@ -268,22 +237,22 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#282A36F0"
-    foreground = "#FF79C6"
+    background = "#060119"
+	foreground = "#e2c9e8"
     timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#282A36F0"
-    foreground = "#FF79C6"
+    background = "#060119"
+	foreground = "#e2c9e8"
     timeout = 3
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#282A36F0"
-    foreground = "#FF5555"
+    background = "#060119"
+	foreground = "#A761BB"
     timeout = 10
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
@@ -404,3 +373,5 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+
+
