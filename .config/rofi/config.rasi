@@ -2,7 +2,7 @@ configuration {
 	theme: "~/.config/rofi/themes/minimal.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
 	/* font: "Iosevka Nerd Font 9"; */
-	font: "SauceCode Pro Nerd Font 9";
+	font: "SauceCode Pro Nerd Font Bold 10";
 	modi: "window,drun,run";
 	combi-modi: "drun, window";
 	show-icons: true;
@@ -11,7 +11,7 @@ configuration {
 	/* drun-display-format: "{name}"; */
 	width: 30;
 	columns: 1;
-	lines: 13;
+	lines: 10;
 	fixed-num-lines: false;
 	location: 2;
 	yoffset: 100;

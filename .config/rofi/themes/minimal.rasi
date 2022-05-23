@@ -42,6 +42,11 @@
 	height: 100px;
 }
 
+#element.selected.normal {
+    text-color: @selected-normal-background;
+    background-color: @background;
+}
+
 #element-icon{
 	size: 100px;
 }
