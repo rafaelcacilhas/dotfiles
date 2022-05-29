@@ -34,6 +34,9 @@ bspc rule -a Pavucontrol state=pseudo_tiled
 bspc rule -a SimpleScreenRecorder state=pseudo_tiled
 bspc rule -a filechooser state=floating
 
+# workspaces
+# bspc rule -a quterbroser desktop=.focused follow=on
+
 # }}}
 
 # AUTOSTART {{{
@@ -44,7 +47,7 @@ urxvtd -q -o -f &
 wal -R
 ./.config/polybar/launch.sh bspwm-bar &
 conky -c ~/.config/conky/conky-day &
-mpv --no-video ~/Downloads/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
+mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
 nm-applet &
 dunst -sep_color "$background" -frame_color "$color4" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
 kdeconnect-indicator &

@@ -212,7 +212,7 @@ exec wal -R
 exec_always ./.config/polybar/launch.sh i3-bar & 
 # exec ./.scripts/autostart &
 exec conky -c ~/.config/conky/conky-day &
-exec mpv --no-video ~/Downloads/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
+exec mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
 exec nm-applet &
 exec kdeconnect-indicator &
 exec picom --experimental-backends &

@@ -1,4 +1,4 @@
-         __   __ __
+#         __   __ __
 # .-----.|  |_|__|  |.-----.
 # |  _  ||   _|  |  ||  -__|
 # |__   ||____|__|__||_____|
@@ -19,7 +19,7 @@ import subprocess
 # KEYBINDINGS {{{
 
 mod = "mod4"
-terminal = "urxvt"
+terminal = "st"
 
 keys = [
     # Launch applications:
@@ -36,20 +36,20 @@ keys = [
         lazy.spawn(terminal),
         desc="Launch terminal"),
     Key([mod], "e",
-        lazy.spawn("./.config/rofi/scripts/rofi-configmenu.sh"),
+        lazy.spawn("./.scripts/rofi-configmenu.sh"),
         desc="Launch config menu"),
     Key(["shift"], "Print",
-        lazy.spawn("./.config/rofi/scripts/rofi-scrotmenu.sh"),
+        lazy.spawn("./.scripts/rofi-scrotmenu.sh"),
         desc="Launch scrot menu"),
 
     Key([mod, "mod1"], "q",
-        lazy.spawn("./.config/rofi/scripts/rofi-quickmarks.sh"),
+        lazy.spawn("./.scripts/rofi-quickmarks.sh"),
         desc="Launch web browser"),
     Key([mod, "mod1"], "r",
-        lazy.spawn("urxvt -e ranger"),
+        lazy.spawn(terminal + " -e ranger"),
         desc="Launch file browser"),
     Key([mod, "mod1"], "n",
-        lazy.spawn("urxvt -e nvim"),
+        lazy.spawn(terminal + " -e nvim"),
         desc="Launch text editor"),
     Key([mod, "mod1"], "s",
         lazy.spawn("sxiv -t ~/Wallpapers/*"),
@@ -177,7 +177,7 @@ colors = read_xresources("*")
 layout_default={
     "margin":10,
     "border_normal":colors["*.background"],
-    "border_focus":colors["*.foreground"],
+    "border_focus":colors["*.color4"],
     "border_width":2
         }
 layouts = [
@@ -207,29 +207,23 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                widget.GroupBox(
                     active = colors["*.foreground"],
                     inactive="#A5ABB6",
                     highlight_color = ["#D8DEE9","#D8DEE9"],
                     highlight_method = "line",
-                    rounded = False,
+                    rounded = True,
                     background = colors["*.background"],
                     **widget_defaults),
-              widget.WindowName(
-                   background = colors["*.background"],
-                   foreground = colors["*.foreground"],
-                    empty_group_string = '',
-                    max_chars = 0,
-                    **widget_defaults),
-               widget.Spacer(),
+               widget.Spacer(background = colors["*.background"]),
                widget.CurrentLayout(
                    background = colors["*.background"],
                     **widget_defaults),
                widget.Clock(
                     background = colors["*.background"],
-                    format='%d %b, %H:%M',
+                    format='%H:%M',
                     **widget_defaults),
                widget.Systray(
                     background = colors["*.background"]),
@@ -239,11 +233,12 @@ screens = [
                     padding=10,
                     ),
                widget.QuickExit(
-                    # font='Sauce Code Pro Nerd Font',
+                    font='Sauce Code Pro Nerd Font',
                     background = colors["*.background"],
-                    default_text="LOGOUT",
-                    countdown_format = 'LOGOUT {}s ',
-                    **widget_defaults
+                    default_text="  ",
+                    countdown_format = ' {}s ',
+                    fontsize=11,
+                    padding=3,
                     ),
                widget.Sep(
                     background = colors["*.background"],
@@ -251,9 +246,10 @@ screens = [
                     padding=10,
                     ),
             ],
-            22,
+            25,
+            margin = [10, 400, 5, 400],
             opacity=0.9,
-            background=colors["#000000"],
+            background=colors["*.background"],
         ),
     ),
 ]
@@ -308,7 +304,7 @@ focus_on_window_activation = "smart"
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.scripts/autostart.sh')
+    home = os.path.expanduser('~/.scripts/autostart')
     subprocess.call([home])
 
 # }}}
