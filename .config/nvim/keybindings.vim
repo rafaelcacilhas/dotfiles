@@ -17,6 +17,10 @@ nmap Q :.!sh<CR>
 inoremap , ,<C-g>u
 inoremap . .<C-g>u
 
+" Search highlighting
+nnoremap / :set hlsearch<CR>/
+nnoremap <silent> <Esc> :set nohlsearch<CR>
+
 " Keeping it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
