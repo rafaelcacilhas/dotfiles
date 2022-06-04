@@ -14974,3 +14974,723 @@ map + zoom in
 map - zoom out
 map d recolor
 map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#07011A"
+set default-fg "#e2c9e8"
+
+set completion-bg "#07011A"
+set completion-fg "#e2c9e8"
+set completion-group-bg "#07011A"
+set completion-group-fg "#6388BB"
+set completion-highlight-bg "#e2c9e8"
+set completion-highlight-fg "#07011A"
+
+set recolor-lightcolor "#07011A"
+set recolor-darkcolor "#e2c9e8"
+
+set inputbar-bg "#07011A"
+set inputbar-fg "#e2c9e8"
+
+set notification-bg "#07011A"
+set notification-fg "#e2c9e8"
+set notification-error-bg "#A761BC"
+set notification-error-fg "#e2c9e8"
+set notification-warning-bg "#A761BC"
+set notification-warning-fg "#e2c9e8"
+
+set statusbar-bg "#07011A"
+set statusbar-fg "#e2c9e8"
+
+set index-bg "#07011A"
+set index-fg "#e2c9e8"
+
+set index-active-bg "#e2c9e8"
+set index-active-fg "#07011A"
+set render-loading-bg "#07011A"
+set render-loading-fg "#e2c9e8"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#07011A"
+set default-fg "#e2c9e8"
+
+set completion-bg "#07011A"
+set completion-fg "#e2c9e8"
+set completion-group-bg "#07011A"
+set completion-group-fg "#6388BB"
+set completion-highlight-bg "#e2c9e8"
+set completion-highlight-fg "#07011A"
+
+set recolor-lightcolor "#07011A"
+set recolor-darkcolor "#e2c9e8"
+
+set inputbar-bg "#07011A"
+set inputbar-fg "#e2c9e8"
+
+set notification-bg "#07011A"
+set notification-fg "#e2c9e8"
+set notification-error-bg "#A761BC"
+set notification-error-fg "#e2c9e8"
+set notification-warning-bg "#A761BC"
+set notification-warning-fg "#e2c9e8"
+
+set statusbar-bg "#07011A"
+set statusbar-fg "#e2c9e8"
+
+set index-bg "#07011A"
+set index-fg "#e2c9e8"
+
+set index-active-bg "#e2c9e8"
+set index-active-fg "#07011A"
+set render-loading-bg "#07011A"
+set render-loading-fg "#e2c9e8"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#07011A"
+set default-fg "#e2c9e8"
+
+set completion-bg "#07011A"
+set completion-fg "#e2c9e8"
+set completion-group-bg "#07011A"
+set completion-group-fg "#6388BB"
+set completion-highlight-bg "#e2c9e8"
+set completion-highlight-fg "#07011A"
+
+set recolor-lightcolor "#07011A"
+set recolor-darkcolor "#e2c9e8"
+
+set inputbar-bg "#07011A"
+set inputbar-fg "#e2c9e8"
+
+set notification-bg "#07011A"
+set notification-fg "#e2c9e8"
+set notification-error-bg "#A761BC"
+set notification-error-fg "#e2c9e8"
+set notification-warning-bg "#A761BC"
+set notification-warning-fg "#e2c9e8"
+
+set statusbar-bg "#07011A"
+set statusbar-fg "#e2c9e8"
+
+set index-bg "#07011A"
+set index-fg "#e2c9e8"
+
+set index-active-bg "#e2c9e8"
+set index-active-fg "#07011A"
+set render-loading-bg "#07011A"
+set render-loading-fg "#e2c9e8"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#1c2035"
+set default-fg "#e6bcd3"
+
+set completion-bg "#1c2035"
+set completion-fg "#e6bcd3"
+set completion-group-bg "#1c2035"
+set completion-group-fg "#397DC1"
+set completion-highlight-bg "#e6bcd3"
+set completion-highlight-fg "#1c2035"
+
+set recolor-lightcolor "#1c2035"
+set recolor-darkcolor "#e6bcd3"
+
+set inputbar-bg "#1c2035"
+set inputbar-fg "#e6bcd3"
+
+set notification-bg "#1c2035"
+set notification-fg "#e6bcd3"
+set notification-error-bg "#6059A2"
+set notification-error-fg "#e6bcd3"
+set notification-warning-bg "#6059A2"
+set notification-warning-fg "#e6bcd3"
+
+set statusbar-bg "#1c2035"
+set statusbar-fg "#e6bcd3"
+
+set index-bg "#1c2035"
+set index-fg "#e6bcd3"
+
+set index-active-bg "#e6bcd3"
+set index-active-fg "#1c2035"
+set render-loading-bg "#1c2035"
+set render-loading-fg "#e6bcd3"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#07011A"
+set default-fg "#e2c9e8"
+
+set completion-bg "#07011A"
+set completion-fg "#e2c9e8"
+set completion-group-bg "#07011A"
+set completion-group-fg "#6388BB"
+set completion-highlight-bg "#e2c9e8"
+set completion-highlight-fg "#07011A"
+
+set recolor-lightcolor "#07011A"
+set recolor-darkcolor "#e2c9e8"
+
+set inputbar-bg "#07011A"
+set inputbar-fg "#e2c9e8"
+
+set notification-bg "#07011A"
+set notification-fg "#e2c9e8"
+set notification-error-bg "#A761BC"
+set notification-error-fg "#e2c9e8"
+set notification-warning-bg "#A761BC"
+set notification-warning-fg "#e2c9e8"
+
+set statusbar-bg "#07011A"
+set statusbar-fg "#e2c9e8"
+
+set index-bg "#07011A"
+set index-fg "#e2c9e8"
+
+set index-active-bg "#e2c9e8"
+set index-active-fg "#07011A"
+set render-loading-bg "#07011A"
+set render-loading-fg "#e2c9e8"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#0f0312"
+set default-fg "#f2aecb"
+
+set completion-bg "#0f0312"
+set completion-fg "#f2aecb"
+set completion-group-bg "#0f0312"
+set completion-group-fg "#6D224C"
+set completion-highlight-bg "#f2aecb"
+set completion-highlight-fg "#0f0312"
+
+set recolor-lightcolor "#0f0312"
+set recolor-darkcolor "#f2aecb"
+
+set inputbar-bg "#0f0312"
+set inputbar-fg "#f2aecb"
+
+set notification-bg "#0f0312"
+set notification-fg "#f2aecb"
+set notification-error-bg "#4E2546"
+set notification-error-fg "#f2aecb"
+set notification-warning-bg "#4E2546"
+set notification-warning-fg "#f2aecb"
+
+set statusbar-bg "#0f0312"
+set statusbar-fg "#f2aecb"
+
+set index-bg "#0f0312"
+set index-fg "#f2aecb"
+
+set index-active-bg "#f2aecb"
+set index-active-fg "#0f0312"
+set render-loading-bg "#0f0312"
+set render-loading-fg "#f2aecb"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#161018"
+set default-fg "#e3edeb"
+
+set completion-bg "#161018"
+set completion-fg "#e3edeb"
+set completion-group-bg "#161018"
+set completion-group-fg "#6BACAB"
+set completion-highlight-bg "#e3edeb"
+set completion-highlight-fg "#161018"
+
+set recolor-lightcolor "#161018"
+set recolor-darkcolor "#e3edeb"
+
+set inputbar-bg "#161018"
+set inputbar-fg "#e3edeb"
+
+set notification-bg "#161018"
+set notification-fg "#e3edeb"
+set notification-error-bg "#EC6B95"
+set notification-error-fg "#e3edeb"
+set notification-warning-bg "#EC6B95"
+set notification-warning-fg "#e3edeb"
+
+set statusbar-bg "#161018"
+set statusbar-fg "#e3edeb"
+
+set index-bg "#161018"
+set index-fg "#e3edeb"
+
+set index-active-bg "#e3edeb"
+set index-active-fg "#161018"
+set render-loading-bg "#161018"
+set render-loading-fg "#e3edeb"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#0f0312"
+set default-fg "#f2aecb"
+
+set completion-bg "#0f0312"
+set completion-fg "#f2aecb"
+set completion-group-bg "#0f0312"
+set completion-group-fg "#6D224C"
+set completion-highlight-bg "#f2aecb"
+set completion-highlight-fg "#0f0312"
+
+set recolor-lightcolor "#0f0312"
+set recolor-darkcolor "#f2aecb"
+
+set inputbar-bg "#0f0312"
+set inputbar-fg "#f2aecb"
+
+set notification-bg "#0f0312"
+set notification-fg "#f2aecb"
+set notification-error-bg "#4E2546"
+set notification-error-fg "#f2aecb"
+set notification-warning-bg "#4E2546"
+set notification-warning-fg "#f2aecb"
+
+set statusbar-bg "#0f0312"
+set statusbar-fg "#f2aecb"
+
+set index-bg "#0f0312"
+set index-fg "#f2aecb"
+
+set index-active-bg "#f2aecb"
+set index-active-fg "#0f0312"
+set render-loading-bg "#0f0312"
+set render-loading-fg "#f2aecb"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#0A1D20"
+set default-fg "#afc7ba"
+
+set completion-bg "#0A1D20"
+set completion-fg "#afc7ba"
+set completion-group-bg "#0A1D20"
+set completion-group-fg "#6D737B"
+set completion-highlight-bg "#afc7ba"
+set completion-highlight-fg "#0A1D20"
+
+set recolor-lightcolor "#0A1D20"
+set recolor-darkcolor "#afc7ba"
+
+set inputbar-bg "#0A1D20"
+set inputbar-fg "#afc7ba"
+
+set notification-bg "#0A1D20"
+set notification-fg "#afc7ba"
+set notification-error-bg "#526E59"
+set notification-error-fg "#afc7ba"
+set notification-warning-bg "#526E59"
+set notification-warning-fg "#afc7ba"
+
+set statusbar-bg "#0A1D20"
+set statusbar-fg "#afc7ba"
+
+set index-bg "#0A1D20"
+set index-fg "#afc7ba"
+
+set index-active-bg "#afc7ba"
+set index-active-fg "#0A1D20"
+set render-loading-bg "#0A1D20"
+set render-loading-fg "#afc7ba"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#090808"
+set default-fg "#c7c6c7"
+
+set completion-bg "#090808"
+set completion-fg "#c7c6c7"
+set completion-group-bg "#090808"
+set completion-group-fg "#D11867"
+set completion-highlight-bg "#c7c6c7"
+set completion-highlight-fg "#090808"
+
+set recolor-lightcolor "#090808"
+set recolor-darkcolor "#c7c6c7"
+
+set inputbar-bg "#090808"
+set inputbar-fg "#c7c6c7"
+
+set notification-bg "#090808"
+set notification-fg "#c7c6c7"
+set notification-error-bg "#A21F55"
+set notification-error-fg "#c7c6c7"
+set notification-warning-bg "#A21F55"
+set notification-warning-fg "#c7c6c7"
+
+set statusbar-bg "#090808"
+set statusbar-fg "#c7c6c7"
+
+set index-bg "#090808"
+set index-fg "#c7c6c7"
+
+set index-active-bg "#c7c6c7"
+set index-active-fg "#090808"
+set render-loading-bg "#090808"
+set render-loading-fg "#c7c6c7"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit

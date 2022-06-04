@@ -33,13 +33,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
-" Plug 'mhinz/vim-startify'
-Plug 'francoiscabrol/ranger.vim'
 
 " Development
 Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim'
-" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Syntax highlighting
 Plug 'vim-python/python-syntax'
@@ -51,7 +48,6 @@ Plug 'vimwiki/vimwiki'
 
 " Others
 Plug 'junegunn/goyo.vim'
-Plug 'xuhdev/vim-latex-live-preview'
 Plug 'tpope/vim-eunuch'
 
 call plug#end()
@@ -132,11 +128,6 @@ endfunction
 
 let g:vimwiki_list = [{'auto_diary_index': 1}]
 
-" }}}
-
-" MARKDOWN {{{
-let g:vim_markdown_folding_disabled = 0
-let g:vim_markdown_toc_autofit = 1
 " }}}
 
 " DASHBOARD {{{
@@ -302,60 +293,26 @@ let g:airline_powerline_fonts = 0
 
 " NERD TREE CONFIG {{{
 
-" nnoremap <silent> tt :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '►'
-let g:NERDTreeDirArrowCollapsible = '▼'
-let NERDTreeShowLineNumbers=0
-let NERDTreeShowHidden=0
-let NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize=23
+" " nnoremap <silent> tt :NERDTreeToggle<CR>
+" let g:NERDTreeDirArrowExpandable = '►'
+" let g:NERDTreeDirArrowCollapsible = '▼'
+" let NERDTreeShowLineNumbers=0
+" let NERDTreeShowHidden=0
+" let NERDTreeMinimalUI = 1
+" let g:NERDTreeWinSize=23
 
-" Start NERDTree and put the cursor back in the other window.
-" autocmd VimEnter * NERDTree | wincmd p
+" " Start NERDTree and put the cursor back in the other window.
+" " autocmd VimEnter * NERDTree | wincmd p
 
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+" " Exit Vim if NERDTree is the only window left.
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+"     \ quit | endif
 
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+"     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
-" }}}
-
-" NERD COMMENTER {{{
-
-" Key binding for comment: ',cc'
-" Key binding for uncomment: ',cu'
-
-" Create default mappings
-let g:NERDCreateDefaultMappings = 0
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 0
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1
-
-" }}}
+" " }}}
 
 " GOYO {{{
 
@@ -526,18 +483,9 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " }}}
 
-" LATEX PREVIEW {{{
-
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_engine = 'xelatex' 
-
-map <leader>lp :LLPStartPreview<CR>
-
-" }}}
-
 " RANGER {{{
-let g:ranger_replace_netrw = 1
-map <leader>F :RangerNewTab<CR>
+" let g:ranger_replace_netrw = 1
+" map <leader>F :RangerNewTab<CR>
 " }}}
 
 " FZF {{{
