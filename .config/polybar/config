@@ -22,11 +22,10 @@ cyan = ${xrdb:color6}
 
 [bar/base]
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 22
-offset-x = 0
-offset-y = 0
-radius = 0
+width = 98.5%
+height = 25
+offset-x = 10
+offset-y = 10
 fixed-center = true
 enable-ipc = true
 
@@ -36,7 +35,7 @@ line-color = #fff
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-border-size = 0
+border-size = 2
 border-color = ${colors.background}
 
 padding-left = 0
@@ -71,16 +70,12 @@ wm-restack = bspwm
 inherit = bar/base
 modules-left = i3 mpd
 wm-restack = i3
+override-redirect = true
 ; }}}
 
 ; BSPWM-BAR {{{
 [bar/bspwm-bar]
 inherit = bar/base
-width = 98.5%
-height = 25
-offset-x = 10
-offset-y = 10
-border-size = 2
 modules-left = bspwm mpd 
 wm-restack = bspwm
 
@@ -162,7 +157,7 @@ label-urgent-background = ${colors.background}
 label-urgent-padding = 2
 
 label-empty = %name%
-label-empty-foreground = ${colors.cyan}
+label-empty-foreground = ${colors.foreground}
 label-empty-background = ${colors.background}
 label-empty-padding = 2
 

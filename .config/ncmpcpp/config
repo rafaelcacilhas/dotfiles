@@ -18,15 +18,16 @@ mpd_music_dir = ~/Music
 
 ##### music visualizer #####
 
-visualizer_fifo_path = /tmp/mpd.fifo
+# visualizer_fifo_path = /tmp/mpd.fifo
+visualizer_data_source = /tmp/mpd.fifo
 visualizer_output_name = Visualizer feed
 visualizer_in_stereo = yes
-visualizer_sync_interval = 30
+# visualizer_sync_interval = 30
 
 ## Available values: spectrum, wave, wave_filled, ellipse.
 visualizer_type = spectrum
 visualizer_look = +
-visualizer_color = blue, cyan, green, yellow, magenta, red
+visualizer_color = "default"
 #visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161
 
 ##### song format #####
@@ -66,21 +67,6 @@ visualizer_color = blue, cyan, green, yellow, magenta, red
 ## In addition, formats support markers used for text attributes.  They are
 ## followed by character '$'. After that you can put:
 ##
-## - 0 - default window color (discards all other colors)
-## - 1 - black
-## - 2 - red
-## - 3 - green
-## - 4 - yellow
-## - 5 - blue
-## - 6 - magenta
-## - 7 - cyan
-## - 8 - white
-## - 9 - end of current color
-## - b - bold text
-## - u - underline text
-## - r - reverse colors
-## - a - use alternative character set
-##
 ## If you don't want to use a non-color attribute anymore, just put it again,
 ## but this time insert character '/' between '$' and attribute character,
 ## e.g. {$b%t$/b}|{$r%f$/r} will display bolded title tag or filename with
@@ -96,11 +82,9 @@ visualizer_color = blue, cyan, green, yellow, magenta, red
 ## Note: colors can be nested.
 ##
 #
-song_list_format = {%a - } {%b}
-#
+song_list_format = "{{%a - %b}|{%f}}{$R%l}"
 song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
-#
-#song_library_format = {%n - }{%t}|{%f}
+song_library_format = "{{%a - %b}|{%f}}{$R%l}"
 #
 #alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 #
@@ -138,7 +122,7 @@ song_window_title_format = {%a - }{%t}|{%f}
 ##
 #
 browser_sort_mode = name
-browser_sort_format = {%a - }{%t}
+browser_sort_format = "{{%a - %b}|{%f}}{$R%l}"
 #
 ##### columns settings #####
 ##
@@ -219,7 +203,7 @@ discard_colors_if_item_is_selected = no
 #
 volume_change_step = 2
 #
-autocenter_mode = no
+autocenter_mode = yes
 #
 #centered_cursor = no
 #

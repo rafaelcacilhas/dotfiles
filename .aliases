@@ -12,6 +12,7 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
 alias exa="exa --color=always --icons"
+alias l="exa --color=always --icons"
 alias la='exa -a --color=always --icons'
 alias ll='exa -l --color=always -h --icons --tree --level=1'
 alias all='exa -al --color=always -h --icons --tree --level=1'
@@ -21,7 +22,7 @@ alias n="nvim"
 
 # Suffix aliases
 alias -s pdf=zathura
-alias -s {mp4}=mpv
+alias -s {mp4,mkv}=mpv
 alias -s {jpg,jpeg,png,gif}=sxiv
 alias -s {conf,css,rasi,html,txt,tex,lua}=nvim
 alias -s md="glow -p"
@@ -39,6 +40,10 @@ function hist () {
 		"-o")
 			$(history -n | sort -r | uniq -u | fzf | tr -d '\n') | xclip -selection clipboard
 			;;
+		# Execute selected command
+		"-e")
+			$(history -n | sort -r | uniq -u | fzf | tr -d '\n')
+			;;
 		*)
 			echo "hist is just a shell function!
 USAGE:
@@ -47,7 +52,8 @@ USAGE:
 OPTIONS:
 	
 	-c		Copy the selected command to clipboard
-	-o		Copy the output of selected command to clipboard "
+	-o		Copy the output of selected command to clipboard 
+	-e		Execute the selected command "
 			;;
 	esac
 }

@@ -46,6 +46,10 @@
     text-color: @selected-normal-background;
     background-color: @background;
 }
+#element.selected.active {
+    text-color: @selected-normal-background;
+    background-color: @background;
+}
 
 #element-icon{
 	size: 100px;

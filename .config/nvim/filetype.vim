@@ -1,8 +1,3 @@
-" ALL FILETYPE {{{
-" }}}
-
-" For Neomutt and Mutt
-autocmd BufNewFile,BufRead Programs/neomutt/temp/* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 
 " PYTHON {{{
 autocmd FileType python nnoremap <leader>r !python3 %p
@@ -45,6 +40,8 @@ autocmd BufEnter,BufNewFile *.md inoremap ;cb ```<Enter>```<esc>kA
 " }}}
 
 " VIMWIKI {{{
+" Settings
+autocmd BufEnter,BufNewFile *.wiki :set fdm=syntax
 
 " Headers
 autocmd BufEnter,BufNewFile *.wiki inoremap ;1 =<space>
@@ -145,4 +142,9 @@ autocmd FileType tex inoremap ;enum \begin{enumerate}[]<Enter>\end{enumerate}<Es
 autocmd FileType tex inoremap ;fr \begin{frame}<Enter>\end{frame}<Esc>O
 autocmd FileType tex inoremap ;tb \begin{tabular}{}<Enter>\end{tabular}<Esc>k$i
 
+" }}}
+
+" OTHERS {{{
+" For Neomutt and Mutt
+autocmd BufNewFile,BufRead Programs/neomutt/temp/* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist
 " }}}
