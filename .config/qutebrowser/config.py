@@ -7,6 +7,33 @@
 import os
 import subprocess
 
+##############
+# XRESOURCES #
+##############
+def read_xresources(prefix):
+    """
+    read settings from xresources
+    """
+    props = {}
+    x = subprocess.run(["xrdb", "-query"], stdout=subprocess.PIPE)
+    lines = x.stdout.decode().split("\n")
+    for line in filter(lambda l: l.startswith(prefix), lines):
+        prop, _, value = line.partition(":\t")
+        props[prop] = value
+    return props
+
+xresources = read_xresources("*")
+
+# Quick hack to theme duckduckgo pages
+ddg_theme = 'https://duckduckgo.com/?q={}&kj=' + xresources["*.color4"]      # Header color
+ddg_theme = ddg_theme + '&k7=' + xresources["*.background"]                     # Hover color
+ddg_theme = ddg_theme + '&k21=' + xresources["*.background"]                     # Background color
+ddg_theme = ddg_theme + '&kx=' + xresources["*.color5"]                         # URL color
+ddg_theme = ddg_theme + '&k8=' + xresources["*.color5"]                         # Snippet color
+ddg_theme = ddg_theme + '&k9=' + xresources["*.color2"]                         # Link color
+ddg_theme = ddg_theme + '&kaa=' + xresources["*.color2"]                        # Visited link color
+ddg_theme = ddg_theme + '&ko=s'                                                 # Header setting
+
 #################
 # MAIN SETTINGS #
 #################
@@ -15,7 +42,7 @@ config.load_autoconfig(False)
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'r': 'restart'}
 c.downloads.location.directory = '/home/dilip/Downloads'
 c.url.searchengines = {
-        'DEFAULT': 'https://duckduckgo.com/?q={}',
+        'DEFAULT': ddg_theme,
         'wk':'https://en.wikipedia.org/wiki/{}',
         'yt': 'https://www.youtube.com/results?search_query={}',
         'amz':'https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={}'
@@ -74,21 +101,6 @@ c.statusbar.padding = {"bottom":1, "left":1, "right":1, "top":1}
 # UI COLROS CONFIGURATION #
 ###########################
 
-# ====================== xresources =======================
-# taken from https://qutebrowser.org/doc/help/configuring.html
-def read_xresources(prefix):
-    """
-    read settings from xresources
-    """
-    props = {}
-    x = subprocess.run(["xrdb", "-query"], stdout=subprocess.PIPE)
-    lines = x.stdout.decode().split("\n")
-    for line in filter(lambda l: l.startswith(prefix), lines):
-        prop, _, value = line.partition(":\t")
-        props[prop] = value
-    return props
-
-xresources = read_xresources("*")
 
 background = xresources["*.background"]
 foreground = xresources["*.foreground"]

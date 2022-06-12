@@ -9,9 +9,9 @@ configuration {
 	terminal: "rofi-sensible-terminal";
 	run-shell-command: "{terminal} -e {cmd}";
 	/* drun-display-format: "{name}"; */
-	width: 30;
-	columns: 1;
-	lines: 10;
+	width: 60;
+	columns: 2;
+	lines: 12;
 	fixed-num-lines: false;
 	location: 2;
 	yoffset: 100;

@@ -13,7 +13,6 @@
 }
 
 #window {
-	width: 600px;
 	border:           0;
 	padding: 30px;
 	border-color:     @selected-urgent-background;

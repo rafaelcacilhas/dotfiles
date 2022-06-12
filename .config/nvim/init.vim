@@ -534,6 +534,13 @@ nnoremap <silent> <A-.> :tabmove +<CR>
 " MANAGING SPLITS
 set splitbelow splitright
 
+" Terminal Buffer
+function! TerminalSettings()
+    setlocal nonumber
+    setlocal norelativenumber
+    normal a
+endfunction
+
 " Open terminal in split
 nnoremap <leader>st :sp<space>\|<space>terminal<CR>
 nnoremap <leader>vt :vs<space>\|<space>terminal<CR>
