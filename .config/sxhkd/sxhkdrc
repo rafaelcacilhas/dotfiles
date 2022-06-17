@@ -61,13 +61,9 @@ super + Escape
 super + shift + q
 	./.scripts/rofi-powermenu.sh
 
-# MPC Toggle
-super + alt + p
-	./.scripts/player toggle
-
-# Changing song
-super + alt + bracket{left,right}
-	{./.scripts/player prev, ./.scripts/player next}
+# Rofi MPC
+super + F1
+	./.scripts/rofi-mpc
 
 # Change brightness
 super + Next

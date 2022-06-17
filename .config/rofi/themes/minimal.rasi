@@ -35,19 +35,18 @@
 #element {
     border:  0;
 	border-radius: 2px;
-	orientation: vertical;
     padding: 6px;
-	margin: 3 0;
+	margin: 3 10;
 	height: 100px;
 }
 
 #element.selected.normal {
-    text-color: @selected-normal-background;
-    background-color: @background;
+    background-color: @selected-normal-background;
+    text-color: @foreground;
 }
 #element.selected.active {
-    text-color: @selected-normal-background;
-    background-color: @background;
+    background-color: @selected-normal-background;
+    text-color: @foreground;
 }
 
 #element-icon{

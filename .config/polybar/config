@@ -76,7 +76,7 @@ override-redirect = true
 ; BSPWM-BAR {{{
 [bar/bspwm-bar]
 inherit = bar/base
-modules-left = bspwm mpd 
+modules-left = bspwm xwindow
 wm-restack = bspwm
 
 ; }}}

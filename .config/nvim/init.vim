@@ -66,7 +66,7 @@ set wildmenu
 set wildmode=longest:full,list:full
 set wildignore=*.o,*.obj,*.bak,*.exe,*.hi,*.dyn_hi,*.dyn_o,*.zip,*.pdf,*.gif,*.png,*.jpg,*.mp4,*mp3
 set encoding=UTF-8
-set foldenable
+set nofoldenable
 set foldmethod=marker
 set foldtext=MyFoldText()
 set foldmarker={{{,}}}
@@ -104,9 +104,9 @@ highlight SpellLocal cterm=undercurl ctermbg=NONE
 
 " Customize cursor line
 highlight CursorLine cterm=NONE ctermbg=Black  ctermfg=White
-highlight CursorLineNr cterm=Bold ctermbg=NONE ctermfg=White
+highlight CursorLineNr cterm=Bold ctermbg=Black ctermfg=Red
 
-" highlight LineNr ctermbg=NONE ctermfg=White
+highlight LineNr ctermbg=Black ctermfg=White
 highlight VertSplit ctermbg=NONE ctermfg=White
 
 " Customize folds

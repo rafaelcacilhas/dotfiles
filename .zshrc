@@ -13,6 +13,10 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export EDITOR="nvim"
 export TERMINAL="st"
 export PAGER="less"
+export FZF_DEFAULT_OPTS="--layout=reverse
+						 --border rounded
+						 --prompt=' '
+						 --pointer='>>'"
 
 # For colored output
 export LESS_TERMCAP_mb=$'\E[01;34m'
