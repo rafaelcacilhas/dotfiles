@@ -76,7 +76,9 @@ override-redirect = true
 ; BSPWM-BAR {{{
 [bar/bspwm-bar]
 inherit = bar/base
-modules-left = bspwm xwindow
+modules-left = bspwm 
+modules-center = date
+modules-right = pulseaudio cpu memory
 wm-restack = bspwm
 
 ; }}}
