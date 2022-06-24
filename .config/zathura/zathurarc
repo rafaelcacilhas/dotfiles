@@ -17494,3 +17494,75 @@ map + zoom in
 map - zoom out
 map d recolor
 map <C-q> quit
+#  _______         __   __                     
+# |__     |.---.-.|  |_|  |--.--.--.----.---.-.
+# |     __||  _  ||   _|     |  |  |   _|  _  |
+# |_______||___._||____|__|__|_____|__| |___._|
+
+
+# colors
+set default-bg "#252227"
+set default-fg "#caeee6"
+
+set completion-bg "#252227"
+set completion-fg "#caeee6"
+set completion-group-bg "#252227"
+set completion-group-fg "#4FB6E1"
+set completion-highlight-bg "#caeee6"
+set completion-highlight-fg "#252227"
+
+set recolor-lightcolor "#252227"
+set recolor-darkcolor "#caeee6"
+
+set inputbar-bg "#252227"
+set inputbar-fg "#caeee6"
+
+set notification-bg "#252227"
+set notification-fg "#caeee6"
+set notification-error-bg "#4EB5DF"
+set notification-error-fg "#caeee6"
+set notification-warning-bg "#4EB5DF"
+set notification-warning-fg "#caeee6"
+
+set statusbar-bg "#252227"
+set statusbar-fg "#caeee6"
+
+set index-bg "#252227"
+set index-fg "#caeee6"
+
+set index-active-bg "#caeee6"
+set index-active-fg "#252227"
+set render-loading-bg "#252227"
+set render-loading-fg "#caeee6"
+
+# font
+set font "Roboto 9"
+
+# settings
+set window-height 700
+set window-width 500
+set adjust-open width
+set page-padding 8
+set show-hidden true
+set statusbar-basename true
+set statusbar-home-tilde true
+set page-right-to-left true
+set recolor true
+set recolor-reverse-video true
+set selection-clipboard clipboard
+
+# remove default key bindings
+unmap <C-n>
+
+# key bindings
+map K navigate previous
+map J navigate next
+map D toggle_page_mode
+map b toggle_statusbar
+map P print
+map r reload
+map R rotate
+map + zoom in
+map - zoom out
+map d recolor
+map <C-q> quit

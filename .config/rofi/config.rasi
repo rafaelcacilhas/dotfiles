@@ -1,5 +1,5 @@
 configuration {
-	theme: "~/.config/rofi/themes/minimal.rasi";
+	theme: "~/.config/rofi/themes/minimal_outline.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
 	/* font: "Iosevka Nerd Font 9"; */
 	font: "SauceCode Pro Nerd Font Bold 10";

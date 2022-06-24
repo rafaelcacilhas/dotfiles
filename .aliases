@@ -18,6 +18,7 @@ alias ll='exa -l --color=always -h --icons --tree --level=1'
 alias all='exa -al --color=always -h --icons --tree --level=1'
 alias cat="batcat"
 alias n="nvim"
+alias clear="clear && fm6000 -c blue"
 # alias hist=""
 
 # Suffix aliases

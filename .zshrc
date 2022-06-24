@@ -33,16 +33,18 @@ export ZSH="/home/dilip/.oh-my-zsh"
 # Loading custom aliases
 source ~/.aliases
 
-# Custom Header
-PURPLE='\033[1;34m'
-WHITE_ITALIC='\033[3;37m'
-NORMAL='\033[0;37m'
-# WHITE_BLINKING='\033[5;37m'
-fortune > /tmp/fortune
-while read -r line ; do
-	echo -e "${PURPLE}┃${WHITE_ITALIC} $line ${NORMAL}"
-done < /tmp/fortune
-echo ""
+fm6000 -c blue
+
+# CUSTOM HEADER
+# PURPLE='\033[1;34m'
+# WHITE_ITALIC='\033[3;37m'
+# NORMAL='\033[0;37m'
+# # WHITE_BLINKING='\033[5;37m'
+# fortune > /tmp/fortune
+# while read -r line ; do
+# 	echo -e "${PURPLE}┃${WHITE_ITALIC} $line ${NORMAL}"
+# done < /tmp/fortune
+# echo ""
 
 # ZSH Plugin
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
