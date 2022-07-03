@@ -4,7 +4,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Keybindings for coc-explorer
-nnoremap <silent> tt :CocCommand explorer<CR>
+" nnoremap <silent> tt :CocCommand explorer<CR>
+nnoremap <silent> tt :NERDTreeToggle %:p:h<CR>
 
 " Yank all content
 nnoremap <leader>y ggVGy<C-o>

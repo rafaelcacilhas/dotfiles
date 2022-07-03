@@ -1,3 +1,10 @@
+" ALL {{{
+autocmd BufNewFile,BufEnter *.py,*.css,*.html,*.tex,*sh :IndentLinesEnable
+" }}}
+
+" SUCKLESS {{{
+" autocmd BufWrite ~/.config/st/* :!bash cd /home/dilip/.config/st/ && make && make install
+" }}}
 
 " PYTHON {{{
 autocmd FileType python nnoremap <leader>r !python3 %p

@@ -26,13 +26,13 @@ xresources = read_xresources("*")
 
 # Quick hack to theme duckduckgo pages
 ddg_theme = 'https://duckduckgo.com/?q={}&kj=' + xresources["*.color4"]      # Header color
-ddg_theme = ddg_theme + '&k7=' + xresources["*.background"]                     # Hover color
-ddg_theme = ddg_theme + '&k21=' + xresources["*.background"]                     # Background color
-ddg_theme = ddg_theme + '&kx=' + xresources["*.color5"]                         # URL color
-ddg_theme = ddg_theme + '&k8=' + xresources["*.color5"]                         # Snippet color
-ddg_theme = ddg_theme + '&k9=' + xresources["*.color2"]                         # Link color
-ddg_theme = ddg_theme + '&kaa=' + xresources["*.color2"]                        # Visited link color
-ddg_theme = ddg_theme + '&ko=s'                                                 # Header setting
+ddg_theme = ddg_theme + '&k7=' + xresources["*.background"]                  # Hover color
+ddg_theme = ddg_theme + '&k21=' + xresources["*.background"]                 # Background color
+ddg_theme = ddg_theme + '&kx=' + xresources["*.color5"]                      # URL color
+ddg_theme = ddg_theme + '&k8=' + xresources["*.color5"]                      # Snippet color
+ddg_theme = ddg_theme + '&k9=' + xresources["*.color2"]                      # Link color
+ddg_theme = ddg_theme + '&kaa=' + xresources["*.color2"]                     # Visited link color
+ddg_theme = ddg_theme + '&ko=s'                                              # Header setting
 
 #################
 # MAIN SETTINGS #
@@ -44,6 +44,7 @@ c.downloads.location.directory = '/home/dilip/Downloads'
 c.url.searchengines = {
         'DEFAULT': ddg_theme,
         'wk':'https://en.wikipedia.org/wiki/{}',
+        'rd':'https://www.reddit.com/search/?q={}',
         'yt': 'https://www.youtube.com/results?search_query={}',
         'amz':'https://www.amazon.in/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords={}'
 }
@@ -73,8 +74,8 @@ c.completion.shrink = True
 
 # --- File Select ---
 config.set("fileselect.handler", "external")
-config.set("fileselect.single_file.command" , ["urxvt", "-name", "filechooser", "-e", "ranger", "--choosefile", "{}"])
-config.set("fileselect.multiple_files.command", ["urxvt", "-name", "filechooser", "-e", "ranger", "--choosefiles" "{}"])
+config.set("fileselect.single_file.command" , ["st", "-n", "filechooser", "-e", "ranger", "--choosefile", "{}"])
+config.set("fileselect.multiple_files.command", ["st", "-n", "filechooser", "-e", "ranger", "--choosefiles", "{}"])
 
 c.content.pdfjs = True
 

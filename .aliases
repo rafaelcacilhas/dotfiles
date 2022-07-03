@@ -13,6 +13,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias exa="exa --color=always --icons"
 alias l="exa --color=always --icons"
+alias ls="ls --color=auto"
 alias la='exa -a --color=always --icons'
 alias ll='exa -l --color=always -h --icons --tree --level=1'
 alias all='exa -al --color=always -h --icons --tree --level=1'
@@ -20,13 +21,6 @@ alias cat="batcat"
 alias n="nvim"
 alias clear="clear && fm6000 -c blue"
 # alias hist=""
-
-# Suffix aliases
-alias -s pdf=zathura
-alias -s {mp4,mkv}=mpv
-alias -s {jpg,jpeg,png,gif}=sxiv
-alias -s {conf,css,rasi,html,txt,tex,lua}=nvim
-alias -s md="glow -p"
 
 # Function aliases
 function hist () {

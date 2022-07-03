@@ -32,10 +32,11 @@ bspc rule -a Zathura state=tiled
 bspc rule -a mpv state=fullscreen
 bspc rule -a Pavucontrol state=pseudo_tiled
 bspc rule -a SimpleScreenRecorder state=pseudo_tiled
-bspc rule -a filechooser state=floating
+bspc rule -a *:filechooser state=floating
 
 # workspaces
-# bspc rule -a quterbroser desktop=.focused follow=on
+# bspc rule -a qutebrowser desktop="" follow=on
+# bspc rule -a brave-browser desktop="" follow=on
 
 # }}}
 
@@ -56,3 +57,5 @@ picom --experimental-backend &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 # }}}
+
+# vim: fdm=marker

@@ -11,7 +11,7 @@ export PATH=$PATH:/root/.cargo/bin
 export PATH=$PATH:/home/dilip/.scripts
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="urxvt"
 export PAGER="less"
 export FZF_DEFAULT_OPTS="--layout=reverse
 						 --border rounded
@@ -39,20 +39,15 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive tab
 # Loading custom aliases
 source ~/.aliases
 
+# Suffix aliases
+alias -s pdf=zathura
+alias -s {mp4,mkv}=mpv
+alias -s {jpg,jpeg,png,gif}=sxiv
+alias -s {conf,css,rasi,html,txt,tex,lua}=nvim
+alias -s md="glow -p"
 
 # CUSTOM HEADER
 fm6000 -c $(shuf -e red green yellow blue magenta | head -n 1)
-
-# CUSTOM HEADER
-PURPLE='\033[1;34m'
-# WHITE_ITALIC='\033[3;37m'
-NORMAL='\033[0;37m'
-# # WHITE_BLINKING='\033[5;37m'
-# fortune > /tmp/fortune
-# while read -r line ; do
-# 	echo -e "${PURPLE}┃${WHITE_ITALIC} $line ${NORMAL}"
-# done < /tmp/fortune
-# echo ""
 
 # ZSH Plugin
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

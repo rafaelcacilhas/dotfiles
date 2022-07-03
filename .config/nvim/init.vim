@@ -1,11 +1,11 @@
-"         __                     
-" .--.--.|__|.--------.----.----.
-" |  |  ||  ||        |   _|  __|
-"  \___/ |__||__|__|__|__| |____|
-"
+"							__           
+" .-----.-----.-----.--.--.|__|.--------.
+" |     |  -__|  _  |  |  ||  ||        |
+" |__|__|_____|_____|\___/ |__||__|__|__|
+" 
+" Github: https://github.com/TechnicalDC
 
 " REQUIRED {{{ 
-
 runtime! debian.vim
 
 set nocompatible              " be iMproved, required
@@ -13,18 +13,17 @@ filetype off                  " required
 source /home/dilip/.config/nvim/filetype.vim
 source /home/dilip/.config/nvim/abbreviations.vim
 source /home/dilip/.config/nvim/keybindings.vim
-
 " }}}
 
 " PLUGINS {{{
 call plug#begin()
 
-" Customization
+" APPEARANCE
 Plug 'vim-airline/vim-airline'
-Plug 'ryanoasis/vim-devicons'			" For icons
+Plug 'ryanoasis/vim-devicons'
 Plug 'dylanaraps/wal.vim'
 
-" Must have
+" MUST HAVE
 Plug 'tpope/vim-surround'    
 Plug 'glepnir/dashboard-nvim'
 Plug 'farmergreg/vim-lastplace'
@@ -37,16 +36,17 @@ Plug 'tpope/vim-commentary'
 " Development
 Plug 'ap/vim-css-color'
 Plug 'mattn/emmet-vim'
+Plug 'Yggdroot/indentLine'
+Plug 'chrisbra/changesPlugin'
 
 " Syntax highlighting
 Plug 'vim-python/python-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'neomutt/neomutt.vim'
-
-" Vim Wiki
 Plug 'vimwiki/vimwiki'
 
 " Others
+Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-eunuch'
 
@@ -60,6 +60,7 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 set noswapfile
+set noshowmode
 set number relativenumber
 set path+=**
 set wildmenu
@@ -122,6 +123,10 @@ function! MyFoldText()
 endfunction
 " }}}
 
+" Autocmd {{{
+autocmd VimEnter,BufEnter * :set signcolumn=yes
+" }}}
+
 " }}}
 
 " VIMWIKI {{{
@@ -164,20 +169,31 @@ nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
 
 let g:dashboard_custom_header = [
     \'',
-    \'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
-    \'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
-    \'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄     ',
-    \'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
-    \'          ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
-    \'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
-    \'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
-    \' ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
-    \' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄ ',
-    \'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
-    \'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
-    \'     ⢰⣶  ⣶ ⢶⣆⢀⣶⠂⣶⡶⠶⣦⡄⢰⣶⠶⢶⣦  ⣴⣶     ',
-    \'     ⢸⣿⠶⠶⣿ ⠈⢻⣿⠁ ⣿⡇ ⢸⣿⢸⣿⢶⣾⠏ ⣸⣟⣹⣧    ',
-    \'     ⠸⠿  ⠿  ⠸⠿  ⠿⠷⠶⠿⠃⠸⠿⠄⠙⠷⠤⠿⠉⠉⠿⠆   ',
+	\'⠀⠀⠀⠀⢧⣀⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀',
+	\'⠀⠀⠀⠄⣾⣿⣷⡾⠛⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀',
+	\'⠀⠀⠀⢸⣿⣿⣿⣿⣦⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀',
+	\'⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆',
+	\'⡀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷',
+	\'⡀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿',
+	\'⣿⡖⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠠⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿',
+	\'⣿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢻⣿⣿⣿⣿⣿⠖⠒⡾⣿⣿⣿⣿⢼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢁⣬⡙⣿⣿⣿',
+	\'⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⢿⣿⡿⠀⠀⠃⠿⠿⠿⡟⢌⠿⠿⢿⣿⣿⣿⣿⣿⠘⢽⠇⠀⢼⡿⠇⣿⣿⣿',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⢿⣿⣿⣿⢸⣿⡿⠘⠋⠁⠀⠀⢀⣀⡐⠉⠀⠈⠉⠉⠐⠦⣝⣿⣿⣿⠀⠀⠀⠰⣷⡄⠀⣸⣟⠀',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠜⠛⠛⠛⢈⠀⠀⠀⠀⠁⡴⢋⣁⣤⣤⣤⣶⣶⣾⡿⠖⠂⠀⣿⣿⡟⠀⠀⠀⢀⣿⠀⢀⡿⠀⢀',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⣀⣂⣁⣉⣤⣤⣀⠀⠀⠀⠀⠐⠻⠛⣿⣯⣭⣽⡿⠛⣃⠀⠀⠀⣿⣿⡇⠀⠀⠀⠻⠿⢀⣾⠃⢸⡯',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⠿⣛⣙⣭⡽⡇⠀⠀⠀⠀⠀⠀⠀⠘⠦⠝⠛⠒⠋⠀⠀⠀⠀⣿⡇⡇⠀⠀⠀⠀⢀⣾⡇⠀⣴⣧',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⠳⠭⠟⠈⢁⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠀⠀⡴⢲⣶⡾⠋⢺⣷⣴⣿⣿',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠺⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⢰⠴⠐⢼⣿⣂⠀⣸⣿⣿⣿⡟',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠀⠈⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡣⠊⠀⠀⢻⣿⣯⣿⣿⣿⣿⣷⣷',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠦⡀⠀⠀⠀⠀⠤⣠⣤⠒⠚⠁⠀⠀⠀⠀⠀⠀⣠⢿⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣿⣶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⡪⠂⢸⠐⠀⠀⠀⢸⠿⢿⣿⣿⣿⣿⣿⣿',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣀⠀⠀⠀⠀⣀⣤⠾⢉⠜⠁⠀⠈⡆⠀⠂⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⠟⣲⣶⠿⠛⠁⠀⠃⢀⠠⠂⠁⠐⠀⠀⠀⠀⠀⢀⠀⠄⠊⠁⠀⠀',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⣡⠖⠀⢰⣿⡄⠀⠁⢀⡴⠂⠁⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⢸⠁⡀⠀⠈⣟⣀⣠⠟⠁⠀⠀⠀⠀⠀⠀⠀⡤⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⡿⠋⠀⠀⠀⣷⣠⣄⡀⢠⣻⢟⠅⠀⠀⠀⠀⠀⠀⠀⠠⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢃⡾⠁⠀⠀⠀⠀⣷⣿⣷⣿⡯⠟⠁⠀⠀⠀⠀⠀⠀⢀⠜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
+	\'⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⡉⣠⡸⣆⣄⣦⣄⣤⡀⡏⠀⠈⠋⠀⠀⠀⠀⠀⠀⠀⢀⣴⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠',
     \'',
     \]
 
@@ -222,53 +238,29 @@ let g:dashboard_custom_header = [
 "     \'⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠉⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠋⠁⠀⠀⠀⠀⠀ ',
 "     \]
 
-" }}}
-
-" STARTIFY {{{
-" loading the devicons plugin
-let g:webdevicons_enable = 1
-" adding to vim-startify screen
-let g:webdevicons_enable_startify = 1
-let g:startify_files_number = 10
-let g:startify_update_oldfiles = 1
-let g:startify_change_to_vcs_root = 0
-let g:startify_padding_left = 4
-let g:startify_session_autoload = 0
-let g:startify_session_dir = '~/.vim/session'
-" let g:startify_custom_header =
-"             \ startify#pad(split(system('figlet -f chunky technicaldc'), '\n'))
-
-let g:startify_lists = [
-          \ { 'type': 'bookmarks', 'header': ['   BOOKMARKS:']      },
-          \ { 'type': 'files',     'header': ['   RECENTS:']        },
-          \ { 'type': 'sessions',  'header': ['   SESSIONS:']       },
-          \ { 'type': 'commands',  'header': ['   COMMANDS:']       },
-          \ ]
-
-let g:startify_bookmarks = [
-		\ { 'g': '~/github_token.md' },
-		\ { 'w': '~/vimwiki/index.wiki' },
-		\ { 'n': '~/.config/nvim/init.vim' },
-		\]
-
-let g:startify_custom_header = [ "", 
-	\ "",
-	\ "	███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗		",
-	\ "	████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║      ",
-	\ "	██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║      ",
-	\ "	██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║      ",
-	\ "	██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║		",
-	\ "	╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝		",
-	\ "",
-	\ ]
-
-let g:startify_custom_footer = ''
-
-highlight StartifyBracket ctermfg=Green
-highlight StartifySlash ctermfg=Green
-highlight StartifyFile ctermfg=Yellow
-highlight StartifySection cterm=Bold ctermfg=Red
-highlight StartifySpecial ctermfg=Magenta
+" let g:dashboard_custom_header =[
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣤⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⣾⣿⡿⠟⠛⠋⠙⠛⠻⢷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠠⠤⠄⠘⠓⠒⠶⠦⢤⣀⡀⠀⠀⠀⢀⠔⡽⠂⠈⠂⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠏⠀⠀⠀⠀⠀⣠⡄⠀⠠⠁⠐⠂⠈⠁⠒⠂⠠⣤⠤⠤⠤⢀⠉⠻⣶⡀⠀⠘⣌⠀⠀⠀⠀⠑⡀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⢀⣠⡟⠀⠀⠀⢀⣴⣿⠿⠓⠐⠀⠀⠀⠀⠀⠀⠀⡜⠉⠑⠙⢇⠒⠀⠄⠀⢹⣷⠀⠀⠨⢊⡔⠀⣀⡼⠁⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⢀⣴⠛⠉⠁⠀⢀⣴⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⠀⠀⠀⠈⢧⠀⠀⢀⣿⠏⢀⢔⠕⠁⠈⠉⠁⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⢠⣿⠃⠀⠀⠀⣴⣿⡟⠁⠀⢀⡤⠤⢤⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠘⣷⠚⠋⠁⠔⡁⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠸⣿⠀⠀⠀⣼⣿⠋⠀⠀⠐⠀⠀⠀⠀⠀⠈⠛⠢⣄⡀⠀⠀⠀⠀⠸⣿⡄⠘⡶⠒⠚⠚⠻⡛⠛⠻⢶⣄⡀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠹⣧⡀⠀⢿⡏⠀⠀⡈⠢⠀⠀⠀⠀⠀⠀⠀⢀⣀⣉⠒⠦⠔⠀⠀⠉⠠⠊⠀⠀⠀⠀⠀⢸⡀⠀⠀⠹⣷⡄⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠈⠛⠷⣶⡇⠀⠀⠈⠐⠀⠀⠀⠀⠀⠀⠈⠁⠀⠈⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⠀⠀⢸⣿⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣷⠀⠀⠀⠀⠀⠀⠀⠀⠤⠄⡀⢀⡀⠀⢀⣀⡔⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠆⠀⠀⠀⠀⢸⣿⠂⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣧⠀⠀⠀⠀⠀⠀⠀⠀⠒⠲⠤⠤⠬⠠⠤⠞⢦⣀⠀⠀⠀⠀⣀⠠⠚⠁⠀⠀⠀⠀⠀⣼⡟⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⠧⠤⠀⠀⠀⠀⠀⠸⣶⣶⣶⣶⣶⣶⣶⣾⣿⠁⠉⠀⠀⠉⠀⠀⠀⠀⠀⢠⠀⢀⣼⡿⠁⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡏⠀⠀⢤⡀⠀⠀⠀⠀⠹⠛⠛⠛⠻⠛⠛⠿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣴⠿⠋⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢷⣆⡀⠀⠈⠀⢠⡀⠀⠀⠑⠄⠀⠀⠀⢀⠀⢁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣶⣤⠶⠛⢿⣦⡀⠀⠠⢀⠀⠀⣀⠔⠁⠀⠀⠀⠀⠀⠀⠀⠀⣠⡿⠃⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣾⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠿⢶⣶⣤⣤⣀⣀⣤⣤⣶⣾⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\'⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠛⠛⠛⠛⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',⠀⠀
+"		\]
 
 " }}}
 
@@ -294,25 +286,31 @@ let g:airline_powerline_fonts = 0
 " NERD TREE CONFIG {{{
 
 " " nnoremap <silent> tt :NERDTreeToggle<CR>
-" let g:NERDTreeDirArrowExpandable = '►'
-" let g:NERDTreeDirArrowCollapsible = '▼'
-" let NERDTreeShowLineNumbers=0
-" let NERDTreeShowHidden=0
-" let NERDTreeMinimalUI = 1
-" let g:NERDTreeWinSize=23
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+let NERDTreeShowLineNumbers=0
+let NERDTreeShowHidden=0
+let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=30
 
-" " Start NERDTree and put the cursor back in the other window.
-" " autocmd VimEnter * NERDTree | wincmd p
+" Start NERDTree and put the cursor back in the other window.
+" autocmd VimEnter * NERDTree | wincmd p
 
-" " Exit Vim if NERDTree is the only window left.
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-"     \ quit | endif
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 
-" " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-"     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" " }}}
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" }}}
 
 " GOYO {{{
 
@@ -327,7 +325,7 @@ map <silent> <leader>gy :Goyo<CR>
 " COC {{{
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -483,9 +481,17 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " }}}
 
-" RANGER {{{
-" let g:ranger_replace_netrw = 1
-" map <leader>F :RangerNewTab<CR>
+" CHANGES-PLUGIN {{{
+let g:changes_autocmd=1
+let g:changes_respect_SignColumn=1
+let g:changes_sign_text_utf8=1
+let g:changes_use_icons=1
+" }}}
+
+" INDENT-LINES {{{
+let g:indentLine_enabled = 0
+let g:indentLine_char = '│'
+let g:indentLine_defaultGroup = 'LineNr'
 " }}}
 
 " FZF {{{
@@ -579,3 +585,5 @@ endif
 " vimrc:fdm=marker:foldlevel=0
 
 " }}}
+
+" vim: fdm=marker

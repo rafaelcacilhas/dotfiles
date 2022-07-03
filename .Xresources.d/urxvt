@@ -3,7 +3,7 @@
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
-URxvt.internalBorder: 10
+URxvt.internalBorder: 20
 URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.saveline: 5120
@@ -17,11 +17,14 @@ URxvt.iso14755: false
 !URxvt.font: xft:Iosevka Nerd Font Mono:style=Regular:pixelsize=13
 !URxvt.boldFont: xft:Iosevka Nerd Font Mono:style=Bold:pixelsize:13
 
-URxvt.font: xft:SauceCode Pro Nerd Font Mono:style=Regular:pixelsize=13
-URxvt.boldFont: xft:SauceCode Pro Nerd Font Mono:style=Bold:pixelsize:13
+!URxvt.font: xft:SauceCode Pro Nerd Font Mono:style=Regular:pixelsize=13
+!URxvt.boldFont: xft:SauceCode Pro Nerd Font Mono:style=Bold:pixelsize:13
 
 !URvxt.font: xft:Literation Mono Nerd Font Mono:style=Book:pixelsize=14
 !URvxt.boldFont: xft:Literation Mono Nerd Font Mono:style=Bold:pixelsize=14
+
+URxvt.font: xft:FantasqueSansMono Nerd Font Mono:style=Regular:pixelsize=13
+URxvt.boldFont: xft:FantasqueSansMono Nerd Font Mono:style=Bold:pixelsize=13
 
 !!  Extensions
 URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,font-size
