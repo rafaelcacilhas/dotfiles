@@ -191,13 +191,13 @@ c.colors.tabs.pinned.selected.even.bg = alt_background
 # FONT SETTING #
 ################
 
-c.fonts.default_family = '11px "Roboto"'
+c.fonts.default_family = '11px "FantasqueSansMono Nerd Font"'
 c.fonts.default_size = '11px'
-c.fonts.contextmenu = '11px "Roboto"'
-c.fonts.completion.entry = '11px "Roboto"'    # Font used in the completion widget.
-c.fonts.debug_console = '11px "Roboto"'       # Font used for the debugging console.
-c.fonts.prompts = 'default_size Roboto'       # Font used for prompts.
-c.fonts.statusbar = '11px "Roboto"'           # Font used in the statusbar.
+c.fonts.contextmenu = '11px "FantasqueSansMono Nerd Font"'
+c.fonts.completion.entry = '11px "FantasqueSansMono Nerd Font"'    # Font used in the completion widget.
+c.fonts.debug_console = '11px "FantasqueSansMono Nerd Font"'       # Font used for the debugging console.
+c.fonts.prompts = 'default_size FantasqueSansMono Nerd Font'       # Font used for prompts.
+c.fonts.statusbar = '11px "FantasqueSansMono Nerd Font"'           # Font used in the statusbar.
 
 
 ################################

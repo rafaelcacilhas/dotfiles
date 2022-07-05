@@ -52,7 +52,7 @@ mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
 nm-applet &
 dunst -sep_color "$background" -frame_color "$color4" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
 kdeconnect-indicator &
-picom --experimental-backend &
+picom --experimental-backend --shadow-color "$background" &
 # telegram-desktop -startintray &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 

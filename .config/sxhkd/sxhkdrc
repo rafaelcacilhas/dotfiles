@@ -11,7 +11,7 @@ super + Return
 
 # launch rofi
 super + d
-	rofi -show drun 
+	rofi -show drun -theme ~/.config/rofi/themes/minimal-fullscreen.rasi -fullscreen true -sidebar-mode -columns 3
 
 # launch rofi
 super + r
