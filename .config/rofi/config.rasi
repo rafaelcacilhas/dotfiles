@@ -6,10 +6,10 @@ configuration {
 	modi: "window,drun,run";
 	combi-modi: "drun, window";
 	show-icons: false;
-	terminal: "rofi-sensible-terminal";
+	terminal: "st";
 	run-shell-command: "{terminal} -e {cmd}";
 	/* drun-display-format: "{name}"; */
-	width: 60;
+	width: 50;
 	columns: 2;
 	lines: 12;
 	fixed-num-lines: false;
@@ -17,8 +17,8 @@ configuration {
 	yoffset: 100;
 	sidebar-mode: false;
 	fullscreen: false;
-	display-drun: " ";
-	display-run: " ";
-	display-window: " ";
+	display-drun: "LAUNCH ";
+	display-run: "RUN ";
+	display-window: "SWITCH ";
 }
 
