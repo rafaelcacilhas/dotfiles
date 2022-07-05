@@ -1,6 +1,6 @@
 # My Dotfiles
 
-- Arigram (tui client for telegram)
+- Arigram (tui client for telegram, config file coming soon)
 - Bspwm
 - Dunst
 - Herbstluftwm        
@@ -23,17 +23,21 @@
 - Xresources
 - Zathura
 
-# Installation:
+## Installation:
 
 ```bash
 git clone http://github.com/TechnicalDC/dotfiles
 cd dotfiles
+cp .* ~
+cp -r .config/* ~/.config
+cp -r .fonts/* ~/.fonts
+cp -r .Xresources.d ~
 ```
 
-# Screenshots:
+## Screenshots:
 
 ![screenshots](https://github.com/TechnicalDC/dotfiles/blob/main/res/desktop.gif)
 
-# TODO
+## TODO
 
 1. Need to create an `install.sh` script.
