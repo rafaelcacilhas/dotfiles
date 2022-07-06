@@ -435,11 +435,11 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 let g:fzf_preview_window = []
 
 " - down / up / left / right
-let g:fzf_layout = { 'down': '40%' }
+let g:fzf_layout = { 'down': '50%' }
 
 
 let g:fzf_colors =
-	\ { 'fg':      ['fg', 'Normal'],
+	\ { 'fg':    ['fg', 'Normal'],
 	\ 'bg':      ['bg', 'Normal'],
 	\ 'hl':      ['fg', 'Comment'],
 	\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
@@ -459,11 +459,11 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>e :History<CR>
 
 command! -bang -nargs=? -complete=dir History
-			\ call fzf#vim#history( {'options': ['--preview', 'batcat {}','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
+			\ call fzf#vim#history({'options': ['--preview', 'batcat {} -p --color always','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
 command! -bang -nargs=? -complete=dir Files
-			\ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat {}','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
+			\ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat {} -p --color always','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
 command! -bang -nargs=? -complete=dir GFiles
-			\ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', 'batcat {}','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
+			\ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', 'batcat {} -p --color always','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
 
 " }}}
 
