@@ -398,8 +398,18 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " CHANGES-PLUGIN {{{
 let g:changes_autocmd=1
 let g:changes_respect_SignColumn=1
-let g:changes_sign_text_utf8=1
+let g:changes_sign_text_utf8=0
 let g:changes_use_icons=1
+
+" custom signs 
+let g:changes_modified_sign='!'
+let g:changes_add_sign='+'
+let g:changes_delete_sign='-'
+
+let g:changes_utf8_modified_sign=''
+let g:changes_utf8_add_sign=''
+let g:changes_utf8_delete_sign=''
+
 " }}}
 
 " INDENT-LINES {{{
@@ -424,16 +434,36 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 " Empty value to disable preview window altogether
 let g:fzf_preview_window = []
 
+" - down / up / left / right
+let g:fzf_layout = { 'down': '40%' }
+
+
+let g:fzf_colors =
+	\ { 'fg':      ['fg', 'Normal'],
+	\ 'bg':      ['bg', 'Normal'],
+	\ 'hl':      ['fg', 'Comment'],
+	\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+	\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+	\ 'hl+':     ['fg', 'Statement'],
+	\ 'info':    ['fg', 'PreProc'],
+	\ 'border':  ['fg', 'Normal'],
+	\ 'prompt':  ['fg', 'Conditional'],
+	\ 'pointer': ['fg', 'Exception'],
+	\ 'marker':  ['fg', 'Keyword'],
+	\ 'spinner': ['fg', 'Label'],
+	\ 'header':  ['fg', 'Comment'] }
  
 nnoremap <leader>g :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>e :History<CR>
 
+command! -bang -nargs=? -complete=dir History
+			\ call fzf#vim#history( {'options': ['--preview', 'batcat {}','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
 command! -bang -nargs=? -complete=dir Files
-			\ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat {}']}, <bang>0)
+			\ call fzf#vim#files(<q-args>, {'options': ['--preview', 'batcat {}','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
 command! -bang -nargs=? -complete=dir GFiles
-			\ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', 'batcat {}']}, <bang>0)
+			\ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', 'batcat {}','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
 
 " }}}
 
