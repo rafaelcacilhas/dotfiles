@@ -10,12 +10,8 @@ super + Return
 	st
 
 # launch rofi
-super + d
-	rofi -show drun -theme ~/.config/rofi/themes/minimal-fullscreen.rasi -fullscreen true -sidebar-mode -columns 3
-
-# launch rofi
-super + r
-	rofi -show run -no-show-icons
+super + {d,w,r}
+	rofi -show {drun,window,run}
 
 # launch qutebrowser
 super + alt + q
@@ -40,10 +36,6 @@ super + alt + s
 # launch config file menu
 super + e
 	./.scripts/rofi-configmenu.sh
-
-# window list
-super + w
-	rofi -show window 
 
 # scrot
 Print

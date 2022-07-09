@@ -12,7 +12,7 @@ export PATH=$PATH:/home/dilip/.scripts
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export EDITOR="nvim"
 export TERMINAL="urxvt"
-export PAGER="less"
+# export PAGER="less"
 export FZF_DEFAULT_OPTS="--layout=reverse
 						 --border rounded
 						 --prompt=' '

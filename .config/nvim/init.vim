@@ -14,7 +14,6 @@ source /home/dilip/.config/nvim/filetype.vim
 source /home/dilip/.config/nvim/abbreviations.vim
 source /home/dilip/.config/nvim/keybindings.vim
 " }}}
-
 " PLUGINS {{{
 call plug#begin()
 
@@ -53,7 +52,6 @@ Plug 'tpope/vim-eunuch'
 call plug#end()
 
 " }}}
-
 " CONFIGURATION {{{
 
 " Settings {{{
@@ -108,7 +106,6 @@ highlight CursorLine cterm=NONE ctermbg=Black  ctermfg=White
 highlight CursorLineNr cterm=Bold ctermbg=NONE ctermfg=Red
 
 highlight LineNr ctermbg=NONE ctermfg=Cyan
-highlight VertSplit ctermbg=NONE ctermfg=White
 
 " Customize folds
 highlight link Comment Folded 
@@ -116,7 +113,7 @@ highlight link Comment Folded
 function! MyFoldText()
     let line = getline(v:foldstart)
     let folded_line_num = v:foldend - v:foldstart
-    let line_text = substitute(line, '^"{\+', '', 'g')
+    let line_text = substitute(line, '{\+', '', 'g')
     let fillcharcount = &textwidth - len(line_text) - len(folded_line_num)
     return ''. repeat(' ', 4) . line_text . repeat(' ', fillcharcount) . ' [' . folded_line_num . ' L]'
     " return ''. repeat(' ', 4) . line_text . repeat(' ', fillcharcount) . ' [' . folded_line_num . ' L]'
@@ -128,13 +125,11 @@ autocmd VimEnter,BufEnter * :set signcolumn=yes
 " }}}
 
 " }}}
-
 " VIMWIKI {{{
 
 let g:vimwiki_list = [{'auto_diary_index': 1}]
 
 " }}}
-
 " DASHBOARD {{{
 let g:dashboard_default_executive ='fzf'
 autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
@@ -177,7 +172,6 @@ let g:dashboard_custom_header = [
     \]
 
 " }}}
-
 " EMMET-VIM {{{
 
 let g:user_emmet_leader_key='<C-Z>'
@@ -186,7 +180,6 @@ let g:user_emmet_mode='a'    "enable all function in all mode.
 " autocmd FileType html,css EmmetInstall
 
 " }}}
-
 " VIM AIRLINE THEME {{{
 
 let g:airline#extensions#tabline#enabled = 1
@@ -196,7 +189,6 @@ let g:airline_powerline_fonts = 0
 " let g:airline_theme='dracula'
 
 " }}}
-
 " NERD TREE CONFIG {{{
 
 " " nnoremap <silent> tt :NERDTreeToggle<CR>
@@ -225,7 +217,6 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
 " }}}
-
 " GOYO {{{
 
 let g:goyo_width = 80
@@ -235,7 +226,6 @@ let g:goyo_liner = 0
 map <silent> <leader>gy :Goyo<CR> 
 
 " }}}
-
 " COC {{{
 
 " Give more space for displaying messages.
@@ -394,7 +384,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " }}}
-
 " CHANGES-PLUGIN {{{
 let g:changes_autocmd=1
 let g:changes_respect_SignColumn=1
@@ -411,13 +400,11 @@ let g:changes_utf8_add_sign=''
 let g:changes_utf8_delete_sign=''
 
 " }}}
-
 " INDENT-LINES {{{
 let g:indentLine_enabled = 0
 let g:indentLine_char = '│'
 let g:indentLine_defaultGroup = 'LineNr'
 " }}}
-
 " FZF {{{
 
 " This is the default option:
@@ -435,7 +422,7 @@ let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 let g:fzf_preview_window = []
 
 " - down / up / left / right
-let g:fzf_layout = { 'down': '50%' }
+" let g:fzf_layout = { 'down': '50%' }
 
 
 let g:fzf_colors =
@@ -453,10 +440,10 @@ let g:fzf_colors =
 	\ 'spinner': ['fg', 'Label'],
 	\ 'header':  ['fg', 'Comment'] }
  
-nnoremap <leader>g :GFiles<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>e :History<CR>
+nnoremap <A-g> :GFiles<CR>
+nnoremap <A-b> :Buffers<CR>
+nnoremap <A-f> :Files<CR>
+nnoremap <A-e> :History<CR>
 
 command! -bang -nargs=? -complete=dir History
 			\ call fzf#vim#history({'options': ['--preview', 'batcat {} -p --color always','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
@@ -466,7 +453,6 @@ command! -bang -nargs=? -complete=dir GFiles
 			\ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', 'batcat {} -p --color always','--pointer','>>','--prompt',' ','--layout','default']}, <bang>0)
 
 " }}}
-
 " TABS, SPLITS AND BUFFERS {{{
 
 " MANAGING BUFFERS
@@ -514,7 +500,6 @@ noremap <silent> <A-k> :resize +2<CR>
 noremap <silent> <A-j> :resize -2<CR>
 
 " }}}
-
 " OTHER {{{
 
 " The following are commented out as they cause vim to behave a lot
