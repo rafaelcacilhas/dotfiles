@@ -40,6 +40,4 @@ color1='FFFFFF',
 
 conky.text = [[
 ${alignc}${font Anurati:size=75}${exec date +%A | tr [a-z] [A-Z]}${font}
-
-${alignc}--- ${time %d.%B.%Y} ---
 ]];

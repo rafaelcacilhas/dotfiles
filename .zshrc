@@ -80,22 +80,14 @@ setopt hist_verify            # show command with history expansion to user befo
 # VI MODE
 bindkey -v
 
-# COLOR SCRIPT
-# colorscript --random
-# colorscript --exec bars
-# colorscript --exec alpha
-# colorscript --exec blocks1
-# colorscript --exec crunch
-# colorscript --exec crunchbang-mini
-# colorscript --exec dna
-# colorscript --exec elfman
-# colorscript --exec faces
-# colorscript --exec fade
-# colorscript --exec jangofett
-# colorscript --exec panes
-# colorscript --exec rails
-# colorscript --exec square
-# colorscript --exec tanks
-# colorscript --exec tiefighter1row
-# colorscript --exec tux
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
