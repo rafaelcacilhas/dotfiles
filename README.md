@@ -9,7 +9,7 @@
 - Mpv
 - Ncmpcpp
 - Neofetch (replaced with fm6000, still config file is there)
-- Neovim (Bye Bye! Vim)
+- Neovim (Bye Bye! Vim, `nvim.old` contains vimscript based configs and no longer maintained)
 - Newsboat
 - Picom
 - Polybar
