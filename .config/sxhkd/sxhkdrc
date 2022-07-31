@@ -21,6 +21,10 @@ super + alt + q
 super + alt + n
 	st -e 'nvim'
 
+# launch calcurse
+super + alt + c
+	st -e 'calcurse'
+
 # launch neomutt
 super + alt + m
 	st -e "neomutt"

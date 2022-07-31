@@ -61,7 +61,6 @@ wm-restack = bspwm
 
 ; }}}
 
-
 ; I3-BAR {{{
 [bar/i3-bar]
 inherit = bar/base
@@ -79,9 +78,6 @@ modules-right = pulseaudio cpu memory
 wm-restack = bspwm
 
 ; }}}
-
-[module/left-slant]
-
 
 ; DUNST-TOOGLE {{{
 
@@ -431,9 +427,9 @@ type = internal/pulseaudio
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 2
 format-volume-background = ${colors.background}
-label-volume = %percentage%% 
+label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
-label-volume-padding = 2
+label-volume-padding = 3
 
 ramp-volume-0 = 
 ramp-volume-0-foreground = ${colors.purple}
@@ -456,7 +452,7 @@ ramp-volume-8-foreground = ${colors.purple}
 ramp-volume-9 = 
 ramp-volume-9-foreground = ${colors.red}
 
-label-muted =  
+label-muted = 
 label-muted-foreground = ${colors.red}
 label-muted-background = ${colors.background}
 label-muted-padding = 2

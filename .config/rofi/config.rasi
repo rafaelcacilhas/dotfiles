@@ -17,8 +17,8 @@ configuration {
 	yoffset: 100;
 	sidebar-mode: false;
 	fullscreen: false;
-	display-drun: "LAUNCH ";
-	display-run: "RUN ";
-	display-window: "SWITCH ";
+	display-drun: "גּ";
+	display-run: "";
+	display-window: "ﬓ";
 }
 

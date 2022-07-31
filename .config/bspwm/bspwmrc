@@ -11,7 +11,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 
-bspc monitor -d   "" "♥" "" "" "" "嗢" "" "" "" 
+bspc monitor -d   "" "" "" "" "" "嗢" "" "" "" 
 
 bspc config border_width         2
 bspc config window_gap           10
