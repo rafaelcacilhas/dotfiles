@@ -53,6 +53,7 @@ c.url.default_page = '/home/dilip/.cache/StartTree/index.html'
 c.url.start_pages = '/home/dilip/.cache/StartTree/index.html'
 c.content.images = True
 c.content.javascript.enabled = True
+c.completion.web_history.max_items = 0
 
 # Valid values:
 #   - all: Accept all cookies.

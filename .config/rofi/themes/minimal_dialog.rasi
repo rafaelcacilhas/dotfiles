@@ -43,12 +43,12 @@
 
 #element.selected.normal {
     border-color: @selected-normal-background;
-	background-color: @background;
+	background: @background;
     text-color: @foreground;
 }
 #element.selected.active {
     border-color: @selected-normal-background;
-	background-color: @background;
+	background: @background;
     text-color: @foreground;
 }
 

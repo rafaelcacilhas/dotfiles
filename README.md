@@ -9,7 +9,6 @@
 - Mpv
 - Ncmpcpp
 - Neofetch (replaced with fm6000, still config file is there)
-- Neovim (Bye Bye! Vim, `nvim.old` contains vimscript based configs and no longer maintained)
 - Newsboat
 - Picom
 - Polybar
@@ -22,6 +21,10 @@
 - Urxvt (replaced with st terminal, still config file is there)
 - Xresources
 - Zathura
+
+## Programs with separate repository for configs
+
+- Neovim: configs are [here](https://github.com/TechnicalDC/NvConf)
 
 ## Installation:
 
@@ -41,3 +44,4 @@ cp -r .Xresources.d ~
 ## TODO
 
 1. Need to create an `install.sh` script.
+2. Some config needs maintenance.
