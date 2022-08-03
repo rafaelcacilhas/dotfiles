@@ -33,10 +33,6 @@ super + alt + m
 super + alt + r
 	st -e 'ranger'
 
-# sxiv for wallpapers
-super + alt + s
-	sxiv -t ~/Wallpapers/*
-
 # launch config file menu
 super + e
 	./.scripts/rofi-configmenu.sh

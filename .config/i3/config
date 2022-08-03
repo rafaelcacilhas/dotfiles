@@ -33,9 +33,7 @@ bindsym $mod+q kill
 # Scratchpads
 for_window [title="scratchpad"] floating enable, move scratchpad
 bindsym $mod+x [instance="scratchpad"] scratchpad show, move position center 
-exec urxvt -name scratchpad -geometry 86x24-8-32
-# exec st -n scratchpad -g 86x24-8-32
-
+exec st -n scratchpad -g 86x24-8-32
 
 # change focus
 bindsym $mod+h focus left
@@ -148,9 +146,6 @@ bindsym Shift+Print exec ./.scripts/rofi-scrotmenu.sh
 #scrot
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/' 
 
-# sxiv for wallpaper
-bindsym $mod+Mod1+s exec sxiv -t ~/Wallpapers/*
-
 # launch terminal
 bindsym $mod+Return exec st
 
@@ -169,10 +164,8 @@ bindsym $mod+Mod1+n exec st -n nvim -e nvim
 # launch neomutt
 bindsym $mod+Mod1+m exec st -n neomutt -e neomutt
 
-# play mpd
-bindsym $mod+Mod1+p exec ./.scripts/player toggle
-# bindsym $mod+Mod1+] exec ./.scripts/player next
-# bindsym $mod+Mod1+[ exec ./.scripts/player prev
+# launch calcurse
+bindsym $mod+Mod1+c exec st -n calcurse -e calcurse
 
 # }}}
 
@@ -180,7 +173,8 @@ bindsym $mod+Mod1+p exec ./.scripts/player toggle
 
 set_from_resource $normal background
 set_from_resource $foreground foreground
-set_from_resource $focus color4
+# set_from_resource $focus color4
+set_from_resource $focus background
 set_from_resource $alert color1
 
 # }}}
@@ -211,7 +205,7 @@ exec ./.fehbg &
 exec wal -R
 exec_always ./.config/polybar/launch.sh i3-bar & 
 # exec ./.scripts/autostart &
-exec conky -c ~/.config/conky/conky-day &
+# exec conky -c ~/.config/conky/conky-day &
 exec mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
 exec nm-applet &
 exec kdeconnect-indicator &
