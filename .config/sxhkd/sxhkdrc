@@ -15,7 +15,7 @@ super + {d,w,r}
 
 # launch qutebrowser
 super + alt + q
-	./.scripts/rofi-bookmarks.sh
+	./.scripts/rofi-quickmarks.sh
 
 # launch neovim
 super + alt + n
@@ -39,7 +39,7 @@ super + e
 
 # scrot
 Print
-	scrot -e 'mv $f ~/Pictures/Scrot/' && notify-send -a 'Scrot' 'Screenshot saved.' -i 'dialog-information' -t 2000
+	scrot -e 'mv $f ~/Pictures/Scrot/' && dunstify -a 'Scrot' 'Screenshot saved.' -i '~/Pictures/Scrot/$1' -t 2000
 
 # scrot menu
 shift + Print

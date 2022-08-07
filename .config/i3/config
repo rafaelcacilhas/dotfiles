@@ -18,6 +18,7 @@ set $alt Mod1
 for_window [class="^.*"] border pixel 2
 gaps inner 10
 gaps outer 0
+gaps top 40
 # gaps outer 40
 
 # }}}
@@ -33,7 +34,7 @@ bindsym $mod+q kill
 # Scratchpads
 for_window [title="scratchpad"] floating enable, move scratchpad
 bindsym $mod+x [instance="scratchpad"] scratchpad show, move position center 
-exec st -n scratchpad -g 86x24-8-32
+# exec st -n scratchpad -g 86x24-8-32
 
 # change focus
 bindsym $mod+h focus left
@@ -128,6 +129,12 @@ bindsym $mod+Mod1+Right resize grow width 10 px or 10 ppt
 
 # APPLICATION KEY BINDINGS {{{
 
+# Control mpd
+bindsym $mod+F1 exec ./.scripts/rofi-mpc
+
+# change wallpaper and colorscheme
+bindsym $mod+F2 exec ./.scripts/wally
+
 # start rofi
 bindsym $mod+d exec rofi -show drun 
 
@@ -144,7 +151,7 @@ bindsym $mod+e exec ./.scripts/rofi-configmenu.sh
 bindsym Shift+Print exec ./.scripts/rofi-scrotmenu.sh
 
 #scrot
-bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/' 
+bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/' && dunstify -a 'Scrot' 'Screenshot saved.' -i '$1' -t 2000
 
 # launch terminal
 bindsym $mod+Return exec st
