@@ -51,6 +51,10 @@
 	background: @background;
     text-color: @foreground;
 }
+#element-text {
+	color: @foreground;
+	background: @background;
+}
 
 #element-icon{
 	size: 100px;

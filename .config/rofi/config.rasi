@@ -1,5 +1,4 @@
 configuration {
-	theme: "~/.config/rofi/themes/minimal.rasi";
 	icon-theme: "~/.icons/Fluent-purple-dark";
 	/* font: "Iosevka Nerd Font 9"; */
 	font: "FantasqueSansMono Nerd Font 10";
@@ -22,3 +21,4 @@ configuration {
 	display-window: "ﬓ";
 }
 
+@theme "/home/dilip/.config/rofi/themes/minimal.rasi"
