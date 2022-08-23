@@ -20,7 +20,9 @@ alias all='exa -al --color=always -h --icons --tree --level=1'
 alias cat="batcat"
 alias n="nvim"
 alias clear="clear && fm6000 -c blue"
-# alias hist=""
+alias install="sudo apt install"
+alias update="sudo apt update"
+alias upgrade="sudo apt upgrade"
 
 # Function aliases
 function hist () {
