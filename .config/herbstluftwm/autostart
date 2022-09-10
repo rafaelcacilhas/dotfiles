@@ -10,18 +10,16 @@
 
 # AUTO START PROGRAMS {{{
 
-# bash /home/dilip/.scripts/autostart.sh herbs-bar
-# nitrogen --restore &
 ./.config/polybar/launch.sh herbs-bar &
 ./.fehbg
 wal -R
 urxvtd -q -o -f &
-mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
 dunst &
 nm-applet &
 kdeconnect-indicator &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 picom --experimental-backends &
+mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
 
 # }}}
 

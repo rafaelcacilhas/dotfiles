@@ -14,6 +14,7 @@
 
 #window {
 	border:           0;
+	width: 400px;
 	padding: 30px;
 	border-color:     @selected-urgent-background;
 
@@ -27,37 +28,38 @@
 
 #listview {
     fixed-height: 0;
+	columns: 1;
     spacing:      0px ;
     scrollbar:    false;
     padding:      20px 0px;
 }
 
-#element {
-    border:  1;
-	border-color: @background;
-	border-radius: 2px;
-    padding: 6px;
-	margin: 3 10;
-	height: 100px;
+element, element-text, element-icon {
+  cursor: pointer;
 }
 
-#element.selected.normal {
-    border-color: @selected-normal-background;
-	background: @background;
-    text-color: @foreground;
-}
-#element.selected.active {
-    border-color: @selected-normal-background;
-	background: @background;
-    text-color: @foreground;
-}
-#element-text {
-	color: @foreground;
-	background: @background;
+element {
+  padding:        5px;
+  spacing:        15px;
+  orientation:    horizontal;
+  border-radius:  3px;
 }
 
-#element-icon{
-	size: 100px;
+element selected {
+  background-color: var(selected-active-background);
+}
+
+element-icon selected {
+  background-color: var(selected-active-background);
+}
+
+element-text {
+  color:			var(foreground);
+}
+
+element-text selected {
+  color:			var(background);
+  background-color: var(selected-active-background);
 }
 
 #mode-switcher{

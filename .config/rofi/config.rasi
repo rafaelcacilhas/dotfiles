@@ -10,7 +10,7 @@ configuration {
 	/* drun-display-format: "{name}"; */
 	width: 50;
 	columns: 2;
-	lines: 12;
+	lines: 10;
 	fixed-num-lines: false;
 	location: 2;
 	yoffset: 100;
