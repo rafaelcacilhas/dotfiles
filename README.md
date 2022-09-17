@@ -3,6 +3,7 @@
 - Arigram (tui client for telegram, config file coming soon)
 - Bspwm
 - Dunst
+- Fish
 - Herbstluftwm        
 - i3-gaps
 - Mpd
