@@ -4,12 +4,12 @@
 # |__|______||________|__|__|__|
 
 
-# MOD KEY {{{
+set $mod Mod1
 
-set $mod Mod4
-set $alt Mod1
+font pango:'JetBrains Mono Regular Nerd Font Complete Mono.ttf' 10
 
-# }}}
+exec --no-startup-id dex --autostart --environment i3
+exec dunst -sep_color "$normal" -frame_color "$focus" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
 
 # GAPS {{{
 
@@ -18,116 +18,13 @@ set $alt Mod1
 for_window [class="^.*"] border pixel 2
 gaps inner 10
 gaps outer 0
-gaps top 40
-# gaps outer 40
-
 # }}}
-
-# KEY BINDINGS {{{
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# kill focused window
-bindsym $mod+q kill
 
 # Scratchpads
 for_window [title="scratchpad"] floating enable, move scratchpad
 bindsym $mod+x [instance="scratchpad"] scratchpad show, move position center 
 # exec st -n scratchpad -g 86x24-8-32
 
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+Ctrl+h split h
-
-# split in vertical orientation
-bindsym $mod+Ctrl+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+s floating toggle
-
-# toggle sticky
-bindsym $mod+Shift+s sticky toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec ./.scripts/rofi-powermenu.sh
-
-# resize window (you can also use the mouse for that)
-
-bindsym $mod+Mod1+h resize shrink width 10 px or 10 ppt
-bindsym $mod+Mod1+j resize grow height 10 px or 10 ppt
-bindsym $mod+Mod1+k resize shrink height 10 px or 10 ppt
-bindsym $mod+Mod1+l resize grow width 10 px or 10 ppt
-
-# same bindings, but for the arrow keys
-bindsym $mod+Mod1+Left resize shrink width 10 px or 10 ppt
-bindsym $mod+Mod1+Down resize grow height 10 px or 10 ppt
-bindsym $mod+Mod1+Up resize shrink height 10 px or 10 ppt
-bindsym $mod+Mod1+Right resize grow width 10 px or 10 ppt
-
-# }}}
-
-# APPLICATION KEY BINDINGS {{{
 
 # Control mpd
 bindsym $mod+F1 exec ./.scripts/rofi-mpc
@@ -135,46 +32,29 @@ bindsym $mod+F1 exec ./.scripts/rofi-mpc
 # change wallpaper and colorscheme
 bindsym $mod+F2 exec ./.scripts/wally
 
-# start rofi
-bindsym $mod+d exec rofi -show drun 
-
 # start rofi run
-bindsym $mod+r exec rofi -show run -no-show-icons
+bindsym $mod+d exec rofi -show run -no-show-icons
 
 # window list
-bindsym $mod+w exec rofi -show window 
+#bindsym $mod+o exec rofi -show window 
 
-# config menu
-bindsym $mod+e exec ./.scripts/rofi-configmenu.sh
+# launch ranger
+bindsym $mod+y exec ranger -e ranger
+
+# launch qutebrowser
+bindsym $mod+Shift+a exec ./.scripts/rofi-quickmarks.sh
 
 #scrot menu
-bindsym Shift+Print exec ./.scripts/rofi-scrotmenu.sh
+bindsym $mod+Print exec ./.scripts/rofi-scrotmenu.sh
 
 #scrot
 bindsym Print exec scrot -e 'mv $f ~/Pictures/Scrot/' && dunstify -a 'Scrot' 'Screenshot saved.' -i '$1' -t 2000
-
-# launch terminal
-bindsym $mod+Return exec st
-
-# launch ranger
-bindsym $mod+Mod1+r exec st -n ranger -e ranger
-
-# launch qutebrowser
-bindsym $mod+Mod1+q exec ./.scripts/rofi-quickmarks.sh
 
 # launch layout manager
 bindsym $mod+z exec ./.scripts/i3-layout-manager
 
 # launch neovim
-bindsym $mod+Mod1+n exec st -n nvim -e nvim
-
-# launch neomutt
-bindsym $mod+Mod1+m exec st -n neomutt -e neomutt
-
-# launch calcurse
-bindsym $mod+Mod1+c exec st -n calcurse -e calcurse
-
-# }}}
+bindsym $mod+Shift+n exec st -n nvim -e nvim
 
 # COLOR SETTINGS {{{
 
@@ -186,37 +66,212 @@ set_from_resource $alert color1
 
 # }}}
 
-# WINDOW DECORARTION {{{
 
-#                       border  bg      text    indicator
-client.focused          $focus	$focus	$focus	$focus
-client.unfocused        $normal $normal $normal $normal
-client.focused_inactive $normal $normal $normal $normal
-client.urgent           $alert	$alert	$alert	$alert
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
 
-# }}}
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# FLOATING PROGRAMS {{{
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
 
-for_window [class="SimpleScreenRecorder"] floating enable, move container to workspace 9
-for_window [class="Pavucontrol"] floating enable, resize shrink left 100, resize shrink right 100, resize shrink down 50, resize shrink up 50
-for_window [instance="filechooser"] floating enable,  move position center 
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# }}}
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
-# AUTOSTART PROGRAMS {{{
+# start a terminal
+bindsym $mod+Return exec --no-startup-id alacritty;focus
 
-exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-exec dunst -sep_color "$normal" -frame_color "$focus" -nf "$foreground" -lf "$foreground" -cf "$foreground" &
-exec ./.fehbg & 
-exec wal -R
-exec_always ./.config/polybar/launch.sh i3-bar & 
-# exec ./.scripts/autostart &
-# exec conky -c ~/.config/conky/conky-day &
-exec mpv --no-video ~/audio/SoundEffects/Computer_Magic-Microsift-1901299923.mp3 &
-exec nm-applet &
-exec kdeconnect-indicator &
-exec picom --experimental-backends &
-exec urxvtd -q -o -f &
+# kill focused window
+bindsym $mod+Shift+q kill
 
-# }}}
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ccedilla focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+ccedilla move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "terminals"
+set $ws2 "code"
+set $ws3 "net "
+set $ws4 "spotify"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9" 
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
+
+
+assign [class="Gnome-terminal"] $ws1
+assign [class="code-oss"] $ws2
+assign [class="firefox"] $ws3
+assign [class="spotify"] $ws4
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ccedilla resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+bar {
+        status_command i3status --config ~/.config/i3/i3status.conf
+}
+
+#bindsym $mod+shift+x exec i3lock-fancy -- maim
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase scree	n brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+exec firefox
+exec code
+exec spotify
+
+
+bindsym $mod+b bar mode toggle
+
+bindsym $mod+i bar mode invisible
+
+#if you want transparency on non-focused windows, ...
+exec_always --no-startup-id picom --config ~/.config/picom.conf
+#exec_always --no-startup-id nitrogen --restore
+
+bindsym $mod+Shift+Escape exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+
+bindsym $mod+0 mode "$mode_system"
+
+set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+mode "$mode_system" {
+
+    bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
+    bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
+    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.config/i3/scripts/i3exit.sh reboot, mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/scripts/i3exit.sh shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+exec_always xrandr --output eDP1 --primary --mode 1920x1080 --right-of HDMI1 --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off
+
