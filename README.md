@@ -26,5 +26,4 @@ cd dotfiles
 cp .* ~
 cp -r .config/* ~/.config
 cp -r .fonts/* ~/.fonts
-cp -r .Xresources.d ~
 ```
