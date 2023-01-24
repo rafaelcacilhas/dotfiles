@@ -13,10 +13,7 @@
 - Urxvt (replaced with Alacritty terminal, still config file is there)
 - Xresources
 - Zathura
-
-## Programs with separate repository for configs
-
-- Neovim: configs are [here](https://github.com/TechnicalDC/NvConf)
+- Neovim
 
 ## Installation:
 
