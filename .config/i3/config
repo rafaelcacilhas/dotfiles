@@ -148,7 +148,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "terminals"
 set $ws2 "code"
-set $ws3 "net "
+set $ws3 "net"
 set $ws4 "spotify"
 set $ws5 "5"
 set $ws6 "6"
