@@ -18,7 +18,7 @@
 ## Installation:
 
 ```bash
-git clone http://github.com/TechnicalDC/dotfiles
+git clone git@github.com:rafaelcacilhas/dotfiles.git
 cd dotfiles
 cp .* ~
 cp -r .config/* ~/.config
