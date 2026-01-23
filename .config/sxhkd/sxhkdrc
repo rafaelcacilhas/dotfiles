@@ -19,7 +19,7 @@ super + r
 
 # launch qutebrowser
 super + alt + q
-	./.config/rofi/scripts/rofi-quickmarks.sh
+	./.scripts/rofi-quickmarks.sh
 
 # launch neovim
 super + alt + n
@@ -35,7 +35,7 @@ super + alt + s
 
 # launch config file menu
 super + e
-	./.config/rofi/scripts/rofi-configmenu.sh
+	./.scripts/rofi-configmenu.sh
 
 # window list
 super + w
@@ -47,7 +47,7 @@ Print
 
 # scrot menu
 shift + Print
-	./.config/rofi/scripts/rofi-scrotmenu.sh
+	./.scripts/rofi-scrotmenu.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -55,7 +55,15 @@ super + Escape
 
 # power menu
 super + shift + q
-	./.config/rofi/scripts/rofi-powermenu.sh
+	./.scripts/rofi-powermenu.sh
+
+# MPC Toggle
+super + alt + p
+	mpc toggle  && notify-send -a 'MPC' 'Player state changed.' -i 'dialog-information' -t 2000
+
+# Changing song
+super + alt + bracket{left,right}
+	{mpc prev && notify-send -a 'MPC' 'Playing previous song.' -i 'dialog-information' -t 2000,mpc next && notify-send -a 'MPC' 'Playing next song.' -i 'dialog-information' -t 2000}
 
 # }}}
 
